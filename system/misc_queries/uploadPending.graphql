@@ -1,0 +1,19 @@
+mutation (
+  $file: Upload!
+  $entityId: String
+  $labels: [String]
+  $errorOnExisting: Boolean
+) {
+  uploadPending(
+    file: $file
+    entityId: $entityId
+    labels: $labels
+    errorOnExisting: $errorOnExisting
+  ) {
+    id
+    name
+    size
+    lastModified
+    uploadStatus
+  }
+}

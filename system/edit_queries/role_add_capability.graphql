@@ -1,0 +1,18 @@
+mutation ($id: ID!, $input: InternalRelationshipAddInput!) {
+  roleEdit(id: $id) {
+    relationAdd(input: $input) {
+      from {
+        id
+        entity_type
+        ... on Role {
+          capabilities {
+            id
+            name
+            description
+          }
+        }
+      }
+      id
+    }
+  }
+}

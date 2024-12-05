@@ -1,0 +1,18 @@
+mutation ($id: ID!, $input: StatusAddInput!) {
+  subTypeEdit(id: $id) {
+    statusAdd(input: $input) {
+      id
+      label
+      workflowEnabled
+      statuses {
+        id
+        order
+        template {
+          name
+          color
+          id
+        }
+      }
+    }
+  }
+}

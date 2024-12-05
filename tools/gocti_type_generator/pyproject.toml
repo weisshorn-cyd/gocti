@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gocti_type_generator"
+authors = [
+    {name = "Hadrien Sprumont", email = "hadrien.sprumont@gmail.com"}
+]
+description = "Generator tool for GoCTI."
+readme = "README.md"
+license = {text  = "Apache 2.0"}
+version = "0.1.0"
+dependencies = [
+    "python-dotenv",
+    "pycti==6.3.11",
+    "rich",
+]
+
+[tool.ruff]
+# Assume Python 3.12
+target-version = "py312"
+line-length = 88
+indent-width = 4
+
+[tool.ruff.lint]
+select = ["E", "F", "C", "B"]
+ignore = ["E501", "E741"]
+fixable = ["ALL"]
+unfixable = ["B"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 12
+
+[tool.isort]
+profile = "black"

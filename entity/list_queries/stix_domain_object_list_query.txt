@@ -1,0 +1,26 @@
+query ($after: ID
+       $filters: FilterGroup
+       $first: Int
+       $orderBy: StixDomainObjectsOrdering
+       $orderMode: OrderingMode
+       $search: String
+       $types: [String]) {
+    stixDomainObjects (after: $after
+                       filters: $filters
+                       first: $first
+                       orderBy: $orderBy
+                       orderMode: $orderMode
+                       search: $search
+                       types: $types) {
+        edges {
+            node {%s}
+        }
+        pageInfo {
+            startCursor
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            globalCount
+        }
+    }
+}

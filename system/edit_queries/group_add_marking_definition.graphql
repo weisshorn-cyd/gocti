@@ -1,0 +1,23 @@
+mutation ($id: ID!, $input: InternalRelationshipAddInput!) {
+  groupEdit(id: $id) {
+    relationAdd(input: $input) {
+      id
+      from {
+        id
+        entity_type
+        ... on Group {
+          default_assignation
+          allowed_marking {
+            id
+          }
+          default_marking {
+            entity_type
+            values {
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+}

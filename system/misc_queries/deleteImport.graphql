@@ -1,0 +1,3 @@
+mutation ($fileName: String!) {
+  deleteImport(fileName: $fileName)
+}
