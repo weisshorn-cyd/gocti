@@ -1,0 +1,24 @@
+query ($after: ID
+       $filters: FilterGroup
+       $first: Int
+       $orderBy: GroupsOrdering
+       $orderMode: OrderingMode
+       $search: String) {
+    groups (after: $after
+            filters: $filters
+            first: $first
+            orderBy: $orderBy
+            orderMode: $orderMode
+            search: $search) {
+        edges {
+            node {%s}
+        }
+        pageInfo {
+            startCursor
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            globalCount
+        }
+    }
+}

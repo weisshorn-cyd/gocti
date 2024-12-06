@@ -1,0 +1,26 @@
+id
+standard_id
+entity_type
+parent_types
+created_at
+updated_at
+created
+modified
+source_name
+description
+url
+hash
+external_id
+importFiles {
+    edges {
+        node {
+            id
+            name
+            size
+            metaData {
+                mimetype
+                version
+            }
+        }
+    }
+}

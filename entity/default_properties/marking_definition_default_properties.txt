@@ -1,0 +1,12 @@
+id
+standard_id
+entity_type
+parent_types
+definition_type
+definition
+x_opencti_order
+x_opencti_color
+created
+modified
+created_at
+updated_at

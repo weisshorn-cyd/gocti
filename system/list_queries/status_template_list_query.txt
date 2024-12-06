@@ -1,0 +1,22 @@
+query ($after: ID
+       $first: Int
+       $orderBy: StatusTemplateOrdering
+       $orderMode: OrderingMode
+       $search: String) {
+    statusTemplates (after: $after
+                     first: $first
+                     orderBy: $orderBy
+                     orderMode: $orderMode
+                     search: $search) {
+        edges {
+            node {%s}
+        }
+        pageInfo {
+            startCursor
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            globalCount
+        }
+    }
+}

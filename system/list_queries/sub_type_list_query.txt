@@ -1,0 +1,26 @@
+query ($after: ID
+       $first: Int
+       $includeParents: Boolean
+       $orderBy: SubTypesOrdering
+       $orderMode: OrderingMode
+       $search: String
+       $type: String) {
+    subTypes (after: $after
+              first: $first
+              includeParents: $includeParents
+              orderBy: $orderBy
+              orderMode: $orderMode
+              search: $search
+              type: $type) {
+        edges {
+            node {%s}
+        }
+        pageInfo {
+            startCursor
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            globalCount
+        }
+    }
+}
