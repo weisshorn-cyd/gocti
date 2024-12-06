@@ -1,0 +1,36 @@
+mutation UserEditionGroupsRelationAddMutation(
+  $id: ID!
+  $input: InternalRelationshipAddInput!
+) {
+  userEdit(id: $id) {
+    relationAdd(input: $input) {
+      id
+      from {
+        id
+        entity_type
+        ... on User {
+          objectOrganization(orderBy: name, orderMode: asc) {
+            edges {
+              node {
+                id
+                name
+                grantable_groups {
+                  id
+                  name
+                }
+              }
+            }
+          }
+          groups(orderBy: name, orderMode: asc) {
+            edges {
+              node {
+                id
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+query ($after: ID
+       $category: VocabularyCategory
+       $filters: FilterGroup
+       $first: Int
+       $orderBy: VocabularyOrdering
+       $orderMode: OrderingMode
+       $search: String) {
+    vocabularies (after: $after
+                  category: $category
+                  filters: $filters
+                  first: $first
+                  orderBy: $orderBy
+                  orderMode: $orderMode
+                  search: $search) {
+        edges {
+            node {%s}
+        }
+        pageInfo {
+            startCursor
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            globalCount
+        }
+    }
+}

@@ -1,0 +1,66 @@
+query ($after: ID
+       $confidences: [Int]
+       $elementWithTargetTypes: [String]
+       $endDate: DateTime
+       $filters: FilterGroup
+       $first: Int
+       $firstSeenStart: DateTime
+       $firstSeenStop: DateTime
+       $fromId: [String]
+       $fromOrToId: [String]
+       $fromRole: String
+       $fromTypes: [String]
+       $lastSeenStart: DateTime
+       $lastSeenStop: DateTime
+       $orderBy: StixCoreRelationshipsOrdering
+       $orderMode: OrderingMode
+       $relationship_type: [String]
+       $search: String
+       $startDate: DateTime
+       $startTimeStart: DateTime
+       $startTimeStop: DateTime
+       $stix: Boolean
+       $stopTimeStart: DateTime
+       $stopTimeStop: DateTime
+       $toId: [String]
+       $toRole: String
+       $toTypes: [String]) {
+    stixCoreRelationships (after: $after
+                           confidences: $confidences
+                           elementWithTargetTypes: $elementWithTargetTypes
+                           endDate: $endDate
+                           filters: $filters
+                           first: $first
+                           firstSeenStart: $firstSeenStart
+                           firstSeenStop: $firstSeenStop
+                           fromId: $fromId
+                           fromOrToId: $fromOrToId
+                           fromRole: $fromRole
+                           fromTypes: $fromTypes
+                           lastSeenStart: $lastSeenStart
+                           lastSeenStop: $lastSeenStop
+                           orderBy: $orderBy
+                           orderMode: $orderMode
+                           relationship_type: $relationship_type
+                           search: $search
+                           startDate: $startDate
+                           startTimeStart: $startTimeStart
+                           startTimeStop: $startTimeStop
+                           stix: $stix
+                           stopTimeStart: $stopTimeStart
+                           stopTimeStop: $stopTimeStop
+                           toId: $toId
+                           toRole: $toRole
+                           toTypes: $toTypes) {
+        edges {
+            node {%s}
+        }
+        pageInfo {
+            startCursor
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            globalCount
+        }
+    }
+}

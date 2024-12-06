@@ -1,0 +1,15 @@
+mutation ($id: ID!, $input: [EditInput]!) {
+  groupEdit(id: $id) {
+    fieldPatch(input: $input) {
+      id
+      entity_type
+      group_confidence_level {
+        max_confidence
+        overrides {
+          entity_type
+          max_confidence
+        }
+      }
+    }
+  }
+}

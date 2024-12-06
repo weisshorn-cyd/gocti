@@ -1,0 +1,14 @@
+id
+name
+description
+tasks {
+    edges {
+        node {
+            id
+            name
+        }
+    }
+    pageInfo {
+        globalCount
+    }
+}

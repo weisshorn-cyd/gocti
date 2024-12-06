@@ -1,0 +1,14 @@
+mutation ($id: ID!, $input: [EditInput]!) {
+  groupEdit(id: $id) {
+    fieldPatch(input: $input) {
+      id
+      entity_type
+      ... on Group {
+        name
+        description
+        default_assignation
+        auto_new_marking
+      }
+    }
+  }
+}

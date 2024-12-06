@@ -1,0 +1,21 @@
+mutation ($id: ID!, $input: InternalRelationshipAddInput!) {
+  groupEdit(id: $id) {
+    relationAdd(input: $input) {
+      id
+      from {
+        id
+        entity_type
+        ... on Group {
+          roles(orderBy: name, orderMode: asc) {
+            edges {
+              node {
+                id
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

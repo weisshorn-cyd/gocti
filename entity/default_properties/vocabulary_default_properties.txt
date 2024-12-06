@@ -1,0 +1,8 @@
+id
+name
+category {
+    key
+    fields {
+        key
+    }
+}

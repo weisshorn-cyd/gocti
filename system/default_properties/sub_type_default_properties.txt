@@ -1,0 +1,12 @@
+id
+label
+workflowEnabled
+statuses {
+    id
+    order
+    template {
+        name
+        color
+        id
+    }
+}

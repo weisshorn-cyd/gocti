@@ -1,0 +1,11 @@
+id
+standard_id
+entity_type
+parent_types
+kill_chain_name
+phase_name
+x_opencti_order
+created
+modified
+created_at
+updated_at

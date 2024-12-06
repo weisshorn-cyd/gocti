@@ -1,0 +1,28 @@
+query ($after: ID
+       $filters: FilterGroup
+       $first: Int
+       $orderBy: IdentitiesOrdering
+       $orderMode: OrderingMode
+       $search: String
+       $toStix: Boolean
+       $types: [String]) {
+    identities (after: $after
+                filters: $filters
+                first: $first
+                orderBy: $orderBy
+                orderMode: $orderMode
+                search: $search
+                toStix: $toStix
+                types: $types) {
+        edges {
+            node {%s}
+        }
+        pageInfo {
+            startCursor
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            globalCount
+        }
+    }
+}
