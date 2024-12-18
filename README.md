@@ -113,6 +113,6 @@ The source of truth for the GoCTI version is the [changelog file](./CHANGELOG.md
 
 To create a release, open a pull request:
 - Change the `[Unreleased]` section in the [changelog](./CHANGELOG.md) into the corresponding version `[X.Y.Z] - YYYY-MM-DD`
-- Update the version information in [gocti.go](./gocti.go) accordingly
+- Update the version information in [gocti.go](./gocti.go) and [project.toml](./tools/gocti_type_generator/pyproject.toml) accordingly
 - Assign the label `release` to the pull request
 - A new release will be created on merge by the [release action](./.github/workflows/create-release.yml)
