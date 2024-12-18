@@ -205,6 +205,7 @@ func TestEntity(t *testing.T) {
 				deleteFunc: client.DeleteExternalReference,
 				input: entity.ExternalReferenceAddInput{
 					SourceName: "source_name",
+					URL:        "url",
 				},
 			},
 		}, {

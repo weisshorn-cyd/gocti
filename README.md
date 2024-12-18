@@ -8,7 +8,7 @@
 
 Unofficial [OpenCTI](https://github.com/OpenCTI-Platform/opencti) Go client. GoCTI is under development, hence breaking changes are to be expected until a version 1.0.0 is released.
 
-GoCTI is currently compatible with OpenCTI version 6.3.13.
+GoCTI is currently compatible with OpenCTI version 6.4.4.
 
 Like with [pycti](https://github.com/OpenCTI-Platform/client-python), the OpenCTI platform version supported by GoCTI should exactly match the version of your OpenCTI instance.
 No guarantees can be made with regards to back and forwards compatibility.
@@ -113,6 +113,6 @@ The source of truth for the GoCTI version is the [changelog file](./CHANGELOG.md
 
 To create a release, open a pull request:
 - Change the `[Unreleased]` section in the [changelog](./CHANGELOG.md) into the corresponding version `[X.Y.Z] - YYYY-MM-DD`
-- Update the version information in [gocti.go](./gocti.go) accordingly
+- Update the version information in [gocti.go](./gocti.go) and [project.toml](./tools/gocti_type_generator/pyproject.toml) accordingly
 - Assign the label `release` to the pull request
 - A new release will be created on merge by the [release action](./.github/workflows/create-release.yml)
