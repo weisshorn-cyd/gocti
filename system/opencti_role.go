@@ -63,7 +63,7 @@ func (r Role) CreateResponseField() string { return "roleAdd" }
 
 // RoleAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type RoleAddInput struct {
 	// RoleAddInput
 	Name             string `gocti:"name"             json:"name,omitempty"`

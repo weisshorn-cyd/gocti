@@ -63,7 +63,7 @@ func (s StatusTemplate) CreateResponseField() string { return "statusTemplateAdd
 
 // StatusTemplateAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StatusTemplateAddInput struct {
 	// StatusTemplateAddInput
 	Name  string `gocti:"name"  json:"name,omitempty"`

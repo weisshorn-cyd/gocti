@@ -63,7 +63,7 @@ func (t TaskTemplate) CreateResponseField() string { return "taskTemplateAdd" }
 
 // TaskTemplateAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type TaskTemplateAddInput struct {
 	// TaskTemplateAddInput
 	Name        string `gocti:"name"        json:"name,omitempty"`

@@ -64,7 +64,7 @@ func (v Vocabulary) CreateResponseField() string { return "vocabularyAdd" }
 
 // VocabularyAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type VocabularyAddInput struct {
 	// VocabularyAddInput
 	StixID          string     `gocti:"stix_id"            json:"stix_id,omitempty"`
