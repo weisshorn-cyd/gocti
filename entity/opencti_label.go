@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"time"
 
-
 	"github.com/weisshorn-cyd/gocti/graphql"
 
 	_ "embed"
@@ -66,7 +65,6 @@ func (l Label) CreateResponseField() string { return "labelAdd" }
 // LabelAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
 // (See the examples for ways to expand an existing type)
-//
 type LabelAddInput struct {
 	// LabelAddInput
 	StixID           string     `gocti:"stix_id"            json:"stix_id,omitempty"`
