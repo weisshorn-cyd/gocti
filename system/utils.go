@@ -178,6 +178,43 @@ func (g Group) AssignMarkingDefinition(
 	return finalMap, nil
 }
 
+//go:embed edit_queries/group_unassign_marking_definition.graphql
+var groupUnassignMarkingDefinitionQueryString string
+
+func (g Group) UnassignMarkingDefinition(
+	ctx context.Context,
+	client api.Client,
+	markingDefinitionID string,
+) (map[string]any, error) {
+	inputVars := map[string]any{
+		"id":                g.ID,
+		"relationship_type": "accesses-to",
+		"toId":              markingDefinitionID,
+	}
+
+	queryData, err := client.Query(
+		ctx,
+		groupUnassignMarkingDefinitionQueryString,
+		inputVars,
+	)
+	if err != nil {
+		return nil, fmt.Errorf("unable to edit entity: %w", err)
+	}
+
+	// Processing the response: Expected struct: {"query_name":map[string]any}
+	resp, ok := queryData[g.EditResponseField()]
+	if !ok {
+		return nil, api.MissingFieldError{FieldName: g.EditResponseField()}
+	}
+
+	finalMap := map[string]any{}
+	if err := mapstructure.Decode(resp, &finalMap); err != nil {
+		return nil, fmt.Errorf("failed to retrieve entity map: %w", err)
+	}
+
+	return finalMap, nil
+}
+
 //go:embed edit_queries/group_edit_max_confidence_level.graphql
 var groupEditMaxConfidenceLevelQueryString string
 
