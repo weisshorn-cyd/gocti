@@ -258,6 +258,43 @@ func (g Group) AssignRole(
 	return finalMap, nil
 }
 
+//go:embed edit_queries/group_unassign_role.graphql
+var groupUnassignRoleQueryString string
+
+func (g Group) UnassignRole(
+	ctx context.Context,
+	client api.Client,
+	roleID string,
+) (map[string]any, error) {
+	inputVars := map[string]any{
+		"id":                g.ID,
+		"relationship_type": "has-role",
+		"toId":              roleID,
+	}
+
+	queryData, err := client.Query(
+		ctx,
+		groupUnassignRoleQueryString,
+		inputVars,
+	)
+	if err != nil {
+		return nil, fmt.Errorf("unable to edit entity: %w", err)
+	}
+
+	// Processing the response: Expected struct: {"query_name":map[string]any}
+	resp, ok := queryData[g.EditResponseField()]
+	if !ok {
+		return nil, api.MissingFieldError{FieldName: g.EditResponseField()}
+	}
+
+	finalMap := map[string]any{}
+	if err := mapstructure.Decode(resp, &finalMap); err != nil {
+		return nil, fmt.Errorf("failed to retrieve entity map: %w", err)
+	}
+
+	return finalMap, nil
+}
+
 //go:embed edit_queries/group_set_option.graphql
 var groupSetOptionQueryString string
 
