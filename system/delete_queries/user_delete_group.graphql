@@ -1,0 +1,12 @@
+mutation UserEditionGroupsRelationDeleteMutation(
+  $id: ID!
+  $toId: StixRef!
+  $relationship_type: String!
+) {
+  userEdit(id: $id) {
+    relationDelete(toId: $toId, relationship_type: $relationship_type) {
+      ...UserEditionGroups_user
+      id
+    }
+  }
+}

@@ -55,6 +55,43 @@ func (u User) AssignGroup(
 	return finalMap, nil
 }
 
+//go:embed delete_queries/user_delete_group.graphql
+var userDeleteGroupQueryString string
+
+func (u User) DeleteGroup(
+	ctx context.Context,
+	client api.Client,
+	groupID string,
+) (map[string]any, error) {
+	inputVars := map[string]any{
+		"id":                u.ID,
+		"toId":              groupID,
+		"relationship_type": "member-of",
+	}
+
+	queryData, err := client.Query(
+		ctx,
+		userDeleteGroupQueryString,
+		inputVars,
+	)
+	if err != nil {
+		return nil, fmt.Errorf("unable to edit entity: %w", err)
+	}
+
+	// Processing the response: Expected struct: {"query_name":map[string]any}
+	resp, ok := queryData[u.EditResponseField()]
+	if !ok {
+		return nil, api.MissingFieldError{FieldName: u.EditResponseField()}
+	}
+
+	finalMap := map[string]any{}
+	if err := mapstructure.Decode(resp, &finalMap); err != nil {
+		return nil, fmt.Errorf("failed to retrieve entity map: %w", err)
+	}
+
+	return finalMap, nil
+}
+
 // Role utils
 
 func (r Role) EditResponseField() string { return "roleEdit" }
