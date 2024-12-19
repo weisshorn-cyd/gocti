@@ -16,8 +16,8 @@ import (
 
 func (u User) EditResponseField() string { return "userEdit" }
 
-//go:embed edit_queries/user_add_group.graphql
-var userAddGroupQueryString string
+//go:embed edit_queries/user_assign_group.graphql
+var userAssignGroupQueryString string
 
 func (u User) AssignGroup(
 	ctx context.Context,
@@ -34,7 +34,44 @@ func (u User) AssignGroup(
 
 	queryData, err := client.Query(
 		ctx,
-		userAddGroupQueryString,
+		userAssignGroupQueryString,
+		inputVars,
+	)
+	if err != nil {
+		return nil, fmt.Errorf("unable to edit entity: %w", err)
+	}
+
+	// Processing the response: Expected struct: {"query_name":map[string]any}
+	resp, ok := queryData[u.EditResponseField()]
+	if !ok {
+		return nil, api.MissingFieldError{FieldName: u.EditResponseField()}
+	}
+
+	finalMap := map[string]any{}
+	if err := mapstructure.Decode(resp, &finalMap); err != nil {
+		return nil, fmt.Errorf("failed to retrieve entity map: %w", err)
+	}
+
+	return finalMap, nil
+}
+
+//go:embed edit_queries/user_unassign_group.graphql
+var userUnassignGroupQueryString string
+
+func (u User) UnassignGroup(
+	ctx context.Context,
+	client api.Client,
+	groupID string,
+) (map[string]any, error) {
+	inputVars := map[string]any{
+		"id":                u.ID,
+		"relationship_type": "member-of",
+		"toId":              groupID,
+	}
+
+	queryData, err := client.Query(
+		ctx,
+		userUnassignGroupQueryString,
 		inputVars,
 	)
 	if err != nil {
@@ -59,8 +96,8 @@ func (u User) AssignGroup(
 
 func (r Role) EditResponseField() string { return "roleEdit" }
 
-//go:embed edit_queries/role_add_capability.graphql
-var roleAddCapabilityQueryString string
+//go:embed edit_queries/role_assign_capability.graphql
+var roleAssignCapabilityQueryString string
 
 func (r Role) AssignCapability(
 	ctx context.Context,
@@ -77,7 +114,7 @@ func (r Role) AssignCapability(
 
 	queryData, err := client.Query(
 		ctx,
-		roleAddCapabilityQueryString,
+		roleAssignCapabilityQueryString,
 		inputVars,
 	)
 	if err != nil {
@@ -102,8 +139,8 @@ func (r Role) AssignCapability(
 
 func (g Group) EditResponseField() string { return "groupEdit" }
 
-//go:embed edit_queries/group_add_marking_definition.graphql
-var groupAddMarkingDefinitionQueryString string
+//go:embed edit_queries/group_assign_marking_definition.graphql
+var groupAssignMarkingDefinitionQueryString string
 
 func (g Group) AssignMarkingDefinition(
 	ctx context.Context,
@@ -120,7 +157,7 @@ func (g Group) AssignMarkingDefinition(
 
 	queryData, err := client.Query(
 		ctx,
-		groupAddMarkingDefinitionQueryString,
+		groupAssignMarkingDefinitionQueryString,
 		inputVars,
 	)
 	if err != nil {
@@ -182,8 +219,8 @@ func (g Group) AssignMaxConfidenceLevel(
 	return finalMap, nil
 }
 
-//go:embed edit_queries/group_add_role.graphql
-var groupAddRoleQueryString string
+//go:embed edit_queries/group_assign_role.graphql
+var groupAssignRoleQueryString string
 
 func (g Group) AssignRole(
 	ctx context.Context,
@@ -200,7 +237,7 @@ func (g Group) AssignRole(
 
 	queryData, err := client.Query(
 		ctx,
-		groupAddRoleQueryString,
+		groupAssignRoleQueryString,
 		inputVars,
 	)
 	if err != nil {
