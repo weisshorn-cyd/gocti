@@ -10,3 +10,53 @@ mutation UserEditionGroupsRelationDeleteMutation(
     }
   }
 }
+
+fragment UserEditionGroups_user on User {
+  id
+  objectOrganization(orderBy: name, orderMode: asc) {
+    edges {
+      node {
+        id
+        name
+        grantable_groups {
+          id
+          name
+          group_confidence_level {
+            max_confidence
+          }
+        }
+      }
+    }
+  }
+  roles(orderBy: name, orderMode: asc) {
+    id
+    name
+  }
+  groups(orderBy: name, orderMode: asc) {
+    edges {
+      node {
+        id
+        name
+      }
+    }
+  }
+  effective_confidence_level {
+    max_confidence
+    source {
+      type
+      object {
+        __typename
+        ... on User {
+          entity_type
+          id
+          name
+        }
+        ... on Group {
+          entity_type
+          id
+          name
+        }
+      }
+    }
+  }
+}
