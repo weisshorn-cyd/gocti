@@ -135,6 +135,43 @@ func (r Role) AssignCapability(
 	return finalMap, nil
 }
 
+//go:embed edit_queries/role_unassign_capability.graphql
+var roleUnassignCapabilityQueryString string
+
+func (r Role) UnassignCapability(
+	ctx context.Context,
+	client api.Client,
+	capabilityID string,
+) (map[string]any, error) {
+	inputVars := map[string]any{
+		"id":                r.ID,
+		"relationship_type": "has-capability",
+		"toId":              capabilityID,
+	}
+
+	queryData, err := client.Query(
+		ctx,
+		roleUnassignCapabilityQueryString,
+		inputVars,
+	)
+	if err != nil {
+		return nil, fmt.Errorf("unable to edit entity: %w", err)
+	}
+
+	// Processing the response: Expected struct: {"query_name":map[string]any}
+	resp, ok := queryData[r.EditResponseField()]
+	if !ok {
+		return nil, api.MissingFieldError{FieldName: r.EditResponseField()}
+	}
+
+	finalMap := map[string]any{}
+	if err := mapstructure.Decode(resp, &finalMap); err != nil {
+		return nil, fmt.Errorf("failed to retrieve entity map: %w", err)
+	}
+
+	return finalMap, nil
+}
+
 // Group utils
 
 func (g Group) EditResponseField() string { return "groupEdit" }

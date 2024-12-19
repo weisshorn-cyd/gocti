@@ -1,0 +1,22 @@
+mutation RoleEditionCapabilitiesDelCapabilityMutation(
+  $id: ID!
+  $toId: StixRef!
+  $relationship_type: String!
+) {
+  roleEdit(id: $id) {
+    relationDelete(toId: $toId, relationship_type: $relationship_type) {
+      ...RoleEditionCapabilities_role
+      id
+    }
+  }
+}
+
+fragment RoleEditionCapabilities_role on Role {
+  id
+  can_manage_sensitive_config
+  capabilities {
+    id
+    name
+    description
+  }
+}
