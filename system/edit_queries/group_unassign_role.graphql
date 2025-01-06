@@ -1,0 +1,25 @@
+mutation GroupEditionRolesRelationDeleteMutation(
+  $id: ID!
+  $toId: StixRef!
+  $relationship_type: String!
+) {
+  groupEdit(id: $id) {
+    relationDelete(toId: $toId, relationship_type: $relationship_type) {
+      ...GroupEditionRoles_group
+      id
+    }
+  }
+}
+
+fragment GroupEditionRoles_group on Group {
+  id
+  roles(orderBy: name, orderMode: asc) {
+    edges {
+      node {
+        id
+        name
+      }
+    }
+  }
+}
+
