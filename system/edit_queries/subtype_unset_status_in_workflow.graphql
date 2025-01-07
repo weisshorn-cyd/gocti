@@ -1,0 +1,26 @@
+mutation SubTypeWorkflowStatusPopoverDeletionMutation(
+  $id: ID!
+  $statusId: String!
+) {
+  subTypeEdit(id: $id) {
+    statusDelete(statusId: $statusId) {
+      ...SubTypeWorkflow_subType
+      id
+    }
+  }
+}
+
+fragment SubTypeWorkflow_subType on SubType {
+  id
+  label
+  workflowEnabled
+  statuses {
+    id
+    order
+    template {
+      name
+      color
+      id
+    }
+  }
+}
