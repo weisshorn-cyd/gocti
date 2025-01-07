@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Query to unassign a group from a user
 - Query to unassign a role from a group
+- Query to unassign a marking definition from a group
 
 ## [0.2.0] - 2024-12-18
 

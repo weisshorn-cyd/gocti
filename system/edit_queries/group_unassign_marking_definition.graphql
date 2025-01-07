@@ -1,0 +1,33 @@
+mutation GroupEditionMarkingsMarkingDefinitionsRelationDeleteMutation(
+  $id: ID!
+  $toId: StixRef!
+  $relationship_type: String!
+) {
+  groupEdit(id: $id) {
+    relationDelete(toId: $toId, relationship_type: $relationship_type) {
+      ...GroupEditionMarkings_group
+      id
+    }
+  }
+}
+
+fragment GroupEditionMarkings_group on Group {
+  id
+  default_assignation
+  allowed_marking {
+    id
+  }
+  not_shareable_marking_types
+  max_shareable_marking {
+    id
+    definition
+    definition_type
+    x_opencti_order
+  }
+  default_marking {
+    entity_type
+    values {
+      id
+    }
+  }
+}
