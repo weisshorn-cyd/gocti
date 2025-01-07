@@ -537,3 +537,38 @@ func (s SubType) SetStatusInWorkFlow(
 
 	return finalMap, nil
 }
+
+//go:embed edit_queries/subtype_unset_status_in_workflow.graphql
+var subTypeUnsetStatusInWorkflowQueryString string
+
+func (s SubType) UnsetStatusInWorkFlow(
+	ctx context.Context,
+	client api.Client,
+	workflowType, statusTemplateID string,
+) (map[string]any, error) {
+	queryData, err := client.Query(
+		ctx,
+		subTypeUnsetStatusInWorkflowQueryString,
+		map[string]any{
+			"id": workflowType,
+			"input": map[string]any{
+				"status_id": statusTemplateID,
+			},
+		})
+	if err != nil {
+		return nil, fmt.Errorf("cannot edit SubType: %w", err)
+	}
+
+	// Processing the response: Expected struct: {"query_name":map[string]any}
+	resp, ok := queryData[s.EditResponseField()]
+	if !ok {
+		return nil, api.MissingFieldError{FieldName: s.EditResponseField()}
+	}
+
+	finalMap := map[string]any{}
+	if err := mapstructure.Decode(resp, &finalMap); err != nil {
+		return nil, fmt.Errorf("failed to retrieve entity map: %w", err)
+	}
+
+	return finalMap, nil
+}
