@@ -113,10 +113,6 @@ type ConfidenceLevelInput struct {
 }
 
 func (c ConfidenceLevelInput) MarshalJSON() ([]byte, error) {
-	if reflect.ValueOf(c).IsZero() {
-		return []byte("null"), nil
-	}
-
 	if len(c.Overrides) == 0 {
 		return []byte(fmt.Sprintf(`{"max_confidence":%d, "overrides":[]}`, c.MaxConfidence)), nil
 	}
