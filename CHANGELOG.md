@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI actions validate the generator version
 
 ### Fixed
-- Ignored max confidence level of 0
+- Accept a max confidence level of 0
 
 ## [0.3.0] - 2025-01-07
 
