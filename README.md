@@ -105,6 +105,7 @@ When updating the supported OpenCTI version:
 - Update the [docker-compose](./docker-compose.yml) file
 - Update the pycti version in [project.toml](./tools/gocti_type_generator/pyproject.toml)
 - Update the [changelog](./CHANGELOG.md) with: `- Support OpenCTI version vX.Y.Z`
+- Update the version in the [readme](./README.md)
 - Regenerate the files through `make generate`
 
 ### Release a new version of GoCTI
