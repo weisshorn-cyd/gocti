@@ -75,9 +75,9 @@ jobs:
 
           UNRELEASED=$(sed -n '/^\#\# \[Unreleased\]/p' ./CHANGELOG.md | head -1)
           if [ -n "$UNRELEASED" ]; then
-            CONTAINS_CHANGED=$(sed -n '/\#\# \[Unreleased\]/,/\#\# \[/p' ./CHANGELOG.md | grep "### Changed")
+            CONTAINS_CHANGED=$(sed -n '/\#\# \[Unreleased\]/,/\#\# \[/p' ./CHANGELOG.md | grep "### Changed" || true)
             if [ -n "$CONTAINS_CHANGED" ]; then
-              sed -in "/\#\# \[Unreleased\]/,/\#\# \[/s/^\#\#\# Changed$/\#\#\# Changed\n$CHANGELOG_LINE/" ./CHANGELOG.md
+              sed -i "/\#\# \[Unreleased\]/,/\#\# \[/s/^\#\#\# Changed$/\#\#\# Changed\n$CHANGELOG_LINE/" ./CHANGELOG.md
             else
               sed -i "s/^\#\# \[Unreleased\]/\#\# \[Unreleased\]\n\n\#\#\# Changed\n$CHANGELOG_LINE/" ./CHANGELOG.md
             fi
