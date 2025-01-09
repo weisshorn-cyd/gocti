@@ -70,7 +70,7 @@ jobs:
       - name: Update changelog
         run: |
           CHANGELOG_LINE="- Support OpenCTI version $NEXT_OPENCTI_VERSION"
-          CHANGELOG_HEADER="\#\# \[$NEXT_VERSION\] - $(date +"%Y-%m-%d")"
+          CHANGELOG_HEADER="\#\# \[$NEXT_VERSION\]"
 
           UNRELEASED=$(sed -n '/^\#\# \[Unreleased\]/p' ./CHANGELOG.md | head -1)
           if [ -n "$UNRELEASED" ]; then
