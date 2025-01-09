@@ -45,7 +45,7 @@ jobs:
             echo "Could not determine latest GoCTI version"
             exit 1
           fi
-          echo "GOCTI_VERSION_VERSION=$GOCTI_VERSION" >> "$GITHUB_ENV"
+          echo "GOCTI_VERSION=$GOCTI_VERSION" >> "$GITHUB_ENV"
           echo "Latest GoCTI version: $GOCTI_VERSION"
 
       - name: Compute next GoCTI version
