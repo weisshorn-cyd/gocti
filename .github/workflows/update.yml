@@ -1,4 +1,4 @@
-name: Update OpenCTI version
+name: opencti-auto-update
 on:
   schedule:
     - cron:  "15 2 * * *"
