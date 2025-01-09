@@ -107,10 +107,7 @@ jobs:
         run: |
           pip install ./tools/gocti_type_generator
           source docker-compose.env
-          export GOCTI_REPO=$(echo $GOCTI_REPO)
-          export OPENCTI_URL=$(echo $OPENCTI_URL)
-          export OPENCTI_TOKEN=$(echo $OPENCTI_TOKEN)
-          go generate ./...
+          export GOCTI_REPO=$(echo $GOCTI_REPO) && export OPENCTI_URL=$(echo $OPENCTI_URL) && export OPENCTI_TOKEN=$(echo $OPENCTI_TOKEN) && go generate ./...
 
       - name: Run Go formatters
         run: |
