@@ -8,7 +8,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  update-opencti-version:
+  opencti-auto-update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
