@@ -115,7 +115,7 @@ jobs:
           go install mvdan.cc/gofumpt@latest
           gofumpt -l -w .
           go install github.com/bombsimon/wsl/v4/cmd/wsl@latest
-	        wsl --fix ./...
+          wsl --fix ./...
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
