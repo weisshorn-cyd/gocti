@@ -106,7 +106,6 @@ jobs:
       - name: Generate new GoCTI
         run: |
           pip install ./tools/gocti_type_generator
-          source ./docker-compose.env
           echo "OPENCTI_TOKEN: $OPENCTI_ADMIN_TOKEN"
           export GOCTI_REPO=.
           export OPENCTI_URL=$(echo $OPENCTI_BASE_URL)
@@ -116,8 +115,10 @@ jobs:
       - name: Run Go formatters
         run: |
           go install mvdan.cc/gofumpt@latest
+          echo "gofumpt: $(which gofumpt)"
           gofumpt -l -w .
           go install github.com/bombsimon/wsl/v4/cmd/wsl@latest
+          echo "wsl: $(which wsl)"
           wsl --fix ./...
 
       - name: Create Pull Request
