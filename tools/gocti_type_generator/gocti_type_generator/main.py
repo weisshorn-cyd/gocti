@@ -630,7 +630,7 @@ def write_helper(
 
 
 if __name__ == "__main__":
-    print(f"Running 'gocti_type_generator.main.py {" ".join(sys.argv[1:])}'")
+    print(f"Running 'gocti_type_generator.main.py {' '.join(sys.argv[1:])}'")
 
     # Load environment and initialise the clients.
     cfg = load_config()

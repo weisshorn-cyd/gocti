@@ -602,9 +602,9 @@ class Entity:
 
                         for p in properties:
                             if isinstance(p, str):
-                                output += f"\n{resolve_properties(p,depth+1)}"
+                                output += f"\n{resolve_properties(p, depth + 1)}"
                             else:
-                                output += f"{resolve_properties(p,depth+1)}"
+                                output += f"{resolve_properties(p, depth + 1)}"
 
                         output.replace("\n", "\n" + "\t" * (depth + 1))
                         output += "\n" + "\t" * depth + "}" if depth >= 0 else ""
@@ -754,11 +754,13 @@ class Entity:
 
         # Resolve embedded segment
         embedded_read = (
-            f"\n{self._embedded_variable_segment(
-                folder=self.read_queries_folder,
-                filename=self.embedded_read_query_filename,
-                variable=self.embedded_read_query_var,
-            )}\n"
+            f"\n{
+                self._embedded_variable_segment(
+                    folder=self.read_queries_folder,
+                    filename=self.embedded_read_query_filename,
+                    variable=self.embedded_read_query_var,
+                )
+            }\n"
             if must_embed
             else ""
         )
@@ -800,11 +802,13 @@ class Entity:
 
         # Resolve embedded segment
         embedded_list = (
-            f"\n{self._embedded_variable_segment(
-                folder=self.list_queries_folder,
-                filename=self.embedded_list_query_filename,
-                variable=self.embedded_list_query_var,
-            )}\n"
+            f"\n{
+                self._embedded_variable_segment(
+                    folder=self.list_queries_folder,
+                    filename=self.embedded_list_query_filename,
+                    variable=self.embedded_list_query_var,
+                )
+            }\n"
             if must_embed
             else ""
         )
@@ -846,11 +850,13 @@ class Entity:
 
         # Resolve embedded segment
         embedded_create = (
-            f"\n{self._embedded_variable_segment(
-                folder=self.create_queries_folder,
-                filename=self.embedded_create_query_filename,
-                variable=self.embedded_create_query_var,
-            )}\n"
+            f"\n{
+                self._embedded_variable_segment(
+                    folder=self.create_queries_folder,
+                    filename=self.embedded_create_query_filename,
+                    variable=self.embedded_create_query_var,
+                )
+            }\n"
             if must_embed
             else ""
         )
@@ -893,11 +899,13 @@ class Entity:
 
         # Resolve embedded segment
         embedded_delete = (
-            f"\n{self._embedded_variable_segment(
-                folder=self.delete_queries_folder,
-                filename=self.embedded_delete_query_filename,
-                variable=self.embedded_delete_query_var,
-            )}\n"
+            f"\n{
+                self._embedded_variable_segment(
+                    folder=self.delete_queries_folder,
+                    filename=self.embedded_delete_query_filename,
+                    variable=self.embedded_delete_query_var,
+                )
+            }\n"
             if must_embed
             else ""
         )
@@ -972,7 +980,7 @@ class Entity:
 
     def list_helper(self) -> str:
         options = [
-            f"//\t- [list.With{utils.go_name(arg.alias if arg.alias != "" else arg.name)}]"
+            f"//\t- [list.With{utils.go_name(arg.alias if arg.alias != '' else arg.name)}]"
             for arg in dict(sorted(self.list_query.args.items())).values()
         ]
         if len(options) > 0:
