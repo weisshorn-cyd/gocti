@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Accept a max confidence level of 0
+- Format Python code according to 2025 style guide
 
 ## [0.3.0] - 2025-01-07
 
