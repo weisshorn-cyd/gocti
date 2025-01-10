@@ -1,6 +1,7 @@
 name: opencti-auto-update
 on:
-  pull_request:
+  pull_request: # temporary during testing
+    types: [ready_for_review] # temporary during testing
 # schedule:
 #   - cron:  "15 2 * * *"
 
@@ -125,6 +126,7 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           base: ${{ github.head_ref }} # temporary during testing
+          draft: always-true # temporary during testing
           commit-message: Update GoCTI to $NEXT_VERSION
           branch: feature/release-$NEXT_OPENCTI_VERSION
           title: '[opencti] update to $NEXT_OPENCTI_VERSION'
