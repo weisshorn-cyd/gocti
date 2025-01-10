@@ -888,7 +888,7 @@ class Type:
             return representation
         if self.is_list:
             representation = (
-                f'[{representation + ("!" if self.is_content_required else "")}]'
+                f"[{representation + ('!' if self.is_content_required else '')}]"
             )
         if self.is_required:
             representation += "!"
@@ -1023,7 +1023,7 @@ class Type:
                 else ""
             )
 
-        struct_field_template = Template(f'$GoName $GoType{tags_tmpl(tags,"$name")}')
+        struct_field_template = Template(f"$GoName $GoType{tags_tmpl(tags, '$name')}")
 
         # Struct fields are separated in groups belonging to the implemented interfaces.
         printable_fields = self.printed_fields_by_interfaces()
