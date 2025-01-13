@@ -91,6 +91,8 @@ created
 modified
 name
 description
+severity
+priority
 takedown_types
 objects(all: true) {
     edges {
