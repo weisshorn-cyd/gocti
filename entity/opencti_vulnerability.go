@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"time"
 
-
 	"github.com/weisshorn-cyd/gocti/graphql"
 
 	_ "embed"

@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"time"
 
-
 	"github.com/weisshorn-cyd/gocti/graphql"
 
 	_ "embed"
@@ -66,7 +65,6 @@ func (l Location) CreateResponseField() string { return "locationAdd" }
 // LocationAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
 // (See the examples for ways to expand an existing type)
-//
 type LocationAddInput struct {
 	// LocationAddInput
 	StixID             string     `gocti:"stix_id"               json:"stix_id,omitempty"`
