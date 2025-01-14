@@ -64,7 +64,7 @@ func (t ThreatActorGroup) CreateResponseField() string { return "threatActorGrou
 
 // ThreatActorGroupAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ThreatActorGroupAddInput struct {
 	// ThreatActorGroupAddInput
 	StixID               string     `gocti:"stix_id"               json:"stix_id,omitempty"`
