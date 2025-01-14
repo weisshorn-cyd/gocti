@@ -11,7 +11,7 @@ import (
 
 // AdministrativeArea represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type AdministrativeArea struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -71,7 +71,7 @@ func (a AdministrativeArea) MarshalJSON() ([]byte, error) {
 
 // Artifact represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Artifact struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -126,7 +126,7 @@ func (a Artifact) MarshalJSON() ([]byte, error) {
 
 // ArtifactAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ArtifactAddInput struct {
 	// ArtifactAddInput
 	Hashes                  []HashInput `gocti:"hashes"                     json:"hashes,omitempty"`
@@ -152,7 +152,7 @@ func (a ArtifactAddInput) MarshalJSON() ([]byte, error) {
 
 // Assignee represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Assignee struct {
 	// Assignee
 	ID         string `gocti:"id"          json:"id,omitempty"`
@@ -239,7 +239,7 @@ func (a AttackPattern) MarshalJSON() ([]byte, error) {
 
 // AttackPatternConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type AttackPatternConnection struct {
 	// AttackPatternConnection
 	PageInfo PageInfo            `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -259,7 +259,7 @@ func (a AttackPatternConnection) MarshalJSON() ([]byte, error) {
 
 // AttackPatternEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type AttackPatternEdge struct {
 	// AttackPatternEdge
 	Cursor string        `gocti:"cursor" json:"cursor,omitempty"`
@@ -279,7 +279,7 @@ func (a AttackPatternEdge) MarshalJSON() ([]byte, error) {
 
 // AttributeBasedOn represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type AttributeBasedOn struct {
 	// AttributeBasedOn
 	Representations []string `gocti:"representations" json:"representations,omitempty"`
@@ -298,7 +298,7 @@ func (a AttributeBasedOn) MarshalJSON() ([]byte, error) {
 
 // AttributeColumn represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type AttributeColumn struct {
 	// AttributeColumn
 	ColumnName    string                       `gocti:"column_name"   json:"column_name,omitempty"`
@@ -318,7 +318,7 @@ func (a AttributeColumn) MarshalJSON() ([]byte, error) {
 
 // AttributeColumnConfiguration represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type AttributeColumnConfiguration struct {
 	// AttributeColumnConfiguration
 	Separator   string `gocti:"separator"    json:"separator,omitempty"`
@@ -339,7 +339,7 @@ func (a AttributeColumnConfiguration) MarshalJSON() ([]byte, error) {
 
 // AttributeRef represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type AttributeRef struct {
 	// AttributeRef
 	Multiple bool     `gocti:"multiple" json:"multiple,omitempty"`
@@ -360,7 +360,7 @@ func (a AttributeRef) MarshalJSON() ([]byte, error) {
 
 // AutonomousSystem represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type AutonomousSystem struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -409,7 +409,7 @@ func (a AutonomousSystem) MarshalJSON() ([]byte, error) {
 
 // AutonomousSystemAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type AutonomousSystemAddInput struct {
 	// AutonomousSystemAddInput
 	Number int    `gocti:"number" json:"number,omitempty"`
@@ -431,7 +431,7 @@ func (a AutonomousSystemAddInput) MarshalJSON() ([]byte, error) {
 
 // BankAccount represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type BankAccount struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -480,7 +480,7 @@ func (b BankAccount) MarshalJSON() ([]byte, error) {
 
 // BankAccountAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type BankAccountAddInput struct {
 	// BankAccountAddInput
 	Iban          string `gocti:"iban"           json:"iban,omitempty"`
@@ -502,7 +502,7 @@ func (b BankAccountAddInput) MarshalJSON() ([]byte, error) {
 
 // Campaign represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Campaign struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -559,7 +559,7 @@ func (c Campaign) MarshalJSON() ([]byte, error) {
 
 // Capability represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Capability struct {
 	// InternalObject
 	ID         string `gocti:"id"          json:"id,omitempty"`
@@ -678,7 +678,7 @@ func (c Case) MarshalJSON() ([]byte, error) {
 
 // CaseConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CaseConnection struct {
 	// CaseConnection
 	PageInfo PageInfo   `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -698,7 +698,7 @@ func (c CaseConnection) MarshalJSON() ([]byte, error) {
 
 // CaseEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CaseEdge struct {
 	// CaseEdge
 	Cursor string `gocti:"cursor" json:"cursor,omitempty"`
@@ -923,7 +923,7 @@ func (c CaseRft) MarshalJSON() ([]byte, error) {
 
 // CaseTemplate represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CaseTemplate struct {
 	// InternalObject
 	ID         string `gocti:"id"          json:"id,omitempty"`
@@ -954,7 +954,7 @@ func (c CaseTemplate) MarshalJSON() ([]byte, error) {
 
 // Channel represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Channel struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -1009,7 +1009,7 @@ func (c Channel) MarshalJSON() ([]byte, error) {
 
 // City represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type City struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -1070,7 +1070,7 @@ func (c City) MarshalJSON() ([]byte, error) {
 
 // ConfidenceLevel represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ConfidenceLevel struct {
 	// ConfidenceLevel
 	MaxConfidence int                       `gocti:"max_confidence" json:"max_confidence,omitempty"`
@@ -1090,7 +1090,7 @@ func (c ConfidenceLevel) MarshalJSON() ([]byte, error) {
 
 // ConfidenceLevelOverride represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ConfidenceLevelOverride struct {
 	// ConfidenceLevelOverride
 	EntityType    string `gocti:"entity_type"    json:"entity_type,omitempty"`
@@ -1160,7 +1160,7 @@ func (c Connector) MarshalJSON() ([]byte, error) {
 
 // ConnectorConfig represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ConnectorConfig struct {
 	// ConnectorConfig
 	Connection     RabbitMQConnection `gocti:"connection"      json:"connection,omitempty"`
@@ -1185,7 +1185,7 @@ func (c ConnectorConfig) MarshalJSON() ([]byte, error) {
 
 // ConnectorConfiguration represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ConnectorConfiguration struct {
 	// ConnectorConfiguration
 	ID            string `gocti:"id"            json:"id,omitempty"`
@@ -1206,7 +1206,7 @@ func (c ConnectorConfiguration) MarshalJSON() ([]byte, error) {
 
 // ConnectorInfo represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ConnectorInfo struct {
 	// ConnectorInfo
 	RunAndTerminate   bool       `gocti:"run_and_terminate"   json:"run_and_terminate,omitempty"`
@@ -1230,7 +1230,7 @@ func (c ConnectorInfo) MarshalJSON() ([]byte, error) {
 
 // ConnectorQueueDetails represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ConnectorQueueDetails struct {
 	// ConnectorQueueDetails
 	MessagesNumber float64 `gocti:"messages_number" json:"messages_number,omitempty"`
@@ -1332,7 +1332,7 @@ func (c Container) MarshalJSON() ([]byte, error) {
 
 // ContainerConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ContainerConnection struct {
 	// ContainerConnection
 	PageInfo PageInfo        `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -1352,7 +1352,7 @@ func (c ContainerConnection) MarshalJSON() ([]byte, error) {
 
 // ContainerEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ContainerEdge struct {
 	// ContainerEdge
 	Cursor string    `gocti:"cursor" json:"cursor,omitempty"`
@@ -1372,7 +1372,7 @@ func (c ContainerEdge) MarshalJSON() ([]byte, error) {
 
 // Country represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Country struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -1432,7 +1432,7 @@ func (c Country) MarshalJSON() ([]byte, error) {
 
 // CountryConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CountryConnection struct {
 	// CountryConnection
 	PageInfo PageInfo      `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -1452,7 +1452,7 @@ func (c CountryConnection) MarshalJSON() ([]byte, error) {
 
 // CountryEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CountryEdge struct {
 	// CountryEdge
 	Cursor string  `gocti:"cursor" json:"cursor,omitempty"`
@@ -1532,7 +1532,7 @@ func (c CourseOfAction) MarshalJSON() ([]byte, error) {
 
 // CourseOfActionConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CourseOfActionConnection struct {
 	// CourseOfActionConnection
 	PageInfo PageInfo             `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -1552,7 +1552,7 @@ func (c CourseOfActionConnection) MarshalJSON() ([]byte, error) {
 
 // CourseOfActionEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CourseOfActionEdge struct {
 	// CourseOfActionEdge
 	Cursor string         `gocti:"cursor" json:"cursor,omitempty"`
@@ -1572,7 +1572,7 @@ func (c CourseOfActionEdge) MarshalJSON() ([]byte, error) {
 
 // Creator represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Creator struct {
 	// Creator
 	ID             string         `gocti:"id"             json:"id,omitempty"`
@@ -1594,7 +1594,7 @@ func (c Creator) MarshalJSON() ([]byte, error) {
 
 // Credential represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Credential struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -1641,7 +1641,7 @@ func (c Credential) MarshalJSON() ([]byte, error) {
 
 // CredentialAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CredentialAddInput struct {
 	// CredentialAddInput
 	Value string `gocti:"value" json:"value,omitempty"`
@@ -1661,7 +1661,7 @@ func (c CredentialAddInput) MarshalJSON() ([]byte, error) {
 
 // CryptocurrencyWallet represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CryptocurrencyWallet struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -1708,7 +1708,7 @@ func (c CryptocurrencyWallet) MarshalJSON() ([]byte, error) {
 
 // CryptocurrencyWalletAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CryptocurrencyWalletAddInput struct {
 	// CryptocurrencyWalletAddInput
 	Value string `gocti:"value" json:"value,omitempty"`
@@ -1728,7 +1728,7 @@ func (c CryptocurrencyWalletAddInput) MarshalJSON() ([]byte, error) {
 
 // CryptographicKey represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CryptographicKey struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -1775,7 +1775,7 @@ func (c CryptographicKey) MarshalJSON() ([]byte, error) {
 
 // CryptographicKeyAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CryptographicKeyAddInput struct {
 	// CryptographicKeyAddInput
 	Value string `gocti:"value" json:"value,omitempty"`
@@ -1795,7 +1795,7 @@ func (c CryptographicKeyAddInput) MarshalJSON() ([]byte, error) {
 
 // CsvMapper represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CsvMapper struct {
 	// InternalObject
 	ID         string `gocti:"id"          json:"id,omitempty"`
@@ -1845,7 +1845,7 @@ func (c CsvMapperOperator) MarshalJSON() ([]byte, error) {
 
 // CsvMapperRepresentation represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CsvMapperRepresentation struct {
 	// CsvMapperRepresentation
 	ID         string                             `gocti:"id"         json:"id,omitempty"`
@@ -1869,7 +1869,7 @@ func (c CsvMapperRepresentation) MarshalJSON() ([]byte, error) {
 
 // CsvMapperRepresentationAttribute represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CsvMapperRepresentationAttribute struct {
 	// CsvMapperRepresentationAttribute
 	Key           string           `gocti:"key"            json:"key,omitempty"`
@@ -1892,7 +1892,7 @@ func (c CsvMapperRepresentationAttribute) MarshalJSON() ([]byte, error) {
 
 // CsvMapperRepresentationTarget represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CsvMapperRepresentationTarget struct {
 	// CsvMapperRepresentationTarget
 	EntityType  string                              `gocti:"entity_type"  json:"entity_type,omitempty"`
@@ -1912,7 +1912,7 @@ func (c CsvMapperRepresentationTarget) MarshalJSON() ([]byte, error) {
 
 // CsvMapperRepresentationTargetColumn represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type CsvMapperRepresentationTargetColumn struct {
 	// CsvMapperRepresentationTargetColumn
 	ColumnReference string            `gocti:"column_reference" json:"column_reference,omitempty"`
@@ -1951,7 +1951,7 @@ func (c CsvMapperRepresentationType) MarshalJSON() ([]byte, error) {
 
 // DataComponent represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type DataComponent struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -2007,7 +2007,7 @@ func (d DataComponent) MarshalJSON() ([]byte, error) {
 
 // DataComponentConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type DataComponentConnection struct {
 	// DataComponentConnection
 	PageInfo PageInfo            `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -2027,7 +2027,7 @@ func (d DataComponentConnection) MarshalJSON() ([]byte, error) {
 
 // DataComponentEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type DataComponentEdge struct {
 	// DataComponentEdge
 	Cursor string        `gocti:"cursor" json:"cursor,omitempty"`
@@ -2047,7 +2047,7 @@ func (d DataComponentEdge) MarshalJSON() ([]byte, error) {
 
 // DataSource represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type DataSource struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -2104,7 +2104,7 @@ func (d DataSource) MarshalJSON() ([]byte, error) {
 
 // DecayChartData represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type DecayChartData struct {
 	// DecayChartData
 	LiveScoreSerie []DecayHistory `gocti:"live_score_serie" json:"live_score_serie,omitempty"`
@@ -2123,7 +2123,7 @@ func (d DecayChartData) MarshalJSON() ([]byte, error) {
 
 // DecayHistory represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type DecayHistory struct {
 	// DecayHistory
 	UpdatedAt *time.Time `gocti:"updated_at" json:"updated_at,omitempty"`
@@ -2143,7 +2143,7 @@ func (d DecayHistory) MarshalJSON() ([]byte, error) {
 
 // DecayLiveDetails represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type DecayLiveDetails struct {
 	// DecayLiveDetails
 	LiveScore  int            `gocti:"live_score"  json:"live_score,omitempty"`
@@ -2163,7 +2163,7 @@ func (d DecayLiveDetails) MarshalJSON() ([]byte, error) {
 
 // DefaultMarking represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type DefaultMarking struct {
 	// DefaultMarking
 	EntityType string              `gocti:"entity_type" json:"entity_type,omitempty"`
@@ -2183,7 +2183,7 @@ func (d DefaultMarking) MarshalJSON() ([]byte, error) {
 
 // DefaultValue represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type DefaultValue struct {
 	// DefaultValue
 	ID   string `gocti:"id"   json:"id,omitempty"`
@@ -2203,7 +2203,7 @@ func (d DefaultValue) MarshalJSON() ([]byte, error) {
 
 // DefaultValueAttribute represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type DefaultValueAttribute struct {
 	// DefaultValueAttribute
 	Name          string         `gocti:"name"          json:"name,omitempty"`
@@ -2224,7 +2224,7 @@ func (d DefaultValueAttribute) MarshalJSON() ([]byte, error) {
 
 // Dictionary represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Dictionary struct {
 	// Dictionary
 	Key   string `gocti:"key"   json:"key,omitempty"`
@@ -2244,7 +2244,7 @@ func (d Dictionary) MarshalJSON() ([]byte, error) {
 
 // DictionaryInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type DictionaryInput struct {
 	// DictionaryInput
 	Key   string `gocti:"key"   json:"key,omitempty"`
@@ -2264,7 +2264,7 @@ func (d DictionaryInput) MarshalJSON() ([]byte, error) {
 
 // Directory represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Directory struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -2315,7 +2315,7 @@ func (d Directory) MarshalJSON() ([]byte, error) {
 
 // DirectoryAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type DirectoryAddInput struct {
 	// DirectoryAddInput
 	Path    string     `gocti:"path"     json:"path,omitempty"`
@@ -2339,7 +2339,7 @@ func (d DirectoryAddInput) MarshalJSON() ([]byte, error) {
 
 // DomainName represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type DomainName struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -2386,7 +2386,7 @@ func (d DomainName) MarshalJSON() ([]byte, error) {
 
 // DomainNameAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type DomainNameAddInput struct {
 	// DomainNameAddInput
 	Value string `gocti:"value" json:"value,omitempty"`
@@ -2425,7 +2425,7 @@ func (d DraftOperation) MarshalJSON() ([]byte, error) {
 
 // DraftVersion represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type DraftVersion struct {
 	// DraftVersion
 	DraftID        string         `gocti:"draft_id"        json:"draft_id,omitempty"`
@@ -2445,7 +2445,7 @@ func (d DraftVersion) MarshalJSON() ([]byte, error) {
 
 // EditUserContext represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type EditUserContext struct {
 	// EditUserContext
 	Name    string `gocti:"name"    json:"name,omitempty"`
@@ -2465,7 +2465,7 @@ func (e EditUserContext) MarshalJSON() ([]byte, error) {
 
 // EffectiveConfidenceLevel represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type EffectiveConfidenceLevel struct {
 	// EffectiveConfidenceLevel
 	MaxConfidence int                                `gocti:"max_confidence" json:"max_confidence,omitempty"`
@@ -2486,7 +2486,7 @@ func (e EffectiveConfidenceLevel) MarshalJSON() ([]byte, error) {
 
 // EffectiveConfidenceLevelOverride represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type EffectiveConfidenceLevelOverride struct {
 	// EffectiveConfidenceLevelOverride
 	EntityType    string                         `gocti:"entity_type"    json:"entity_type,omitempty"`
@@ -2507,7 +2507,7 @@ func (e EffectiveConfidenceLevelOverride) MarshalJSON() ([]byte, error) {
 
 // EffectiveConfidenceLevelSource represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type EffectiveConfidenceLevelSource struct {
 	// EffectiveConfidenceLevelSource
 	Type   EffectiveConfidenceLevelSourceType   `gocti:"type"   json:"type,omitempty"`
@@ -2533,7 +2533,7 @@ func (e EffectiveConfidenceLevelSource) MarshalJSON() ([]byte, error) {
 // - [Group]
 // - [User]
 //
-// (See the examples for ways to decode an interface field into an implementation)
+// (See the examples for ways to decode an interface field into an implementation).
 type EffectiveConfidenceLevelSourceObject struct {
 	// EffectiveConfidenceLevelSourceObject
 
@@ -2584,7 +2584,7 @@ func (e EffectiveConfidenceLevelSourceType) MarshalJSON() ([]byte, error) {
 
 // EmailAddr represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type EmailAddr struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -2632,7 +2632,7 @@ func (e EmailAddr) MarshalJSON() ([]byte, error) {
 
 // EmailAddrAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type EmailAddrAddInput struct {
 	// EmailAddrAddInput
 	Value       string `gocti:"value"        json:"value,omitempty"`
@@ -2653,7 +2653,7 @@ func (e EmailAddrAddInput) MarshalJSON() ([]byte, error) {
 
 // EmailMessage represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type EmailMessage struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -2706,7 +2706,7 @@ func (e EmailMessage) MarshalJSON() ([]byte, error) {
 
 // EmailMessageAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type EmailMessageAddInput struct {
 	// EmailMessageAddInput
 	IsMultipart   bool       `gocti:"is_multipart"   json:"is_multipart,omitempty"`
@@ -2732,7 +2732,7 @@ func (e EmailMessageAddInput) MarshalJSON() ([]byte, error) {
 
 // EmailMimePartType represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type EmailMimePartType struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -2781,7 +2781,7 @@ func (e EmailMimePartType) MarshalJSON() ([]byte, error) {
 
 // EmailMimePartTypeAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type EmailMimePartTypeAddInput struct {
 	// EmailMimePartTypeAddInput
 	Body               string `gocti:"body"                json:"body,omitempty"`
@@ -2844,7 +2844,7 @@ func (e EntitySetting) MarshalJSON() ([]byte, error) {
 
 // Event represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Event struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -2901,7 +2901,7 @@ func (e Event) MarshalJSON() ([]byte, error) {
 
 // ExternalReference represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ExternalReference struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -2949,7 +2949,7 @@ func (e ExternalReference) MarshalJSON() ([]byte, error) {
 
 // ExternalReferenceConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ExternalReferenceConnection struct {
 	// ExternalReferenceConnection
 	PageInfo PageInfo                `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -2969,7 +2969,7 @@ func (e ExternalReferenceConnection) MarshalJSON() ([]byte, error) {
 
 // ExternalReferenceEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ExternalReferenceEdge struct {
 	// ExternalReferenceEdge
 	Cursor string            `gocti:"cursor" json:"cursor,omitempty"`
@@ -3055,7 +3055,7 @@ func (f Feedback) MarshalJSON() ([]byte, error) {
 
 // File represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type File struct {
 	// File
 	ID                   string              `gocti:"id"                   json:"id,omitempty"`
@@ -3083,7 +3083,7 @@ func (f File) MarshalJSON() ([]byte, error) {
 
 // FileConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type FileConnection struct {
 	// FileConnection
 	PageInfo PageInfo   `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -3103,7 +3103,7 @@ func (f FileConnection) MarshalJSON() ([]byte, error) {
 
 // FileEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type FileEdge struct {
 	// FileEdge
 	Cursor string `gocti:"cursor" json:"cursor,omitempty"`
@@ -3123,7 +3123,7 @@ func (f FileEdge) MarshalJSON() ([]byte, error) {
 
 // FileMetadata represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type FileMetadata struct {
 	// FileMetadata
 	Encoding              string        `gocti:"encoding"                json:"encoding,omitempty"`
@@ -3207,7 +3207,7 @@ func (g Group) MarshalJSON() ([]byte, error) {
 
 // GroupConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type GroupConnection struct {
 	// GroupConnection
 	PageInfo PageInfo    `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -3227,7 +3227,7 @@ func (g GroupConnection) MarshalJSON() ([]byte, error) {
 
 // GroupEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type GroupEdge struct {
 	// GroupEdge
 	Cursor string `gocti:"cursor" json:"cursor,omitempty"`
@@ -3312,7 +3312,7 @@ func (g Grouping) MarshalJSON() ([]byte, error) {
 
 // GroupingConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type GroupingConnection struct {
 	// GroupingConnection
 	PageInfo PageInfo       `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -3332,7 +3332,7 @@ func (g GroupingConnection) MarshalJSON() ([]byte, error) {
 
 // GroupingEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type GroupingEdge struct {
 	// GroupingEdge
 	Cursor string   `gocti:"cursor" json:"cursor,omitempty"`
@@ -3352,7 +3352,7 @@ func (g GroupingEdge) MarshalJSON() ([]byte, error) {
 
 // Hash represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Hash struct {
 	// Hash
 	Algorithm string `gocti:"algorithm" json:"algorithm,omitempty"`
@@ -3372,7 +3372,7 @@ func (h Hash) MarshalJSON() ([]byte, error) {
 
 // HashInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type HashInput struct {
 	// HashInput
 	Algorithm string `gocti:"algorithm" json:"algorithm,omitempty"`
@@ -3392,7 +3392,7 @@ func (h HashInput) MarshalJSON() ([]byte, error) {
 
 // Hostname represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Hostname struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -3439,7 +3439,7 @@ func (h Hostname) MarshalJSON() ([]byte, error) {
 
 // HostnameAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type HostnameAddInput struct {
 	// HostnameAddInput
 	Value string `gocti:"value" json:"value,omitempty"`
@@ -3459,7 +3459,7 @@ func (h HostnameAddInput) MarshalJSON() ([]byte, error) {
 
 // IPv4Addr represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type IPv4Addr struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -3507,7 +3507,7 @@ func (i IPv4Addr) MarshalJSON() ([]byte, error) {
 
 // IPv4AddrAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type IPv4AddrAddInput struct {
 	// IPv4AddrAddInput
 	Value      string   `gocti:"value"      json:"value,omitempty"`
@@ -3529,7 +3529,7 @@ func (i IPv4AddrAddInput) MarshalJSON() ([]byte, error) {
 
 // IPv6Addr represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type IPv6Addr struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -3577,7 +3577,7 @@ func (i IPv6Addr) MarshalJSON() ([]byte, error) {
 
 // IPv6AddrAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type IPv6AddrAddInput struct {
 	// IPv6AddrAddInput
 	Value string `gocti:"value" json:"value,omitempty"`
@@ -3605,7 +3605,7 @@ func (i IPv6AddrAddInput) MarshalJSON() ([]byte, error) {
 // - [System]
 // - [Organization]
 //
-// (See the examples for ways to decode an interface field into an implementation)
+// (See the examples for ways to decode an interface field into an implementation).
 type Identity struct {
 	// Identity
 	ID                  string                      `gocti:"id"                    json:"id,omitempty"`
@@ -3689,7 +3689,7 @@ func (i IdentityType) MarshalJSON() ([]byte, error) {
 
 // Incident represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Incident struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -3823,7 +3823,7 @@ func (i Indicator) MarshalJSON() ([]byte, error) {
 
 // IndicatorConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type IndicatorConnection struct {
 	// IndicatorConnection
 	PageInfo PageInfo        `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -3843,7 +3843,7 @@ func (i IndicatorConnection) MarshalJSON() ([]byte, error) {
 
 // IndicatorDecayRule represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type IndicatorDecayRule struct {
 	// IndicatorDecayRule
 	DecayRuleID      string  `gocti:"decay_rule_id"      json:"decay_rule_id,omitempty"`
@@ -3866,7 +3866,7 @@ func (i IndicatorDecayRule) MarshalJSON() ([]byte, error) {
 
 // IndicatorEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type IndicatorEdge struct {
 	// IndicatorEdge
 	Cursor string    `gocti:"cursor" json:"cursor,omitempty"`
@@ -3886,7 +3886,7 @@ func (i IndicatorEdge) MarshalJSON() ([]byte, error) {
 
 // Individual represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Individual struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -3950,7 +3950,7 @@ func (i Individual) MarshalJSON() ([]byte, error) {
 
 // Infrastructure represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Infrastructure struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -4008,7 +4008,7 @@ func (i Infrastructure) MarshalJSON() ([]byte, error) {
 
 // IntrusionSet represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type IntrusionSet struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -4069,7 +4069,7 @@ func (i IntrusionSet) MarshalJSON() ([]byte, error) {
 
 // KillChainPhase represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type KillChainPhase struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -4108,7 +4108,7 @@ func (k KillChainPhase) MarshalJSON() ([]byte, error) {
 
 // Label represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Label struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -4147,7 +4147,7 @@ func (l Label) MarshalJSON() ([]byte, error) {
 
 // Language represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Language struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -4209,7 +4209,7 @@ func (l Language) MarshalJSON() ([]byte, error) {
 // - [Region]
 // - [AdministrativeArea]
 //
-// (See the examples for ways to decode an interface field into an implementation)
+// (See the examples for ways to decode an interface field into an implementation).
 type Location struct {
 	// Location
 	ID                 string                      `gocti:"id"                 json:"id,omitempty"`
@@ -4273,7 +4273,7 @@ func (l Location) MarshalJSON() ([]byte, error) {
 
 // LocationConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type LocationConnection struct {
 	// LocationConnection
 	PageInfo PageInfo       `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -4293,7 +4293,7 @@ func (l LocationConnection) MarshalJSON() ([]byte, error) {
 
 // LocationEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type LocationEdge struct {
 	// LocationEdge
 	Cursor string   `gocti:"cursor" json:"cursor,omitempty"`
@@ -4314,7 +4314,7 @@ func (l LocationEdge) MarshalJSON() ([]byte, error) {
 
 // MacAddr represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type MacAddr struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -4361,7 +4361,7 @@ func (m MacAddr) MarshalJSON() ([]byte, error) {
 
 // MacAddrAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type MacAddrAddInput struct {
 	// MacAddrAddInput
 	Value string `gocti:"value" json:"value,omitempty"`
@@ -4515,7 +4515,7 @@ func (m MalwareAnalysis) MarshalJSON() ([]byte, error) {
 
 // ManagerConfiguration represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ManagerConfiguration struct {
 	// InternalObject
 	ID         string `gocti:"id"          json:"id,omitempty"`
@@ -4546,7 +4546,7 @@ func (m ManagerConfiguration) MarshalJSON() ([]byte, error) {
 
 // MarkingDefinition represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type MarkingDefinition struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -4587,7 +4587,7 @@ func (m MarkingDefinition) MarshalJSON() ([]byte, error) {
 
 // MarkingDefinitionShort represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type MarkingDefinitionShort struct {
 	// MarkingDefinitionShort
 	ID             string         `gocti:"id"              json:"id,omitempty"`
@@ -4613,7 +4613,7 @@ func (m MarkingDefinitionShort) MarshalJSON() ([]byte, error) {
 
 // Measure represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Measure struct {
 	// Measure
 	Index    int        `gocti:"index"     json:"index,omitempty"`
@@ -4634,7 +4634,7 @@ func (m Measure) MarshalJSON() ([]byte, error) {
 
 // MeasureInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type MeasureInput struct {
 	// MeasureInput
 	Measure  float64    `gocti:"measure"   json:"measure,omitempty"`
@@ -4654,7 +4654,7 @@ func (m MeasureInput) MarshalJSON() ([]byte, error) {
 
 // MediaContent represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type MediaContent struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -4706,7 +4706,7 @@ func (m MediaContent) MarshalJSON() ([]byte, error) {
 
 // MediaContentAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type MediaContentAddInput struct {
 	// MediaContentAddInput
 	Title           string     `gocti:"title"            json:"title,omitempty"`
@@ -4730,7 +4730,7 @@ func (m MediaContentAddInput) MarshalJSON() ([]byte, error) {
 
 // MemberAccess represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type MemberAccess struct {
 	// MemberAccess
 	ID          string `gocti:"id"           json:"id,omitempty"`
@@ -4752,7 +4752,7 @@ func (m MemberAccess) MarshalJSON() ([]byte, error) {
 
 // Mutex represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Mutex struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -4799,7 +4799,7 @@ func (m Mutex) MarshalJSON() ([]byte, error) {
 
 // MutexAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type MutexAddInput struct {
 	// MutexAddInput
 	Name string `gocti:"name" json:"name,omitempty"`
@@ -4819,7 +4819,7 @@ func (m MutexAddInput) MarshalJSON() ([]byte, error) {
 
 // Narrative represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Narrative struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -4877,7 +4877,7 @@ func (n Narrative) MarshalJSON() ([]byte, error) {
 
 // NarrativeConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type NarrativeConnection struct {
 	// NarrativeConnection
 	PageInfo PageInfo        `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -4897,7 +4897,7 @@ func (n NarrativeConnection) MarshalJSON() ([]byte, error) {
 
 // NarrativeEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type NarrativeEdge struct {
 	// NarrativeEdge
 	Cursor string    `gocti:"cursor" json:"cursor,omitempty"`
@@ -4917,7 +4917,7 @@ func (n NarrativeEdge) MarshalJSON() ([]byte, error) {
 
 // NetworkTraffic represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type NetworkTraffic struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -4974,7 +4974,7 @@ func (n NetworkTraffic) MarshalJSON() ([]byte, error) {
 
 // NetworkTrafficAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type NetworkTrafficAddInput struct {
 	// NetworkTrafficAddInput
 	Start        *time.Time `gocti:"start"          json:"start,omitempty"`
@@ -5069,7 +5069,7 @@ func (n Note) MarshalJSON() ([]byte, error) {
 
 // NoteConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type NoteConnection struct {
 	// NoteConnection
 	PageInfo PageInfo   `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -5089,7 +5089,7 @@ func (n NoteConnection) MarshalJSON() ([]byte, error) {
 
 // NoteEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type NoteEdge struct {
 	// NoteEdge
 	Cursor string `gocti:"cursor" json:"cursor,omitempty"`
@@ -5109,7 +5109,7 @@ func (n NoteEdge) MarshalJSON() ([]byte, error) {
 
 // Notifier represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Notifier struct {
 	// InternalObject
 	ID         string `gocti:"id"          json:"id,omitempty"`
@@ -5143,7 +5143,7 @@ func (n Notifier) MarshalJSON() ([]byte, error) {
 
 // NotifierConnector represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type NotifierConnector struct {
 	// NotifierConnector
 	ID                string `gocti:"id"                  json:"id,omitempty"`
@@ -5167,7 +5167,7 @@ func (n NotifierConnector) MarshalJSON() ([]byte, error) {
 
 // Number represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Number struct {
 	// Number
 	Total int `gocti:"total" json:"total,omitempty"`
@@ -5187,7 +5187,7 @@ func (n Number) MarshalJSON() ([]byte, error) {
 
 // ObservablesValues represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ObservablesValues struct {
 	// ObservablesValues
 	Type  string `gocti:"type"  json:"type,omitempty"`
@@ -5332,7 +5332,7 @@ func (o Opinion) MarshalJSON() ([]byte, error) {
 
 // OpinionConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type OpinionConnection struct {
 	// OpinionConnection
 	PageInfo PageInfo      `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -5352,7 +5352,7 @@ func (o OpinionConnection) MarshalJSON() ([]byte, error) {
 
 // OpinionEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type OpinionEdge struct {
 	// OpinionEdge
 	Cursor string  `gocti:"cursor" json:"cursor,omitempty"`
@@ -5372,7 +5372,7 @@ func (o OpinionEdge) MarshalJSON() ([]byte, error) {
 
 // OpinionsMetrics represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type OpinionsMetrics struct {
 	// OpinionsMetrics
 	Mean  float64 `gocti:"mean"  json:"mean,omitempty"`
@@ -5465,7 +5465,7 @@ func (o Organization) MarshalJSON() ([]byte, error) {
 
 // OrganizationConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type OrganizationConnection struct {
 	// OrganizationConnection
 	PageInfo PageInfo           `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -5485,7 +5485,7 @@ func (o OrganizationConnection) MarshalJSON() ([]byte, error) {
 
 // OrganizationEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type OrganizationEdge struct {
 	// OrganizationEdge
 	Cursor string       `gocti:"cursor" json:"cursor,omitempty"`
@@ -5505,7 +5505,7 @@ func (o OrganizationEdge) MarshalJSON() ([]byte, error) {
 
 // OverviewWidgetCustomization represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type OverviewWidgetCustomization struct {
 	// OverviewWidgetCustomization
 	Key   string `gocti:"key"   json:"key,omitempty"`
@@ -5526,7 +5526,7 @@ func (o OverviewWidgetCustomization) MarshalJSON() ([]byte, error) {
 
 // PageInfo represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type PageInfo struct {
 	// PageInfo
 	StartCursor     string `gocti:"startCursor"     json:"startCursor,omitempty"`
@@ -5549,7 +5549,7 @@ func (p PageInfo) MarshalJSON() ([]byte, error) {
 
 // Participant represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Participant struct {
 	// Participant
 	ID         string `gocti:"id"          json:"id,omitempty"`
@@ -5570,7 +5570,7 @@ func (p Participant) MarshalJSON() ([]byte, error) {
 
 // PaymentCard represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type PaymentCard struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -5620,7 +5620,7 @@ func (p PaymentCard) MarshalJSON() ([]byte, error) {
 
 // PaymentCardAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type PaymentCardAddInput struct {
 	// PaymentCardAddInput
 	CardNumber     string     `gocti:"card_number"     json:"card_number,omitempty"`
@@ -5643,7 +5643,7 @@ func (p PaymentCardAddInput) MarshalJSON() ([]byte, error) {
 
 // Persona represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Persona struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -5691,7 +5691,7 @@ func (p Persona) MarshalJSON() ([]byte, error) {
 
 // PersonaAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type PersonaAddInput struct {
 	// PersonaAddInput
 	PersonaName string `gocti:"persona_name" json:"persona_name,omitempty"`
@@ -5711,7 +5711,7 @@ func (p PersonaAddInput) MarshalJSON() ([]byte, error) {
 
 // PhoneNumber represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type PhoneNumber struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -5758,7 +5758,7 @@ func (p PhoneNumber) MarshalJSON() ([]byte, error) {
 
 // PhoneNumberAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type PhoneNumberAddInput struct {
 	// PhoneNumberAddInput
 	Value string `gocti:"value" json:"value,omitempty"`
@@ -5778,7 +5778,7 @@ func (p PhoneNumberAddInput) MarshalJSON() ([]byte, error) {
 
 // Position represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Position struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -5840,7 +5840,7 @@ func (p Position) MarshalJSON() ([]byte, error) {
 
 // Process represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Process struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -5908,7 +5908,7 @@ func (p Process) MarshalJSON() ([]byte, error) {
 
 // ProcessAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ProcessAddInput struct {
 	// ProcessAddInput
 	IsHidden             bool              `gocti:"is_hidden"             json:"is_hidden,omitempty"`
@@ -5949,7 +5949,7 @@ func (p ProcessAddInput) MarshalJSON() ([]byte, error) {
 
 // PublicDashboard represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type PublicDashboard struct {
 	// InternalObject
 	ID         string `gocti:"id"          json:"id,omitempty"`
@@ -5990,7 +5990,7 @@ func (p PublicDashboard) MarshalJSON() ([]byte, error) {
 
 // RabbitMQConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type RabbitMQConnection struct {
 	// RabbitMQConnection
 	Host   string `gocti:"host"    json:"host,omitempty"`
@@ -6014,7 +6014,7 @@ func (r RabbitMQConnection) MarshalJSON() ([]byte, error) {
 
 // Region represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Region struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -6076,7 +6076,7 @@ func (r Region) MarshalJSON() ([]byte, error) {
 
 // RegionConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type RegionConnection struct {
 	// RegionConnection
 	PageInfo PageInfo     `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -6096,7 +6096,7 @@ func (r RegionConnection) MarshalJSON() ([]byte, error) {
 
 // RegionEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type RegionEdge struct {
 	// RegionEdge
 	Cursor string `gocti:"cursor" json:"cursor,omitempty"`
@@ -6183,7 +6183,7 @@ func (r Report) MarshalJSON() ([]byte, error) {
 
 // ReportConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ReportConnection struct {
 	// ReportConnection
 	PageInfo PageInfo     `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -6203,7 +6203,7 @@ func (r ReportConnection) MarshalJSON() ([]byte, error) {
 
 // ReportEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ReportEdge struct {
 	// ReportEdge
 	Cursor string `gocti:"cursor" json:"cursor,omitempty"`
@@ -6223,7 +6223,7 @@ func (r ReportEdge) MarshalJSON() ([]byte, error) {
 
 // Representative represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Representative struct {
 	// Representative
 	Main      string `gocti:"main"      json:"main,omitempty"`
@@ -6278,7 +6278,7 @@ func (r Role) MarshalJSON() ([]byte, error) {
 
 // RoleConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type RoleConnection struct {
 	// RoleConnection
 	PageInfo PageInfo   `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -6298,7 +6298,7 @@ func (r RoleConnection) MarshalJSON() ([]byte, error) {
 
 // RoleEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type RoleEdge struct {
 	// RoleEdge
 	Cursor string `gocti:"cursor" json:"cursor,omitempty"`
@@ -6318,7 +6318,7 @@ func (r RoleEdge) MarshalJSON() ([]byte, error) {
 
 // ScaleAttribute represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ScaleAttribute struct {
 	// ScaleAttribute
 	Name  string `gocti:"name"  json:"name,omitempty"`
@@ -6404,7 +6404,7 @@ func (s Sector) MarshalJSON() ([]byte, error) {
 
 // SectorConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type SectorConnection struct {
 	// SectorConnection
 	PageInfo PageInfo     `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -6424,7 +6424,7 @@ func (s SectorConnection) MarshalJSON() ([]byte, error) {
 
 // SectorEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type SectorEdge struct {
 	// SectorEdge
 	Cursor string   `gocti:"cursor" json:"cursor,omitempty"`
@@ -6445,7 +6445,7 @@ func (s SectorEdge) MarshalJSON() ([]byte, error) {
 
 // SessionDetail represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type SessionDetail struct {
 	// SessionDetail
 	ID             string     `gocti:"id"             json:"id,omitempty"`
@@ -6467,7 +6467,7 @@ func (s SessionDetail) MarshalJSON() ([]byte, error) {
 
 // Software represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Software struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -6520,7 +6520,7 @@ func (s Software) MarshalJSON() ([]byte, error) {
 
 // SoftwareAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type SoftwareAddInput struct {
 	// SoftwareAddInput
 	Name      string   `gocti:"name"      json:"name,omitempty"`
@@ -6545,7 +6545,7 @@ func (s SoftwareAddInput) MarshalJSON() ([]byte, error) {
 
 // SoftwareConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type SoftwareConnection struct {
 	// SoftwareConnection
 	PageInfo PageInfo       `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -6565,7 +6565,7 @@ func (s SoftwareConnection) MarshalJSON() ([]byte, error) {
 
 // SoftwareEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type SoftwareEdge struct {
 	// SoftwareEdge
 	Cursor string   `gocti:"cursor" json:"cursor,omitempty"`
@@ -6605,7 +6605,7 @@ func (s State) MarshalJSON() ([]byte, error) {
 
 // Status represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Status struct {
 	// Status
 	ID         string         `gocti:"id"          json:"id,omitempty"`
@@ -6629,7 +6629,7 @@ func (s Status) MarshalJSON() ([]byte, error) {
 
 // StatusTemplate represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StatusTemplate struct {
 	// StatusTemplate
 	ID          string            `gocti:"id"          json:"id,omitempty"`
@@ -6726,7 +6726,7 @@ func (s StatusTemplate) MarshalJSON() ([]byte, error) {
 // - [Indicator]
 // - [Organization]
 //
-// (See the examples for ways to decode an interface field into an implementation)
+// (See the examples for ways to decode an interface field into an implementation).
 type StixCoreObject struct {
 	// StixCoreObject
 	ID                 string                      `gocti:"id"                 json:"id,omitempty"`
@@ -6907,7 +6907,7 @@ func (s StixCoreRelationship) MarshalJSON() ([]byte, error) {
 
 // StixCoreRelationshipConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StixCoreRelationshipConnection struct {
 	// StixCoreRelationshipConnection
 	PageInfo PageInfo                   `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -6927,7 +6927,7 @@ func (s StixCoreRelationshipConnection) MarshalJSON() ([]byte, error) {
 
 // StixCoreRelationshipEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StixCoreRelationshipEdge struct {
 	// StixCoreRelationshipEdge
 	Cursor string               `gocti:"cursor" json:"cursor,omitempty"`
@@ -6983,7 +6983,7 @@ func (s StixCoreRelationshipEdge) MarshalJSON() ([]byte, error) {
 // - [MediaContent]
 // - [Persona]
 //
-// (See the examples for ways to decode an interface field into an implementation)
+// (See the examples for ways to decode an interface field into an implementation).
 type StixCyberObservable struct {
 	// StixCyberObservable
 	ID                  string                      `gocti:"id"                    json:"id,omitempty"`
@@ -7065,7 +7065,7 @@ func (s StixCyberObservable) MarshalJSON() ([]byte, error) {
 
 // StixCyberObservableConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StixCyberObservableConnection struct {
 	// StixCyberObservableConnection
 	PageInfo PageInfo                  `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -7085,7 +7085,7 @@ func (s StixCyberObservableConnection) MarshalJSON() ([]byte, error) {
 
 // StixCyberObservableEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StixCyberObservableEdge struct {
 	// StixCyberObservableEdge
 	Cursor string              `gocti:"cursor" json:"cursor,omitempty"`
@@ -7147,7 +7147,7 @@ func (s StixCyberObservableEdge) MarshalJSON() ([]byte, error) {
 // - [Indicator]
 // - [Organization]
 //
-// (See the examples for ways to decode an interface field into an implementation)
+// (See the examples for ways to decode an interface field into an implementation).
 type StixDomainObject struct {
 	// StixDomainObject
 	ID                 string                      `gocti:"id"                 json:"id,omitempty"`
@@ -7240,7 +7240,7 @@ func (s StixDomainObject) MarshalJSON() ([]byte, error) {
 
 // StixFile represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StixFile struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -7300,7 +7300,7 @@ func (s StixFile) MarshalJSON() ([]byte, error) {
 
 // StixFileAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StixFileAddInput struct {
 	// StixFileAddInput
 	Hashes                  []HashInput `gocti:"hashes"                     json:"hashes,omitempty"`
@@ -7330,7 +7330,7 @@ func (s StixFileAddInput) MarshalJSON() ([]byte, error) {
 
 // StixFileConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StixFileConnection struct {
 	// StixFileConnection
 	PageInfo PageInfo       `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -7350,7 +7350,7 @@ func (s StixFileConnection) MarshalJSON() ([]byte, error) {
 
 // StixFileEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StixFileEdge struct {
 	// StixFileEdge
 	Cursor string   `gocti:"cursor" json:"cursor,omitempty"`
@@ -7449,7 +7449,7 @@ func (s StixFileEdge) MarshalJSON() ([]byte, error) {
 // - [Indicator]
 // - [Organization]
 //
-// (See the examples for ways to decode an interface field into an implementation)
+// (See the examples for ways to decode an interface field into an implementation).
 type StixObject struct {
 	// StixObject
 	ID           string       `gocti:"id"           json:"id,omitempty"`
@@ -7650,7 +7650,7 @@ func (s StixObject) MarshalJSON() ([]byte, error) {
 // - [CsvMapper]
 // - [PublicDashboard]
 //
-// (See the examples for ways to decode an interface field into an implementation)
+// (See the examples for ways to decode an interface field into an implementation).
 type StixObjectOrStixRelationship struct {
 	// StixObjectOrStixRelationship
 
@@ -7763,7 +7763,7 @@ func (s StixObjectOrStixRelationship) MarshalJSON() ([]byte, error) {
 
 // StixObjectOrStixRelationshipConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StixObjectOrStixRelationshipConnection struct {
 	// StixObjectOrStixRelationshipConnection
 	PageInfo PageInfo                           `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -7783,7 +7783,7 @@ func (s StixObjectOrStixRelationshipConnection) MarshalJSON() ([]byte, error) {
 
 // StixObjectOrStixRelationshipEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StixObjectOrStixRelationshipEdge struct {
 	// StixObjectOrStixRelationshipEdge
 	Cursor string                       `gocti:"cursor" json:"cursor,omitempty"`
@@ -7893,7 +7893,7 @@ func (s StixObjectOrStixRelationshipEdge) MarshalJSON() ([]byte, error) {
 // - [Status]
 // - [PublicDashboard]
 //
-// (See the examples for ways to decode an interface field into an implementation)
+// (See the examples for ways to decode an interface field into an implementation).
 type StixObjectOrStixRelationshipOrCreator struct {
 	// StixObjectOrStixRelationshipOrCreator
 
@@ -8009,7 +8009,7 @@ func (s StixObjectOrStixRelationshipOrCreator) MarshalJSON() ([]byte, error) {
 
 // StixObjectOrStixRelationshipRefConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StixObjectOrStixRelationshipRefConnection struct {
 	// StixObjectOrStixRelationshipRefConnection
 	PageInfo PageInfo                              `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -8029,7 +8029,7 @@ func (s StixObjectOrStixRelationshipRefConnection) MarshalJSON() ([]byte, error)
 
 // StixObjectOrStixRelationshipRefEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StixObjectOrStixRelationshipRefEdge struct {
 	// StixObjectOrStixRelationshipRefEdge
 	Cursor string                       `gocti:"cursor" json:"cursor,omitempty"`
@@ -8050,7 +8050,7 @@ func (s StixObjectOrStixRelationshipRefEdge) MarshalJSON() ([]byte, error) {
 
 // StixRefRelationship represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StixRefRelationship struct {
 	// BasicRelationship
 	ID          string     `gocti:"id"           json:"id,omitempty"`
@@ -8100,7 +8100,7 @@ func (s StixRefRelationship) MarshalJSON() ([]byte, error) {
 
 // StixSightingRelationship represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type StixSightingRelationship struct {
 	// BasicRelationship
 	ID          string     `gocti:"id"           json:"id,omitempty"`
@@ -8161,7 +8161,7 @@ func (s StixSightingRelationship) MarshalJSON() ([]byte, error) {
 
 // SubType represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type SubType struct {
 	// SubType
 	ID              string        `gocti:"id"              json:"id,omitempty"`
@@ -8184,7 +8184,7 @@ func (s SubType) MarshalJSON() ([]byte, error) {
 
 // System represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type System struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -8309,7 +8309,7 @@ func (t Task) MarshalJSON() ([]byte, error) {
 
 // TaskConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type TaskConnection struct {
 	// TaskConnection
 	PageInfo PageInfo   `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -8329,7 +8329,7 @@ func (t TaskConnection) MarshalJSON() ([]byte, error) {
 
 // TaskEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type TaskEdge struct {
 	// TaskEdge
 	Cursor string `gocti:"cursor" json:"cursor,omitempty"`
@@ -8349,7 +8349,7 @@ func (t TaskEdge) MarshalJSON() ([]byte, error) {
 
 // TaskTemplate represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type TaskTemplate struct {
 	// InternalObject
 	ID         string `gocti:"id"          json:"id,omitempty"`
@@ -8379,7 +8379,7 @@ func (t TaskTemplate) MarshalJSON() ([]byte, error) {
 
 // TaskTemplateConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type TaskTemplateConnection struct {
 	// TaskTemplateConnection
 	PageInfo PageInfo           `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -8399,7 +8399,7 @@ func (t TaskTemplateConnection) MarshalJSON() ([]byte, error) {
 
 // TaskTemplateEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type TaskTemplateEdge struct {
 	// TaskTemplateEdge
 	Cursor string       `gocti:"cursor" json:"cursor,omitempty"`
@@ -8419,7 +8419,7 @@ func (t TaskTemplateEdge) MarshalJSON() ([]byte, error) {
 
 // Template represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Template struct {
 	// Template
 	ID                 string   `gocti:"id"                   json:"id,omitempty"`
@@ -8443,7 +8443,7 @@ func (t Template) MarshalJSON() ([]byte, error) {
 
 // TemplateAndUtils represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type TemplateAndUtils struct {
 	// TemplateAndUtils
 	Template        Template `gocti:"template"         json:"template,omitempty"`
@@ -8463,7 +8463,7 @@ func (t TemplateAndUtils) MarshalJSON() ([]byte, error) {
 
 // Text represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Text struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -8510,7 +8510,7 @@ func (t Text) MarshalJSON() ([]byte, error) {
 
 // TextAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type TextAddInput struct {
 	// TextAddInput
 	Value string `gocti:"value" json:"value,omitempty"`
@@ -8536,7 +8536,7 @@ func (t TextAddInput) MarshalJSON() ([]byte, error) {
 // - [ThreatActorGroup]
 // - [ThreatActorIndividual]
 //
-// (See the examples for ways to decode an interface field into an implementation)
+// (See the examples for ways to decode an interface field into an implementation).
 type ThreatActor struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -8616,7 +8616,7 @@ func (t ThreatActor) MarshalJSON() ([]byte, error) {
 
 // ThreatActorGroup represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ThreatActorGroup struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -8684,7 +8684,7 @@ func (t ThreatActorGroup) MarshalJSON() ([]byte, error) {
 
 // ThreatActorIndividual represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type ThreatActorIndividual struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -8762,7 +8762,7 @@ func (t ThreatActorIndividual) MarshalJSON() ([]byte, error) {
 
 // Tool represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Tool struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -8819,7 +8819,7 @@ func (t Tool) MarshalJSON() ([]byte, error) {
 
 // TrackingNumber represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type TrackingNumber struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -8866,7 +8866,7 @@ func (t TrackingNumber) MarshalJSON() ([]byte, error) {
 
 // TrackingNumberAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type TrackingNumberAddInput struct {
 	// TrackingNumberAddInput
 	Value string `gocti:"value" json:"value,omitempty"`
@@ -8886,7 +8886,7 @@ func (t TrackingNumberAddInput) MarshalJSON() ([]byte, error) {
 
 // TypeAttribute represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type TypeAttribute struct {
 	// TypeAttribute
 	Name          string         `gocti:"name"          json:"name,omitempty"`
@@ -8932,7 +8932,7 @@ func (u UnitSystem) MarshalJSON() ([]byte, error) {
 
 // Url represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type URL struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -8979,7 +8979,7 @@ func (u URL) MarshalJSON() ([]byte, error) {
 
 // UrlAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type URLAddInput struct {
 	// UrlAddInput
 	Value string `gocti:"value" json:"value,omitempty"`
@@ -9063,7 +9063,7 @@ func (u User) MarshalJSON() ([]byte, error) {
 
 // UserAccount represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type UserAccount struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -9124,7 +9124,7 @@ func (u UserAccount) MarshalJSON() ([]byte, error) {
 
 // UserAccountAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type UserAccountAddInput struct {
 	// UserAccountAddInput
 	UserID                string     `gocti:"user_id"                 json:"user_id,omitempty"`
@@ -9157,7 +9157,7 @@ func (u UserAccountAddInput) MarshalJSON() ([]byte, error) {
 
 // UserAgent represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type UserAgent struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -9204,7 +9204,7 @@ func (u UserAgent) MarshalJSON() ([]byte, error) {
 
 // UserAgentAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type UserAgentAddInput struct {
 	// UserAgentAddInput
 	Value string `gocti:"value" json:"value,omitempty"`
@@ -9224,7 +9224,7 @@ func (u UserAgentAddInput) MarshalJSON() ([]byte, error) {
 
 // UserConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type UserConnection struct {
 	// UserConnection
 	PageInfo PageInfo   `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -9244,7 +9244,7 @@ func (u UserConnection) MarshalJSON() ([]byte, error) {
 
 // UserEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type UserEdge struct {
 	// UserEdge
 	Cursor string `gocti:"cursor" json:"cursor,omitempty"`
@@ -9264,7 +9264,7 @@ func (u UserEdge) MarshalJSON() ([]byte, error) {
 
 // Vocabulary represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Vocabulary struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -9306,7 +9306,7 @@ func (v Vocabulary) MarshalJSON() ([]byte, error) {
 
 // VocabularyDefinition represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type VocabularyDefinition struct {
 	// VocabularyDefinition
 	Key         string                      `gocti:"key"          json:"key,omitempty"`
@@ -9328,7 +9328,7 @@ func (v VocabularyDefinition) MarshalJSON() ([]byte, error) {
 
 // VocabularyFieldDefinition represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type VocabularyFieldDefinition struct {
 	// VocabularyFieldDefinition
 	Key      string `gocti:"key"      json:"key,omitempty"`
@@ -9415,7 +9415,7 @@ func (v Vulnerability) MarshalJSON() ([]byte, error) {
 
 // VulnerabilityConnection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type VulnerabilityConnection struct {
 	// VulnerabilityConnection
 	PageInfo PageInfo            `gocti:"pageInfo" json:"pageInfo,omitempty"`
@@ -9435,7 +9435,7 @@ func (v VulnerabilityConnection) MarshalJSON() ([]byte, error) {
 
 // VulnerabilityEdge represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type VulnerabilityEdge struct {
 	// VulnerabilityEdge
 	Cursor string        `gocti:"cursor" json:"cursor,omitempty"`
@@ -9455,7 +9455,7 @@ func (v VulnerabilityEdge) MarshalJSON() ([]byte, error) {
 
 // Widget represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Widget struct {
 	// Widget
 	ID            string                `gocti:"id"            json:"id,omitempty"`
@@ -9479,7 +9479,7 @@ func (w Widget) MarshalJSON() ([]byte, error) {
 
 // WidgetColumn represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type WidgetColumn struct {
 	// WidgetColumn
 	Attribute    string `gocti:"attribute"    json:"attribute,omitempty"`
@@ -9501,7 +9501,7 @@ func (w WidgetColumn) MarshalJSON() ([]byte, error) {
 
 // WidgetDataSelection represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type WidgetDataSelection struct {
 	// WidgetDataSelection
 	Label         string            `gocti:"label"          json:"label,omitempty"`
@@ -9533,7 +9533,7 @@ func (w WidgetDataSelection) MarshalJSON() ([]byte, error) {
 
 // WidgetLayout represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type WidgetLayout struct {
 	// WidgetLayout
 	W      float64 `gocti:"w"      json:"w,omitempty"`
@@ -9558,7 +9558,7 @@ func (w WidgetLayout) MarshalJSON() ([]byte, error) {
 
 // WidgetParameters represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type WidgetParameters struct {
 	// WidgetParameters
 	Title       string `gocti:"title"       json:"title,omitempty"`
@@ -9601,7 +9601,7 @@ func (w WidgetPerspective) MarshalJSON() ([]byte, error) {
 
 // WindowsRegistryKey represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type WindowsRegistryKey struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -9650,7 +9650,7 @@ func (w WindowsRegistryKey) MarshalJSON() ([]byte, error) {
 
 // WindowsRegistryKeyAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type WindowsRegistryKeyAddInput struct {
 	// WindowsRegistryKeyAddInput
 	AttributeKey    string     `gocti:"attribute_key"     json:"attribute_key,omitempty"`
@@ -9672,7 +9672,7 @@ func (w WindowsRegistryKeyAddInput) MarshalJSON() ([]byte, error) {
 
 // WindowsRegistryValueType represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type WindowsRegistryValueType struct {
 	// BasicObject
 	ID          string   `gocti:"id"           json:"id,omitempty"`
@@ -9721,7 +9721,7 @@ func (w WindowsRegistryValueType) MarshalJSON() ([]byte, error) {
 
 // WindowsRegistryValueTypeAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type WindowsRegistryValueTypeAddInput struct {
 	// WindowsRegistryValueTypeAddInput
 	Name     string `gocti:"name"      json:"name,omitempty"`
@@ -9743,7 +9743,7 @@ func (w WindowsRegistryValueTypeAddInput) MarshalJSON() ([]byte, error) {
 
 // Work represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type Work struct {
 	// Work
 	ID              string        `gocti:"id"               json:"id,omitempty"`
@@ -9775,7 +9775,7 @@ func (w Work) MarshalJSON() ([]byte, error) {
 
 // WorkMessage represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type WorkMessage struct {
 	// WorkMessage
 	Timestamp *time.Time `gocti:"timestamp" json:"timestamp,omitempty"`
@@ -9797,7 +9797,7 @@ func (w WorkMessage) MarshalJSON() ([]byte, error) {
 
 // WorkTracking represents a GraphQL OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
+// (See the examples for ways to expand an existing type).
 type WorkTracking struct {
 	// WorkTracking
 	ImportExpectedNumber  int        `gocti:"import_expected_number"  json:"import_expected_number,omitempty"`
