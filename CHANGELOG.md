@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.4.0] - 2024-01-13
 
 ### Added
 - CI actions validate the generator version
@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Accept a max confidence level of 0
 - Format Python code according to 2025 style guide
+
+### Changed
+- Support OpenCTI version 6.4.6
 
 ## [0.3.0] - 2025-01-07
 
