@@ -64,9 +64,7 @@ func (t Tool) CreateResponseField() string { return "toolAdd" }
 
 // ToolAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
-//
-
+// (See the examples for ways to expand an existing type).
 type ToolAddInput struct {
 	// ToolAddInput
 	StixID             string     `gocti:"stix_id"               json:"stix_id,omitempty"`

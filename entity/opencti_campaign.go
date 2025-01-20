@@ -64,9 +64,7 @@ func (c Campaign) CreateResponseField() string { return "campaignAdd" }
 
 // CampaignAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
-//
-
+// (See the examples for ways to expand an existing type).
 type CampaignAddInput struct {
 	// CampaignAddInput
 	StixID             string     `gocti:"stix_id"               json:"stix_id,omitempty"`

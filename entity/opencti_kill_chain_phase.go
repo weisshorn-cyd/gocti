@@ -64,9 +64,7 @@ func (k KillChainPhase) CreateResponseField() string { return "killChainPhaseAdd
 
 // KillChainPhaseAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
-//
-
+// (See the examples for ways to expand an existing type).
 type KillChainPhaseAddInput struct {
 	// KillChainPhaseAddInput
 	StixID           string     `gocti:"stix_id"            json:"stix_id,omitempty"`
