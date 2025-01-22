@@ -107,7 +107,7 @@ jobs:
       - name: Generate new GoCTI
         run: |
           pip install ./tools/gocti_type_generator
-          echo "OPENCTI_TOKEN: $OPENCTI_ADMIN_TOKEN"
+          source ./docker-compose.env
           export GOCTI_REPO=.
           export OPENCTI_URL=$(echo $OPENCTI_BASE_URL)
           export OPENCTI_TOKEN=$(echo $OPENCTI_ADMIN_TOKEN)
