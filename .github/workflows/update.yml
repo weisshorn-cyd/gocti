@@ -125,6 +125,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
+          token: ${{ secrets.AUTO_UPDATE_OPENCTI }}
           base: ${{ github.head_ref }} # temporary during testing
           draft: always-true # temporary during testing
           commit-message: Update GoCTI to ${{ env.NEXT_VERSION }}
