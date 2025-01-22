@@ -128,7 +128,7 @@ jobs:
           base: ${{ github.head_ref }} # temporary during testing
           draft: always-true # temporary during testing
           commit-message: Update GoCTI to ${{ env.NEXT_VERSION }}
-          branch: feature/release-${{ env.NEXT_OPENCTI_VERSION }}
+          branch: feature/release-${{ env.NEXT_VERSION }}
           title: '[opencti] update to ${{ env.NEXT_OPENCTI_VERSION }}'
           body: |
             Update GoCTI to support newest OpenCTI version ${{ env.NEXT_OPENCTI_VERSION }}
