@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- CI actions workflow to auto-update for new OpenCTI versions
+
 ### Changed
 - Linting exception for long struct tags
 - Regenerate GoCTI
@@ -25,7 +28,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - CI actions validate the generator version
-- CI actions workflow to auto-update for new OpenCTI versions
 
 ### Fixed
 - Accept a max confidence level of 0
