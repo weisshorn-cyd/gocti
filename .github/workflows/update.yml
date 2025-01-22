@@ -128,6 +128,8 @@ jobs:
           base: ${{ github.head_ref }} # temporary during testing
           draft: always-true # temporary during testing
           commit-message: Update GoCTI to ${{ env.NEXT_VERSION }}
+          committer: weisshorn-cyd-bot <196039234+weisshorn-cyd-bot@users.noreply.github.com>
+          author: weisshorn-cyd-bot <196039234+weisshorn-cyd-bot@users.noreply.github.com>
           branch: feature/release-${{ env.NEXT_VERSION }}
           title: '[opencti] update to ${{ env.NEXT_OPENCTI_VERSION }}'
           body: |
