@@ -127,11 +127,11 @@ jobs:
         with:
           base: ${{ github.head_ref }} # temporary during testing
           draft: always-true # temporary during testing
-          commit-message: Update GoCTI to $NEXT_VERSION
-          branch: feature/release-$NEXT_OPENCTI_VERSION
-          title: '[opencti] update to $NEXT_OPENCTI_VERSION'
+          commit-message: Update GoCTI to ${{ env.NEXT_VERSION }}
+          branch: feature/release-${{ env.NEXT_OPENCTI_VERSION }}
+          title: '[opencti] update to ${{ env.NEXT_OPENCTI_VERSION }}'
           body: |
-            Update GoCTI to support newest OpenCTI version $NEXT_OPENCTI_VERSION
+            Update GoCTI to support newest OpenCTI version ${{ env.NEXT_OPENCTI_VERSION }}
 
             Todo:
             - [ ] Check if there are changes in the [upstream compose](https://github.com/OpenCTI-Platform/docker/blob/master/docker-compose.yml) that need to be applied here
