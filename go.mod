@@ -1,6 +1,6 @@
 module github.com/weisshorn-cyd/gocti
 
-go 1.22.1
+go 1.23.5
 
 require (
 	github.com/go-viper/mapstructure/v2 v2.0.0
