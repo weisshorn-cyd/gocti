@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+- Linting exception for long struct tags
+- Regenerate GoCTI
+- Run workflows only when there are relevant changes
+
+### Fixed
+- The `generate` Makefile target now correctly formats the generated code
+- Specify golangci-lint config file in workflow
+
 ## [0.5.0] - 2024-01-17
 
 ### Changed
