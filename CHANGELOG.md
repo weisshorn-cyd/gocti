@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Linting exception for long struct tags
 - Regenerate GoCTI
 - Run workflows only when there are relevant changes
+- Bump Go to version 1.23.5
 
 ### Fixed
 - The `generate` Makefile target now correctly formats the generated code
