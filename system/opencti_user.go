@@ -64,9 +64,7 @@ func (u User) CreateResponseField() string { return "userAdd" }
 
 // UserAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
-//
-//nolint:lll // Long tags
+// (See the examples for ways to expand an existing type).
 type UserAddInput struct {
 	// UserAddInput
 	UserEmail            string                       `gocti:"user_email"              json:"user_email,omitempty"`

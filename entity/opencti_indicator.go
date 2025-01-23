@@ -64,9 +64,7 @@ func (i Indicator) CreateResponseField() string { return "indicatorAdd" }
 
 // IndicatorAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
-//
-//nolint:lll // Long tags
+// (See the examples for ways to expand an existing type).
 type IndicatorAddInput struct {
 	// IndicatorAddInput
 	StixID                     string                  `gocti:"stix_id"                        json:"stix_id,omitempty"`
