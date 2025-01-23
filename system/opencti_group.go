@@ -63,9 +63,7 @@ func (g Group) CreateResponseField() string { return "groupAdd" }
 
 // GroupAddInput represents a GraphQL INPUT_OBJECT
 // Some fields from the OpenCTI schema may be missing
-// (See the examples for ways to expand an existing type)
-//
-//nolint:lll // Long tags
+// (See the examples for ways to expand an existing type).
 type GroupAddInput struct {
 	// GroupAddInput
 	Name                 string                       `gocti:"name"                   json:"name,omitempty"`

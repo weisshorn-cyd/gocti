@@ -34,6 +34,7 @@ lint:
 
 .PHONY: generate
 generate: .go-generate fmt lint
+	$(MAKE) fmt
 
 .PHONY: test
 test:

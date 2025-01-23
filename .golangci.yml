@@ -65,6 +65,7 @@ linters:
     - dupl
     - exhaustruct
     - exportloopref # Deprecated
+    - goimports
     - tagliatelle
 
 issues:
@@ -73,4 +74,8 @@ issues:
     - source: "^func Test"
       linters:
         - funlen
+    # disable lll for gocti tags
+    - source: "`gocti.*`"
+      linters:
+      - lll
   exclude-generated: disable

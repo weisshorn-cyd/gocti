@@ -5,6 +5,9 @@ on:
       - master
       - main
   pull_request:
+    paths:
+      - '**.py'
+      - '**pyproject.toml'
 
 permissions:
   contents: read

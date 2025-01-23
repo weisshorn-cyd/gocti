@@ -63,7 +63,6 @@ func (s StixCyberObservable) CreateQueryString(customAttributes string) string {
 
 func (s StixCyberObservable) CreateResponseField() string { return "stixCyberObservableAdd" }
 
-//nolint:lll // Long tags
 type StixCyberObservableAddInput struct {
 	// StixCyberObservableAddInput
 	Type                     graphql.StixCyberObservableType          `gocti:"type"                     json:"type,omitempty"`
