@@ -65,6 +65,7 @@ linters:
     - dupl
     - exhaustruct
     - exportloopref # Deprecated
+    - goimports
     - tagliatelle
 
 issues:
