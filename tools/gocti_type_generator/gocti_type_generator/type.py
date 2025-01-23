@@ -80,7 +80,6 @@ const(
 """.strip()
 
 STRUCT_GO_TMPL = """
-//nolint:lll // Long tags
 type $TypeName struct{
     $Fields
 }
