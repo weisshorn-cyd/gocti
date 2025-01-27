@@ -42,7 +42,7 @@ jobs:
         run: |
           if [ "$OPENCTI_VERSION" == "$NEXT_OPENCTI_VERSION" ]; then
             echo "GoCTI already supports latest OpenCTI version $NEXT_OPENCTI_VERSION"
-            echo "update-available=false" >> "$GITHUB_OUTPUT"
+            echo "update-available=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           echo "A new OpenCTI version $NEXT_OPENCTI_VERSION is available (GoCTI is currently supporting $OPENCTI_VERSION)"
