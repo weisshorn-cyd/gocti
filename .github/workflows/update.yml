@@ -175,7 +175,7 @@ jobs:
           commit-message: Update GoCTI to ${{ env.NEXT_VERSION }}
           committer: weisshorn-cyd-bot <196039234+weisshorn-cyd-bot@users.noreply.github.com>
           author: weisshorn-cyd-bot <196039234+weisshorn-cyd-bot@users.noreply.github.com>
-          branch: feature/release-${{ env.NEXT_VERSION }}
+          branch: feature/update-opencti-to-${{ env.NEXT_OPENCTI_VERSION }}
           title: '[opencti] update to ${{ env.NEXT_OPENCTI_VERSION }}'
           body: |
             Update GoCTI to support newest OpenCTI version ${{ env.NEXT_OPENCTI_VERSION }}
