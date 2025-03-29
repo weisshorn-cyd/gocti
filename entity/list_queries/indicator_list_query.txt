@@ -3,13 +3,15 @@ query ($after: ID
        $first: Int
        $orderBy: IndicatorsOrdering
        $orderMode: OrderingMode
-       $search: String) {
+       $search: String
+       $toStix: Boolean) {
     indicators (after: $after
                 filters: $filters
                 first: $first
                 orderBy: $orderBy
                 orderMode: $orderMode
-                search: $search) {
+                search: $search
+                toStix: $toStix) {
         edges {
             node {%s}
         }
