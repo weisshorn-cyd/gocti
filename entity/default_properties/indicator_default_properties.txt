@@ -107,6 +107,10 @@ x_opencti_main_observable_type
 x_opencti_observable_values {
     type
     value
+    hashes {
+        algorithm
+        hash
+    }
 }
 x_mitre_platforms
 observables {
