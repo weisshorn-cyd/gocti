@@ -25,7 +25,7 @@ import (
 //go:generate go run ./tools/generator.go ./tools
 
 const (
-	goctiVersion = "0.20.0"
+	goctiVersion = "0.21.0"
 )
 
 // Config holds all the [OpenCTIAPIClient] parameters that can be set by environment variables.

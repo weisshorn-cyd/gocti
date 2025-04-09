@@ -1,5 +1,14 @@
 id
+standard_id
 entity_type
+parent_types
 name
+description
 created_at
 updated_at
+capabilities {
+    id
+    name
+    description
+}
+can_manage_sensitive_config

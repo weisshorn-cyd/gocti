@@ -1,10 +1,50 @@
 id
-entity_type
+standard_id
 name
-default_assignation
-auto_new_marking
-group_confidence_level {
-    max_confidence
-}
+description
+entity_type
+parent_types
 created_at
 updated_at
+default_assignation
+no_creators
+restrict_delete
+default_hidden_types
+auto_new_marking
+allowed_marking {
+    id, standard_id, definition_type, definition
+}
+default_marking {
+    entity_type
+    values {
+        id, standard_id, definition_type, definition
+    }
+}
+not_shareable_marking_types
+max_shareable_marking {
+    id, standard_id, definition_type, definition
+}
+group_confidence_level {
+    max_confidence
+    overrides {
+        entity_type
+        max_confidence
+    }
+}
+roles {
+    edges {
+        node {
+            id, name
+            capabilities {
+                id, name
+            }
+        }
+    }
+}
+members {
+    edges {
+        node {
+            id, individual_id, user_email, name
+        }
+    }
+}
