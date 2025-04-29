@@ -46,10 +46,82 @@ jobs:
           echo "A new OpenCTI version $NEXT_OPENCTI_VERSION is available (GoCTI is currently supporting $OPENCTI_VERSION)"
           echo "update-available=true" >> "$GITHUB_OUTPUT"
 
+  look-for-graphql-changes:
+    runs-on: ubuntu-latest
+    needs: look-for-update
+    steps:
+      - name: Get current OpenCTI version
+        run: |
+          OPENCTI_VERSION=$(sed -n 's/.*opencti\/platform:\(.*\)$/\1/p' ./docker-compose.yml | head -1)
+          echo "OPENCTI_VERSION=$OPENCTI_VERSION" >> "$GITHUB_ENV"
+          echo "Current OpenCTI version is $OPENCTI_VERSION"
+
+      - name: Fetch latest OpenCTI version
+        run: |
+          NEXT_OPENCTI_VERSION=$(curl -sL https://api.github.com/repos/OpenCTI-Platform/opencti/releases/latest | jq '.tag_name' | tr -d '"')
+          if [ -z $NEXT_OPENCTI_VERSION ]; then
+            echo "Could not get latest OpenCTI version"
+            exit 1
+          fi
+          echo "NEXT_OPENCTI_VERSION=$NEXT_OPENCTI_VERSION" >> "$GITHUB_ENV"
+          echo "Latest OpenCTI version: $NEXT_OPENCTI_VERSION"^
+
+      - name: Detect graphql changes
+        id: graphql
+        run: |
+          diff -q <(curl -s https://raw.githubusercontent.com/OpenCTI-Platform/opencti/refs/tags/${OPENCTI_VERSION}/opencti-platform/opencti-graphql/src/generated/graphql.ts) <(curl -s https://raw.githubusercontent.com/OpenCTI-Platform/opencti/refs/tags/${NEXT_OPENCTI_VERSION}/opencti-platform/opencti-graphql/src/generated/graphql.ts) > /dev/null && echo "graphql-changes=false" >> "$GITHUB_OUTPUT" || echo "graphql-changes=true" >> "$GITHUB_OUTPUT"
+
+      - name: Update README
+        if: steps.graphql.outputs.graphql-changes == 'false'
+        run: |
+          sed -i "s/OpenCTI version [0-9]*.[0-9]*.[0-9]*.$/\OpenCTI version $NEXT_OPENCTI_VERSION./" ./README.md
+
+      - name: Compute next GoCTI version
+        run: |
+          GOCTI_VERSION=$(sed -En "s/^\#\# \[(.*)\] \- [0-9]{4}\-[0-9]{2}\-[0-9]{2}$/\1/p" ./CHANGELOG.md | head -1)
+          if [ -z $GOCTI_VERSION ]; then
+            echo "Could not determine latest GoCTI version"
+            exit 1
+          fi
+          IFS='.' read -ra version_parts <<< "$GOCTI_VERSION"
+          NEXT_VERSION="${version_parts[0]}.$((${version_parts[1]}+1)).${version_parts[2]}"
+          echo "NEXT_VERSION=$NEXT_VERSION" >> "$GITHUB_ENV"
+
+      - name: Update changelog
+        run: |
+          CHANGELOG_LINE="- Support OpenCTI version $NEXT_OPENCTI_VERSION - No graphql changes"
+          CHANGELOG_HEADER="\#\# \[Unreleased\]"
+
+          UNRELEASED=$(sed -n '/^\#\# \[Unreleased\]/p' ./CHANGELOG.md | head -1)
+          if [ -n "$UNRELEASED" ]; then
+            CONTAINS_CHANGED=$(sed -n '/\#\# \[Unreleased\]/,/\#\# \[/p' ./CHANGELOG.md | grep "### Changed" || true)
+            if [ -n "$CONTAINS_CHANGED" ]; then
+              sed -i "/\#\# \[Unreleased\]/,/\#\# \[/s/^\#\#\# Changed$/\#\#\# Changed\n$CHANGELOG_LINE/" ./CHANGELOG.md
+            else
+              sed -i "s/^\#\# \[Unreleased\]/\#\# \[Unreleased\]\n\n\#\#\# Changed\n$CHANGELOG_LINE/" ./CHANGELOG.md
+            fi
+          else
+            sed -i "8i $CHANGELOG_HEADER\n\n\#\#\# Changed\n$CHANGELOG_LINE\n" ./CHANGELOG.md
+          fi
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          token: ${{ secrets.AUTO_UPDATE_OPENCTI }}
+          commit-message: Update README and CHANGELOG for OpenCTI ${{ env.NEXT_OPENCTI_VERSION }}
+          committer: weisshorn-cyd-bot <196039234+weisshorn-cyd-bot@users.noreply.github.com>
+          author: weisshorn-cyd-bot <196039234+weisshorn-cyd-bot@users.noreply.github.com>
+          branch: feature/update-opencti-to-${{ env.NEXT_OPENCTI_VERSION }}
+          title: '[opencti] update README and CHANGELOG for ${{ env.NEXT_OPENCTI_VERSION }}'
+          body: |
+            Update README and CHANGELOG  for OpenCTI version ${{ env.NEXT_OPENCTI_VERSION }}
+
+            No graphql changes.
+
   opencti-auto-update:
     runs-on: ubuntu-latest
     needs: look-for-update
-    if: needs.look-for-update.outputs.update-available == 'true'
+    if: needs.look-for-graphql-changes.outputs.graphql-changes == 'true'
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
