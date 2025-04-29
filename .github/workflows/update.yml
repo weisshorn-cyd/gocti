@@ -69,13 +69,13 @@ jobs:
             exit 1
           fi
           echo "NEXT_OPENCTI_VERSION=$NEXT_OPENCTI_VERSION" >> "$GITHUB_ENV"
-          echo "Latest OpenCTI version: $NEXT_OPENCTI_VERSION"^
+          echo "Latest OpenCTI version: $NEXT_OPENCTI_VERSION"
 
       - name: Detect graphql changes
         id: graphql
         run: |
           diff -q \
-            <(curl -s https://raw.githubusercontent.com/OpenCTI-Platform/opencti/refs/tags/${OPENCTI_VERSION}/opencti-platform/opencti-graphql/src/generated/graphql.ts) \
+            <(curl -s https://raw.githubusercontent.com/OpenCTI-Platform/opencti/refs/tags/5.0.0/opencti-platform/opencti-graphql/src/generated/graphql.ts) \
             <(curl -s https://raw.githubusercontent.com/OpenCTI-Platform/opencti/refs/tags/${NEXT_OPENCTI_VERSION}/opencti-platform/opencti-graphql/src/generated/graphql.ts) \
           > /dev/null && echo "graphql-changes=false" >> "$GITHUB_OUTPUT" || echo "graphql-changes=true" >> "$GITHUB_OUTPUT"
         shell: bash
