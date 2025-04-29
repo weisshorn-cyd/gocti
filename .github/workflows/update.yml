@@ -72,8 +72,14 @@ jobs:
       - name: Detect graphql changes
         id: graphql
         run: |
-          diff -q <(curl -s https://raw.githubusercontent.com/OpenCTI-Platform/opencti/refs/tags/${OPENCTI_VERSION}/opencti-platform/opencti-graphql/src/generated/graphql.ts) <(curl -s https://raw.githubusercontent.com/OpenCTI-Platform/opencti/refs/tags/${NEXT_OPENCTI_VERSION}/opencti-platform/opencti-graphql/src/generated/graphql.ts) > /dev/null && echo "graphql-changes=false" >> "$GITHUB_OUTPUT" || echo "graphql-changes=true" >> "$GITHUB_OUTPUT"
-          echo $GITHUB_OUTPUT
+          diff -q \
+            <(curl -s https://raw.githubusercontent.com/OpenCTI-Platform/opencti/refs/tags/${OPENCTI_VERSION}/opencti-platform/opencti-graphql/src/generated/graphql.ts) \
+            <(curl -s https://raw.githubusercontent.com/OpenCTI-Platform/opencti/refs/tags/${NEXT_OPENCTI_VERSION}/opencti-platform/opencti-graphql/src/generated/graphql.ts) \
+          > /dev/null && echo "graphql-changes=false" >> "$GITHUB_OUTPUT" || echo "graphql-changes=true" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Show GraphQL change result
+        run: echo "graphql-changes: ${{ steps.graphql.outputs.graphql-changes }}"
 
       - name: Update README
         if: steps.graphql.outputs.graphql-changes == 'false'
