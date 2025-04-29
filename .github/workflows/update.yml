@@ -2,8 +2,9 @@ name: opencti-auto-update
 on:
   #schedule:
   #  - cron:  "15 2 * * *"
-  pull_request:
-    types: [converted_to_draft]
+  push:
+    branches:
+      - feature/only-release-if-graphql-changes
 
 permissions:
   contents: write
