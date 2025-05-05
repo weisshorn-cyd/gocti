@@ -86,7 +86,10 @@ jobs:
       - name: Update README
         if: steps.graphql.outputs.graphql-changes == 'false'
         run: |
-          sed -i 's/OpenCTI version ([0-9]+\.[0-9]+\.[0-9]+)([[:space:]]*-[[:space:]]*[0-9]+\.[0-9]+\.[0-9]+)?*.$/6.4.5 - $NEXT_OPENCTI_VERSION./' ./README.md
+          sed -E -i \
+            -e "s/(OpenCTI version [0-9]+\.[0-9]+\.[0-9]+)([^-0-9.]|\.|\s*)$/\1 - ${NEXT_OPENCTI_VERSION}\2/" \
+            -e "s/(OpenCTI version [0-9]+\.[0-9]+\.[0-9]+[[:space:]]*-[[:space:]]*)[0-9]+\.[0-9]+\.[0-9]+/\1${NEXT_OPENCTI_VERSION}/" \
+            ./README.md
 
       - name: Update changelog
         if: steps.graphql.outputs.graphql-changes == 'false'
