@@ -18,7 +18,7 @@ jobs:
 
       - name: Get OpenCTI version
         run: |
-          VERSION=$(sed -nE 's/.*OpenCTI version ([0-9]+\.[0-9]+\.[0-9]+).*/\1/p' ./README)
+          VERSION=$(sed -nE 's/.*OpenCTI version ([0-9]+\.[0-9]+\.[0-9]+).*/\1/p' ./README.md)
           echo "OPENCTI_VERSION=$VERSION" >> "$GITHUB_ENV"
           echo "OpenCTI@$VERSION"
 
