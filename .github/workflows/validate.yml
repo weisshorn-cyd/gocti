@@ -46,7 +46,7 @@ jobs:
 
       - name: Validate CHANGELOG
         run: |
-          CHANGELOG_VERSION=$(sed -n 's/^- Support OpenCTI version \(.*\)$/\1/p' ./CHANGELOG.md | head -1)
+          CHANGELOG_VERSION=$(sed -nE 's/^- Support OpenCTI version ([0-9]+\.[0-9]+\.[0-9]+).*/\1/p' ./CHANGELOG.md | head -1)
           if [ -z "$CHANGELOG_VERSION" ]; then
             echo "CHANGELOG is missing target OpenCTI version information"
             exit 1
