@@ -18,7 +18,7 @@ jobs:
 
       - name: Get OpenCTI version
         run: |
-          VERSION=$(sed -n 's/.*opencti\/platform:\(.*\)$/\1/p' ./docker-compose.yml | head -1)
+          VERSION=$(sed -nE 's/.*OpenCTI version ([0-9]+\.[0-9]+\.[0-9]+).*/\1/p' ./README)
           echo "OPENCTI_VERSION=$VERSION" >> "$GITHUB_ENV"
           echo "OpenCTI@$VERSION"
 
@@ -43,18 +43,6 @@ jobs:
               exit 1
             fi
           done
-
-      - name: Validate README
-        run: |
-          README_VERSION=$(sed -n 's/^GoCTI is currently compatible with OpenCTI version \([0-9]*.[0-9]*.[0-9]*\).$/\1/p' ./README.md | head -1)
-          if [ -z "$README_VERSION" ]; then
-            echo "README is missing target OpenCTI version information"
-            exit 1
-          fi
-          if [ "$README_VERSION" != "$OPENCTI_VERSION" ]; then
-            echo "README mentions version $README_VERSION and not $OPENCTI_VERSION"
-            exit 1
-          fi
 
       - name: Validate CHANGELOG
         run: |
