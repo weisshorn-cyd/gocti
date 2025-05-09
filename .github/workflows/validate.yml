@@ -37,8 +37,9 @@ jobs:
       - name: Validate pycti
         run: |
           PYCTI_VERSION=$(sed -n 's/.*pycti==\(.*\)".*/\1/p' tools/gocti_type_generator/pyproject.toml | head -1)
-          if [ "$PYCTI_VERSION" != "$FIRST_VERSION" ] && [ "$PYCTI_VERSION" != "$LAST_VERSION" ]; then
+          if [ "$PYCTI_VERSION" != "$FIRST_VERSION" ]; then
             echo "pycti is at $PYCTI_VERSION but target OpenCTI is $FIRST_VERSION"
+            exit 1
           fi
 
       - name: Validate generated files
@@ -50,8 +51,8 @@ jobs:
               exit 1
             fi
             generated=$(sed -n 's/.*version \(.*\) - DO.*/\1/p' $file)
-            if [ -n "$generated" ] && [ "$generated" != "$FIRST_VERSION" ] && [ "$generated" != "$LAST_VERSION" ]; then
-              echo "$file generated for $generated but target is $FIRST_VERSION" or $LAST_VERSION
+            if [ -n "$generated" ] && [ "$generated" != "$FIRST_VERSION" ]; then
+              echo "$file generated for $generated but target is $FIRST_VERSION"
               exit 1
             fi
           done
