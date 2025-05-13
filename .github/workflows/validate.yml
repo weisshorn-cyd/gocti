@@ -37,8 +37,8 @@ jobs:
       - name: Validate pycti
         run: |
           PYCTI_VERSION=$(sed -n 's/.*pycti==\(.*\)".*/\1/p' tools/gocti_type_generator/pyproject.toml | head -1)
-          if [ "$PYCTI_VERSION" != "$FIRST_VERSION" ]; then
-            echo "pycti is at $PYCTI_VERSION but target OpenCTI is $FIRST_VERSION"
+          if [ "$PYCTI_VERSION" != "$LAST_VERSION" ]; then
+            echo "pycti is at $PYCTI_VERSION but target OpenCTI is $LAST_VERSION"
             exit 1
           fi
 
