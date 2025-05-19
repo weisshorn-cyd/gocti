@@ -48,6 +48,7 @@ jobs:
 
   look-for-graphql-changes:
     runs-on: ubuntu-latest
+    if: needs.look-for-update.outputs.update-available == 'true'
     outputs:
       graphql-changes: ${{ steps.graphql.outputs.graphql-changes }}
     needs: look-for-update
