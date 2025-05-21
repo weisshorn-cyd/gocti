@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Validate PyCTI version is last of supported OpenCTI version range
 - Only check for graphql changes if there is a new version of OpenCTI
+- Update README with new version when there are graphql changes
 
 ## [0.28.0] - 2025-05-12
 
