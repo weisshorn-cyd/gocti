@@ -205,6 +205,10 @@ jobs:
             sed -i "8i $CHANGELOG_HEADER\n\n\#\#\# Changed\n$CHANGELOG_LINE\n" ./CHANGELOG.md
           fi
 
+      - name: Update README
+        run: |
+          sed -E -i "s/(OpenCTI version )([0-9]+\.[0-9]+\.[0-9]+)([[:space:]]*-[[:space:]]*[0-9]+\.[0-9]+\.[0-9]+)?\./\1${NEXT_OPENCTI_VERSION}./" ./README.md
+
       - uses: actions/setup-go@0aaccfd150d50ccaeb58ebd88d36e91967a5f35b # v5.4.0
         with:
           go-version: ${{ env.GO_VERSION }}
