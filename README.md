@@ -8,7 +8,7 @@
 
 Unofficial [OpenCTI](https://github.com/OpenCTI-Platform/opencti) Go client. GoCTI is under development, hence breaking changes are to be expected until a version 1.0.0 is released.
 
-GoCTI is currently compatible with OpenCTI version 6.6.12 - 6.6.14.
+GoCTI is currently compatible with OpenCTI version 6.6.12 - 6.6.15.
 
 Like with [pycti](https://github.com/OpenCTI-Platform/client-python), the OpenCTI platform version supported by GoCTI should exactly match the version of your OpenCTI instance.
 No guarantees can be made with regards to back and forwards compatibility.
