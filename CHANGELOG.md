@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support OpenCTI version 6.6.14 - No graphql changes
 - Support OpenCTI version 6.6.13 - No graphql changes
 
+### Fixed
+- Example in README
+
 ## [0.29.0] - 2025-05-23
 
 ### Changed
