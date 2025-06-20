@@ -25,10 +25,10 @@ go get github.com/weisshorn-cyd/gocti
 
 ```go
 // The client supports additional options: See api/options.go
-client, err := api.NewOpenCTIAPIClient(
+client, err := gocti.NewOpenCTIAPIClient(
 	"http://localhost:8080",
 	"my_secret_token",
-    api.WithHealthCheck(),
+    gocti.WithHealthCheck(),
 )
 ```
 
