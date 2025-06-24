@@ -1,5 +1,7 @@
 query ($after: ID
        $confidences: [Int]
+       $dynamicFrom: FilterGroup
+       $dynamicTo: FilterGroup
        $elementWithTargetTypes: [String]
        $endDate: DateTime
        $filters: FilterGroup
@@ -27,6 +29,8 @@ query ($after: ID
        $toTypes: [String]) {
     stixCoreRelationships (after: $after
                            confidences: $confidences
+                           dynamicFrom: $dynamicFrom
+                           dynamicTo: $dynamicTo
                            elementWithTargetTypes: $elementWithTargetTypes
                            endDate: $endDate
                            filters: $filters
