@@ -37,10 +37,14 @@ createdBy {
     }
     ... on Organization {
         x_opencti_organization_type
+        x_opencti_score
     }
     ... on Individual {
         x_opencti_firstname
         x_opencti_lastname
+    }
+    ... on SecurityPlatform {
+        security_platform_type
     }
 }
 objectMarking {
@@ -109,6 +113,10 @@ contact_information
 }
 ... on Organization {
     x_opencti_organization_type
+    x_opencti_score
+}
+... on SecurityPlatform {
+    security_platform_type
 }
 importFiles {
     edges {

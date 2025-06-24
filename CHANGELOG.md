@@ -5,15 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.30.0] - 2025-06-24
 
 ### Changed
-- Support OpenCTI version 6.6.18 - No graphql changes
-- Support OpenCTI version 6.6.17 - No graphql changes
-- Support OpenCTI version 6.6.16 - No graphql changes
-- Support OpenCTI version 6.6.15 - No graphql changes
-- Support OpenCTI version 6.6.14 - No graphql changes
-- Support OpenCTI version 6.6.13 - No graphql changes
+- Support OpenCTI version 6.7.0
 
 ### Fixed
 - Example in README
@@ -21,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.29.0] - 2025-05-23
 
 ### Changed
-- Support OpenCTI version 6.6.12
+- Support OpenCTI version 6.6.12 - 6.6.18
 
 ### Fixed
 - Validate PyCTI version is last of supported OpenCTI version range
