@@ -187,6 +187,26 @@ jobs:
 
       - name: Update changelog
         run: |
+          # Remove all 'No graphql changes' lines in Unreleased section
+          sed -i '/^## \[Unreleased\]/,/^## \[/{/No graphql changes/d}' ./CHANGELOG.md
+
+          PREVIOUS_TAG=$(sed -n '/^## \[[0-9]/ s/^## \[\([^]]*\)\].*/\1/p' ./CHANGELOG.md | head -1)
+
+          PREVIOUS_OPENCTI_VERSION=$(sed -n "/^## \[$PREVIOUS_TAG\]/,/^## \[/ {
+            /Support OpenCTI version / {
+              s/.*version \([0-9.]*\).*/\1/p
+              q
+            }
+          }" CHANGELOG.md)
+
+          # Patch that line to add the version range inside the previous release
+          if [ -n "$PREVIOUS_OPENCTI_VERSION" ]; then
+            sed -i "0,/Support OpenCTI version $PREVIOUS_VERSION/ {
+              s/Support OpenCTI version $PREVIOUS_OPENCTI_VERSION/Support OpenCTI version $PREVIOUS_OPENCTI_VERSION - $OPENCTI_VERSION/
+            }" ./CHANGELOG.md
+          fi
+
+          # Add the new version in the unreleased section
           TODAY=$(date +"%Y-%m-%d")
           CHANGELOG_LINE="- Support OpenCTI version $NEXT_OPENCTI_VERSION"
           CHANGELOG_HEADER="\#\# \[$NEXT_VERSION\] - $TODAY"
