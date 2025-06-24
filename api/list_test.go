@@ -132,7 +132,7 @@ func TestList(t *testing.T) {
 			}
 
 			_, err = test.listFunc(
-				context.Background(),
+				t.Context(),
 				client,
 				test.args.customAttributes,
 				test.args.getAll,
@@ -208,7 +208,7 @@ func TestStructuredList(t *testing.T) {
 			name: "Label ok",
 			test: func() (any, error) {
 				return api.StructuredList[entity.Label, customLabel](
-					context.Background(), client, "", false, nil,
+					t.Context(), client, "", false, nil,
 				)
 			},
 			want: []customLabel{{
@@ -230,7 +230,7 @@ func TestStructuredList(t *testing.T) {
 				return api.StructuredList[entity.Label, struct {
 					ID bool `gocti:"id"`
 				}](
-					context.Background(), client, "", false, nil,
+					t.Context(), client, "", false, nil,
 				)
 			},
 			want:    nil,
@@ -239,7 +239,7 @@ func TestStructuredList(t *testing.T) {
 			name: "Non-struct type",
 			test: func() (any, error) {
 				return api.StructuredList[entity.Label, int](
-					context.Background(), client, "", false, nil,
+					t.Context(), client, "", false, nil,
 				)
 			},
 			want:    nil,
@@ -404,7 +404,7 @@ func TestListConfigOptions(t *testing.T) {
 
 			// List reports with additional options
 			_, err = api.List[entity.Report](
-				context.Background(), client, "", false, nil,
+				t.Context(), client, "", false, nil,
 				test.listOpts...,
 			)
 

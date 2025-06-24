@@ -225,7 +225,7 @@ func TestCaseTemplate(t *testing.T) {
 func createEntityAndScheduleDelete(t *testing.T, client *gocti.OpenCTIAPIClient, args args, name string) string {
 	t.Helper()
 
-	ctx, cancel := context.WithTimeout(context.Background(), timeout)
+	ctx, cancel := context.WithTimeout(t.Context(), timeout)
 	defer cancel()
 
 	// Create the Entity
@@ -248,7 +248,7 @@ func createEntityAndScheduleDelete(t *testing.T, client *gocti.OpenCTIAPIClient,
 
 	// Setup the Entity's destruction
 	t.Cleanup(func() {
-		ctx, cancel := context.WithTimeout(context.Background(), timeout)
+		ctx, cancel := context.WithTimeout(t.Context(), timeout)
 		defer cancel()
 
 		_, err := args.deleteFunc(
@@ -265,7 +265,7 @@ func createEntityAndScheduleDelete(t *testing.T, client *gocti.OpenCTIAPIClient,
 func readEntity(t *testing.T, client *gocti.OpenCTIAPIClient, args args, id, name string) {
 	t.Helper()
 
-	ctx, cancel := context.WithTimeout(context.Background(), timeout)
+	ctx, cancel := context.WithTimeout(t.Context(), timeout)
 	defer cancel()
 
 	// Test the Read function on the Label
@@ -280,7 +280,7 @@ func readEntity(t *testing.T, client *gocti.OpenCTIAPIClient, args args, id, nam
 func listEntities(t *testing.T, client *gocti.OpenCTIAPIClient, args args, name string) {
 	t.Helper()
 
-	ctx, cancel := context.WithTimeout(context.Background(), timeout)
+	ctx, cancel := context.WithTimeout(t.Context(), timeout)
 	defer cancel()
 
 	opts := []list.Option{}
@@ -367,7 +367,7 @@ func TestWorkbench(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 
-			ctx, cancel1 := context.WithTimeout(context.Background(), timeout)
+			ctx, cancel1 := context.WithTimeout(t.Context(), timeout)
 			defer cancel1()
 
 			workbench, err := system.CreateWorkbench(
@@ -378,14 +378,14 @@ func TestWorkbench(t *testing.T) {
 			require.NoError(t, err, "creating workbench")
 
 			if test.args.ErrOnExisting {
-				ctx, cancel := context.WithTimeout(context.Background(), timeout)
+				ctx, cancel := context.WithTimeout(t.Context(), timeout)
 				defer cancel()
 
 				_, err := system.CreateWorkbench(ctx, client, test.args.file, test.args.ErrOnExisting)
 				require.Error(t, err)
 			}
 
-			ctx, cancel2 := context.WithTimeout(context.Background(), timeout)
+			ctx, cancel2 := context.WithTimeout(t.Context(), timeout)
 			defer cancel2()
 
 			_, err = system.DeleteWorkbench(ctx, client, workbench.ID)

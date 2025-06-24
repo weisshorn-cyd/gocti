@@ -2,7 +2,6 @@ package gocti
 
 import (
 	"bytes"
-	"context"
 	"io"
 	"net/http"
 	"testing"
@@ -203,15 +202,15 @@ func TestOpenCTIAPIClient_Impersonate(t *testing.T) {
 	client, err := NewOpenCTIAPIClient("url", "token", WithTransport(mock))
 	require.NoError(t, err)
 
-	err = client.Impersonate(context.Background(), "test-user")
+	err = client.Impersonate(t.Context(), "test-user")
 	require.NoError(t, err)
 
-	_, err = client.ListUsers(context.Background(), "id", true, nil)
+	_, err = client.ListUsers(t.Context(), "id", true, nil)
 	require.NoError(t, err)
 
 	assert.Equal(t, "test-user-id", mock.header.Get("Opencti-Applicant-Id"))
 
-	_, err = client.ListUsers(context.Background(), "id", true, nil)
+	_, err = client.ListUsers(t.Context(), "id", true, nil)
 	require.NoError(t, err)
 
 	assert.Empty(t, mock.header.Get("Opencti-Applicant-Id"))

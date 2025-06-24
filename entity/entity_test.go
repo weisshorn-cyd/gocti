@@ -709,7 +709,7 @@ func TestObservedData(t *testing.T) {
 func createEntityAndScheduleDelete(t *testing.T, client *gocti.OpenCTIAPIClient, args args, name string) string {
 	t.Helper()
 
-	ctx, cancel := context.WithTimeout(context.Background(), timeout)
+	ctx, cancel := context.WithTimeout(t.Context(), timeout)
 	defer cancel()
 
 	// Create the Entity
@@ -726,7 +726,7 @@ func createEntityAndScheduleDelete(t *testing.T, client *gocti.OpenCTIAPIClient,
 
 	// Setup the Entity's destruction
 	t.Cleanup(func() {
-		ctx, cancel := context.WithTimeout(context.Background(), timeout)
+		ctx, cancel := context.WithTimeout(t.Context(), timeout)
 		defer cancel()
 
 		_, err := args.deleteFunc(
@@ -741,7 +741,7 @@ func createEntityAndScheduleDelete(t *testing.T, client *gocti.OpenCTIAPIClient,
 func readEntity(t *testing.T, client *gocti.OpenCTIAPIClient, args args, id, name string) {
 	t.Helper()
 
-	ctx, cancel := context.WithTimeout(context.Background(), timeout)
+	ctx, cancel := context.WithTimeout(t.Context(), timeout)
 	defer cancel()
 
 	// Test the Read function on the Label
@@ -756,7 +756,7 @@ func readEntity(t *testing.T, client *gocti.OpenCTIAPIClient, args args, id, nam
 func listEntities(t *testing.T, client *gocti.OpenCTIAPIClient, args args, name string) {
 	t.Helper()
 
-	ctx, cancel := context.WithTimeout(context.Background(), timeout)
+	ctx, cancel := context.WithTimeout(t.Context(), timeout)
 	defer cancel()
 
 	// Test the List function on the Label
