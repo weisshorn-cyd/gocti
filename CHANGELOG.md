@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Update golangci-lint to v2
+- Update range version in CHANGELOG when creating a new release
 - Support OpenCTI version 6.6.18 - No graphql changes
 - Support OpenCTI version 6.6.17 - No graphql changes
 - Support OpenCTI version 6.6.16 - No graphql changes
