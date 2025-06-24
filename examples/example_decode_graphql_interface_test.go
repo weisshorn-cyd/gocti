@@ -11,6 +11,7 @@ import (
 	"os"
 
 	"github.com/kelseyhightower/envconfig"
+
 	"github.com/weisshorn-cyd/gocti"
 	"github.com/weisshorn-cyd/gocti/api"
 	"github.com/weisshorn-cyd/gocti/entity"
@@ -55,6 +56,7 @@ func Example_decodeGraphQLInterface() {
 			logger.Error("reading observable", "error", err)
 		}
 
+		//nolint:exhaustive // ok for an example
 		switch graphql.StixCyberObservableType(obs.EntityType) {
 		case graphql.StixCyberObservableTypeArtifact:
 			artifact := graphql.Artifact{}

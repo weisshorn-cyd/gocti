@@ -19,7 +19,7 @@ import (
 	"github.com/weisshorn-cyd/gocti/system"
 )
 
-//nolint:cyclop, funlen // ok for an example
+//nolint:funlen // ok for an example
 func Example_systemManagement() {
 	logger := slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelError}))
 

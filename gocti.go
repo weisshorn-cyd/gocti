@@ -54,42 +54,6 @@ func loadConfig() (*Config, error) {
 	return &cfg, nil
 }
 
-// DefaultPageSize returns the default pagination size for list queries and an ok expression indicating if the value
-// has been set (true) or not (false) by the user via env variables or [OpenCTIAPIClient] constructor options.
-// The zero value is returned if not set.
-func (client *OpenCTIAPIClient) DefaultPageSize() (int, bool) {
-	if client.config.PageSize == -1 {
-		return 0, false
-	}
-
-	return client.config.PageSize, true
-}
-
-// DefaultOrderBy returns the default field name for ordering list queries and an ok expression indicating if the value
-// has been set (true) or not (false) by the user via env variables or [OpenCTIAPIClient] constructor options.
-// The zero value is returned if not set.
-func (client *OpenCTIAPIClient) DefaultOrderBy() (string, bool) {
-	if client.config.OrderBy == "UNSET" {
-		return "", false
-	}
-
-	return client.config.OrderBy, true
-}
-
-// DefaultOrderMode returns the default mode for ordering list queries and an ok expression indicating if the value
-// has been set (true) or not (false) by the user via env variables or [OpenCTIAPIClient] constructor options.
-// The zero value is returned if not set.
-func (client *OpenCTIAPIClient) DefaultOrderMode() (string, bool) {
-	if client.config.OrderMode == "UNSET" {
-		return "", false
-	}
-
-	return client.config.OrderMode, true
-}
-
-// Logger returns the [OpenCTIAPIClient] stored logger.
-func (client *OpenCTIAPIClient) Logger() *slog.Logger { return client.logger }
-
 // OpenCTIAPIClient is the main gocti client to interact with the OpenCTI platform.
 type OpenCTIAPIClient struct {
 	url   string // OpenCTI API url
@@ -102,38 +66,6 @@ type OpenCTIAPIClient struct {
 	httpClient *http.Client
 
 	impersonating string
-}
-
-// Impersonate will setup the OpenCTIAPIClient to impersonate the given user for exactly one query.
-func (client *OpenCTIAPIClient) Impersonate(ctx context.Context, username string) error {
-	users, err := api.StructuredList[system.User, struct {
-		ID   string `gocti:"id"`
-		Name string `gocti:"name"`
-	}](
-		ctx, client, "id, name", true, nil,
-		list.WithFilters(list.FilterGroup{
-			Mode: list.FilterModeAnd,
-			Filters: []list.Filter{
-				{
-					Mode:     list.FilterModeAnd,
-					Key:      []string{"name"},
-					Operator: list.FilterOperatorEq,
-					Values:   []any{username},
-				},
-			},
-		}),
-	)
-	if err != nil {
-		return fmt.Errorf("retrieving user id for %q: %w", username, err)
-	}
-
-	if len(users) != 1 {
-		return UserNotFoundError{username: username}
-	}
-
-	client.impersonating = users[0].ID
-
-	return nil
 }
 
 // NewOpenCTIAPIClient returns a pointer to a properly initialised [OpenCTIAPIClient].
@@ -187,22 +119,78 @@ func NewOpenCTIAPIClient(
 	return client, nil
 }
 
+// DefaultPageSize returns the default pagination size for list queries and an ok expression indicating if the value
+// has been set (true) or not (false) by the user via env variables or [OpenCTIAPIClient] constructor options.
+// The zero value is returned if not set.
+func (client *OpenCTIAPIClient) DefaultPageSize() (int, bool) {
+	if client.config.PageSize == -1 {
+		return 0, false
+	}
+
+	return client.config.PageSize, true
+}
+
+// DefaultOrderBy returns the default field name for ordering list queries and an ok expression indicating if the value
+// has been set (true) or not (false) by the user via env variables or [OpenCTIAPIClient] constructor options.
+// The zero value is returned if not set.
+func (client *OpenCTIAPIClient) DefaultOrderBy() (string, bool) {
+	if client.config.OrderBy == "UNSET" {
+		return "", false
+	}
+
+	return client.config.OrderBy, true
+}
+
+// DefaultOrderMode returns the default mode for ordering list queries and an ok expression indicating if the value
+// has been set (true) or not (false) by the user via env variables or [OpenCTIAPIClient] constructor options.
+// The zero value is returned if not set.
+func (client *OpenCTIAPIClient) DefaultOrderMode() (string, bool) {
+	if client.config.OrderMode == "UNSET" {
+		return "", false
+	}
+
+	return client.config.OrderMode, true
+}
+
+// Logger returns the [OpenCTIAPIClient] stored logger.
+func (client *OpenCTIAPIClient) Logger() *slog.Logger { return client.logger }
+
+// Impersonate will setup the OpenCTIAPIClient to impersonate the given user for exactly one query.
+func (client *OpenCTIAPIClient) Impersonate(ctx context.Context, username string) error {
+	users, err := api.StructuredList[system.User, struct {
+		ID   string `gocti:"id"`
+		Name string `gocti:"name"`
+	}](
+		ctx, client, "id, name", true, nil,
+		list.WithFilters(list.FilterGroup{
+			Mode: list.FilterModeAnd,
+			Filters: []list.Filter{
+				{
+					Mode:     list.FilterModeAnd,
+					Key:      []string{"name"},
+					Operator: list.FilterOperatorEq,
+					Values:   []any{username},
+				},
+			},
+		}),
+	)
+	if err != nil {
+		return fmt.Errorf("retrieving user id for %q: %w", username, err)
+	}
+
+	if len(users) != 1 {
+		return UserNotFoundError{username: username}
+	}
+
+	client.impersonating = users[0].ID
+
+	return nil
+}
+
 // openCTIGraphQLResponse is the generic response structure for all OpenCTI GraphQL queries.
 type openCTIGraphQLResponse struct {
 	Data   map[string]any        `json:"data"`
 	Errors []OpenCTIGraphQLError `json:"errors"`
-}
-
-// setOpenCTIHTTPHeaders populates an http request Header with the appropriate headers.
-func (client *OpenCTIAPIClient) setOpenCTIHTTPHeaders(header *http.Header, contentType string) {
-	header.Set("User-Agent", "gocti/"+goctiVersion)
-	header.Set("Content-Type", contentType)
-	header.Set("Authorization", "Bearer "+client.token)
-
-	if client.impersonating != "" {
-		header.Set("Opencti-Applicant-Id", client.impersonating)
-		client.impersonating = ""
-	}
 }
 
 // mapFileVariables scans the variables from a [Query] in search of entries of type [api.File].
@@ -434,4 +422,16 @@ func (client *OpenCTIAPIClient) HealthCheck(ctx context.Context) error {
 	client.logger.Info("OpenCTI health check succeeded", "opencti_version", healthCheckData.About.Version)
 
 	return nil
+}
+
+// setOpenCTIHTTPHeaders populates an http request Header with the appropriate headers.
+func (client *OpenCTIAPIClient) setOpenCTIHTTPHeaders(header *http.Header, contentType string) {
+	header.Set("User-Agent", "gocti/"+goctiVersion)
+	header.Set("Content-Type", contentType)
+	header.Set("Authorization", "Bearer "+client.token)
+
+	if client.impersonating != "" {
+		header.Set("Opencti-Applicant-Id", client.impersonating)
+		client.impersonating = ""
+	}
 }

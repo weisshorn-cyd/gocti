@@ -11,6 +11,7 @@ import (
 	"os"
 
 	"github.com/kelseyhightower/envconfig"
+
 	"github.com/weisshorn-cyd/gocti"
 	"github.com/weisshorn-cyd/gocti/entity"
 	"github.com/weisshorn-cyd/gocti/graphql"
