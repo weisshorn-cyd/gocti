@@ -46,6 +46,8 @@ linters:
       ignore-missing: true
     tagalign:
       sort: false
+    usetesting:
+      context-background: false
     varnamelen:
       ignore-names:
         - id
