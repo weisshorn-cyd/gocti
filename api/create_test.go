@@ -85,7 +85,7 @@ func TestCreate(t *testing.T) {
 				t.Fatalf("cannot create client: %v", err)
 			}
 
-			_, err = test.createFunc(t.Context(), client, test.args.customAttributes, test.args.input)
+			_, err = test.createFunc(context.Background(), client, test.args.customAttributes, test.args.input)
 
 			if test.wantErr {
 				require.Error(t, err)
@@ -153,7 +153,7 @@ func TestStructuredCreate(t *testing.T) {
 			name: "Label ok",
 			test: func() (any, error) {
 				return api.StructuredCreate[entity.Label, customLabel](
-					t.Context(), client, "", entity.LabelAddInput{},
+					context.Background(), client, "", entity.LabelAddInput{},
 				)
 			},
 			want: customLabel{
@@ -175,7 +175,7 @@ func TestStructuredCreate(t *testing.T) {
 				return api.StructuredCreate[entity.Label, struct {
 					ID bool `gocti:"id"`
 				}](
-					t.Context(), client, "", entity.LabelAddInput{},
+					context.Background(), client, "", entity.LabelAddInput{},
 				)
 			},
 			want:    nil,
@@ -184,7 +184,7 @@ func TestStructuredCreate(t *testing.T) {
 			name: "Non-struct type",
 			test: func() (any, error) {
 				return api.StructuredCreate[entity.Label, int](
-					t.Context(), client, "", entity.LabelAddInput{},
+					context.Background(), client, "", entity.LabelAddInput{},
 				)
 			},
 			want:    nil,

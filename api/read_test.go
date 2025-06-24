@@ -79,7 +79,7 @@ func TestRead(t *testing.T) {
 				t.Fatalf("cannot create client: %v", err)
 			}
 
-			_, err = test.readFunc(t.Context(), client, test.args.customAttributes, test.args.id)
+			_, err = test.readFunc(context.Background(), client, test.args.customAttributes, test.args.id)
 			if test.wantErr {
 				require.Error(t, err)
 
@@ -146,7 +146,7 @@ func TestStructuredRead(t *testing.T) {
 			name: "Label ok",
 			test: func() (any, error) {
 				return api.StructuredRead[entity.Label, customLabel](
-					t.Context(), client, "", "",
+					context.Background(), client, "", "",
 				)
 			},
 			want: customLabel{
@@ -168,7 +168,7 @@ func TestStructuredRead(t *testing.T) {
 				return api.StructuredRead[entity.Label, struct {
 					ID bool `gocti:"id"`
 				}](
-					t.Context(), client, "", "",
+					context.Background(), client, "", "",
 				)
 			},
 			want:    nil,
@@ -177,7 +177,7 @@ func TestStructuredRead(t *testing.T) {
 			name: "Non-struct type",
 			test: func() (any, error) {
 				return api.StructuredRead[entity.Label, int](
-					t.Context(), client, "", "",
+					context.Background(), client, "", "",
 				)
 			},
 			want:    nil,
