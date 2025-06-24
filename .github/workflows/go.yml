@@ -32,7 +32,7 @@ jobs:
         with:
           version: ${{ env.GOLANGCI_LINT_VERSION }}
           working-directory: .
-          args: --config=".golangci.yaml"
+          args: --config=".golangci.yml"
 
   go-test:
     name: test
