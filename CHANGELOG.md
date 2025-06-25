@@ -7,9 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Fixed
-- Unittests for OpenCTI 6.7.0 new fields
-
 ## [0.30.0] - 2025-06-24
 
 ### Changed
