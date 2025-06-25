@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/kelseyhightower/envconfig"
+
 	"github.com/weisshorn-cyd/gocti"
 	"github.com/weisshorn-cyd/gocti/api"
 	"github.com/weisshorn-cyd/gocti/entity"

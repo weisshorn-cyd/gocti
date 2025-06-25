@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/goccy/go-json"
+
 	"github.com/weisshorn-cyd/gocti/graphql"
 
 	_ "embed"
