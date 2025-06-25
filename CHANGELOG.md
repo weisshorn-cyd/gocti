@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update range version in CHANGELOG when creating a new release
 
 ### Fixed
+- Unittests for OpenCTI 6.7.0 new fields
 - Example in README
 
 ## [0.29.0] - 2025-05-23
