@@ -61,6 +61,21 @@ type QueryVars struct {
 	Types                  []string    `json:"types,omitempty"`
 }
 
+// NewQueryVars returns a [QueryVars] instance with default values applied.
+func NewQueryVars() *QueryVars {
+	// Apply default shared values
+	output := &QueryVars{
+		Filters:   FilterGroup{},
+		Search:    defaultSearch,
+		First:     defaultFirst,
+		After:     defaultAfter,
+		OrderBy:   defaultOrderBy,
+		OrderMode: defaultOrderMode,
+	}
+
+	return output
+}
+
 // Mapping converts the List Query Variables struct to a map[string]any.
 func (queryVars *QueryVars) Mapping() (map[string]any, error) {
 	mapping := map[string]any{}
@@ -76,21 +91,6 @@ func (queryVars *QueryVars) Mapping() (map[string]any, error) {
 	}
 
 	return mapping, nil
-}
-
-// NewQueryVars returns a [QueryVars] instance with default values applied.
-func NewQueryVars() *QueryVars {
-	// Apply default shared values
-	output := &QueryVars{
-		Filters:   FilterGroup{},
-		Search:    defaultSearch,
-		First:     defaultFirst,
-		After:     defaultAfter,
-		OrderBy:   defaultOrderBy,
-		OrderMode: defaultOrderMode,
-	}
-
-	return output
 }
 
 // Option is a function that configures a [QueryVars] object.

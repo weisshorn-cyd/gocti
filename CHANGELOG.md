@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Support OpenCTI version 6.7.0
+- Bump Go to version 1.24.4
+- Update golangci-lint to v2
 - Update range version in CHANGELOG when creating a new release
 
 ### Fixed
