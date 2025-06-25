@@ -214,5 +214,5 @@ func TestOpenCTIAPIClient_Impersonate(t *testing.T) {
 	_, err = client.ListUsers(context.Background(), "id", true, nil)
 	require.NoError(t, err)
 
-	assert.Equal(t, "", mock.header.Get("Opencti-Applicant-Id"))
+	assert.Empty(t, mock.header.Get("Opencti-Applicant-Id"))
 }
