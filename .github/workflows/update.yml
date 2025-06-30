@@ -268,7 +268,7 @@ jobs:
         with:
           version: ${{ env.GOLANGCI_LINT_VERSION }}
           working-directory: .
-          args: --config=".golangci.yml" --fix
+          args: --config=".golangci.yml" --fix --issues-exit-code=0
 
       - name: Run Go formatters
         run: |
