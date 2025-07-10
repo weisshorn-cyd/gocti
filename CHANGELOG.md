@@ -5,10 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.32.0] - 2025-07-10
+
+### Changed
+- Support OpenCTI version 6.7.3
+
 ## [0.31.0] - 2025-07-01
 
 ### Changed
-- Support OpenCTI version 6.7.1
+- Support OpenCTI version 6.7.1 - 6.7.1
 - Auto-update CI does not error on Go linting failure
 - Disable `funcorder` linter
 
