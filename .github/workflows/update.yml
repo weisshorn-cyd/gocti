@@ -1,8 +1,7 @@
 name: opencti-auto-update
 on:
-  push:
-  #schedule:
-  #  - cron:  "15 2 * * *"
+  schedule:
+    - cron:  "15 2 * * *"
 
 permissions:
   contents: write
