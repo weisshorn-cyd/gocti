@@ -1,7 +1,8 @@
 name: opencti-auto-update
 on:
-  schedule:
-    - cron:  "15 2 * * *"
+  push:
+  #schedule:
+  #  - cron:  "15 2 * * *"
 
 permissions:
   contents: write
@@ -57,7 +58,7 @@ jobs:
 
       - name: Get current OpenCTI version
         run: |
-          OPENCTI_VERSION=$(sed -n 's/.*opencti\/platform:\(.*\)$/\1/p' ./docker-compose.yaml | head -1)
+          OPENCTI_VERSION=$(sed -n 's/.*opencti\/platform:\(.*\)$/\1/p' ./docker-compose.yml | head -1)
           echo "OPENCTI_VERSION=$OPENCTI_VERSION" >> "$GITHUB_ENV"
           echo "Current OpenCTI version is $OPENCTI_VERSION"
 
@@ -200,7 +201,7 @@ jobs:
           }" CHANGELOG.md)
 
           # Patch that line to add the version range inside the previous release
-          if [ -n "$PREVIOUS_OPENCTI_VERSION" ]; then
+          if [ -n "$PREVIOUS_OPENCTI_VERSION" ] && [ "$PREVIOUS_OPENCTI_VERSION" != "$OPENCTI_VERSION" ]; then
             sed -i "0,/Support OpenCTI version $PREVIOUS_VERSION/ {
               s/Support OpenCTI version $PREVIOUS_OPENCTI_VERSION/Support OpenCTI version $PREVIOUS_OPENCTI_VERSION - $OPENCTI_VERSION/
             }" ./CHANGELOG.md
