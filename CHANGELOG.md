@@ -10,17 +10,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Support OpenCTI version 6.7.3
 
+### Fixed
+- Auto update of CHANGELOG when having a single OpenCTI version
+
 ## [0.31.0] - 2025-07-01
 
 ### Changed
-- Support OpenCTI version 6.7.1 - 6.7.1
+- Support OpenCTI version 6.7.1 - 6.7.2
 - Auto-update CI does not error on Go linting failure
 - Disable `funcorder` linter
 
 ## [0.30.0] - 2025-06-25
 
 ### Changed
-- Support OpenCTI version 6.7.0 - 6.7.0
+- Support OpenCTI version 6.7.0
 - Bump Go to version 1.24.4
 - Update golangci-lint to v2
 - Update range version in CHANGELOG when creating a new release
