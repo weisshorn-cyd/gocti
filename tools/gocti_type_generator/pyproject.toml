@@ -13,7 +13,7 @@ license = {text  = "Apache 2.0"}
 version = "0.31.0"
 dependencies = [
     "python-dotenv",
-    "pycti==6.7.1",
+    "pycti==6.7.2",
     "rich",
 ]
 
