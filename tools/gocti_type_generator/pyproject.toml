@@ -10,10 +10,10 @@ authors = [
 description = "Generator tool for GoCTI."
 readme = "README.md"
 license = {text  = "Apache 2.0"}
-version = "0.35.0"
+version = "0.36.0"
 dependencies = [
     "python-dotenv",
-    "pycti==6.7.9",
+    "pycti==6.7.10",
     "rich",
 ]
 
