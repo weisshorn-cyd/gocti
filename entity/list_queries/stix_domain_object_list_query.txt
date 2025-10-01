@@ -3,6 +3,7 @@ query ($after: ID
        $first: Int
        $orderBy: StixDomainObjectsOrdering
        $orderMode: OrderingMode
+       $pirId: ID
        $search: String
        $types: [String]) {
     stixDomainObjects (after: $after
@@ -10,6 +11,7 @@ query ($after: ID
                        first: $first
                        orderBy: $orderBy
                        orderMode: $orderMode
+                       pirId: $pirId
                        search: $search
                        types: $types) {
         edges {
