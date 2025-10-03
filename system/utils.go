@@ -449,6 +449,7 @@ func (c Capability) IDsByNames(ctx context.Context, client api.Client, names []C
 
 	for i, name := range names {
 		found := false
+
 	inner:
 		for _, cap := range capabilities {
 			if string(name) == cap.Name {
