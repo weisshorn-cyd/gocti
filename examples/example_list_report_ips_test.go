@@ -25,6 +25,7 @@ import (
 // to retrieve.
 type ExtendedReport struct {
 	entity.Report
+
 	Objects struct {
 		Edges []struct {
 			Node Observable `gocti:"node"`
