@@ -12,8 +12,10 @@ linters:
   disable:
     - dupl
     - exhaustruct
-    - tagliatelle
     - funcorder
+    - godoclint
+    - noinlineerr
+    - tagliatelle
   settings:
     cyclop:
       max-complexity: 12
