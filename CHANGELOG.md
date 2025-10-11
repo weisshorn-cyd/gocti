@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Support OpenCTI version 6.8.3 - No graphql changes
 - Bump Go to version 1.25.1
+- Bump golangci-lint to 2.5.0
 
 ## [0.46.0] - 2025-10-03
 
