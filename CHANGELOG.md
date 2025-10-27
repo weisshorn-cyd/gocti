@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+- Support OpenCTI version 6.8.5 - No graphql changes
+- Support OpenCTI version 6.8.4 - No graphql changes
 - Support OpenCTI version 6.8.3 - No graphql changes
 - Bump Go to version 1.25.1
 - Bump golangci-lint to 2.5.0
