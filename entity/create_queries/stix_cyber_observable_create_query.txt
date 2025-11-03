@@ -20,6 +20,7 @@ mutation ($Artifact: ArtifactAddInput
           $Persona: PersonaAddInput
           $PhoneNumber: PhoneNumberAddInput
           $Process: ProcessAddInput
+          $SSHKey: SSHKeyAddInput
           $Software: SoftwareAddInput
           $StixFile: StixFileAddInput
           $Text: TextAddInput
@@ -64,6 +65,7 @@ mutation ($Artifact: ArtifactAddInput
                             Persona: $Persona
                             PhoneNumber: $PhoneNumber
                             Process: $Process
+                            SSHKey: $SSHKey
                             Software: $Software
                             StixFile: $StixFile
                             Text: $Text
