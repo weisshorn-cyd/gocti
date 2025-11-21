@@ -510,6 +510,7 @@ func (s SubType) SetStatusInWorkFlow(
 	client api.Client,
 	workflowType, statusTemplateID string,
 	statusTemplateOrder int,
+	statusScope string,
 ) (map[string]any, error) {
 	queryData, err := client.Query(
 		ctx,
@@ -519,6 +520,7 @@ func (s SubType) SetStatusInWorkFlow(
 			"input": map[string]any{
 				"template_id": statusTemplateID,
 				"order":       statusTemplateOrder,
+				"scope":       statusScope,
 			},
 		})
 	if err != nil {
