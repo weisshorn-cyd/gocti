@@ -66,8 +66,6 @@ func TestRead(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			t.Parallel()
-
 			client, err := gocti.NewOpenCTIAPIClient(
 				cfg.URL, cfg.Token,
 				gocti.WithLogger(slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelDebug}))),
@@ -186,8 +184,6 @@ func TestStructuredRead(t *testing.T) {
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			t.Parallel()
-
 			data, err := test.test()
 			if test.wantErr {
 				require.Error(t, err)

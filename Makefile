@@ -40,7 +40,7 @@ generate: .go-generate fmt lint
 test:
 	export OPENCTI_URL=$(OPENCTI_URL) && \
 	export OPENCTI_TOKEN=$(OPENCTI_TOKEN) && \
-	go test -failfast -race ./... -timeout 120s
+	go test -p 1 -failfast -race ./... -timeout 120s
 
 .PHONY: start-opencti
 start-opencti:

@@ -535,8 +535,6 @@ func TestEntity(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			t.Parallel()
-
 			id := "undefined"
 
 			if test.args.createFunc != nil && test.args.deleteFunc != nil {
@@ -593,8 +591,6 @@ func TestRelationship(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			t.Parallel()
-
 			threatActorName := fmt.Sprintf("Test Threat Actor Individual (%s)", test.name)
 
 			idThreatActor := createEntityAndScheduleDelete(

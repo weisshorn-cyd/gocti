@@ -100,8 +100,6 @@ func TestFilter_IsValid(t *testing.T) {
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			t.Parallel()
-
 			err := test.filter.IsValid()
 			for _, erri := range test.wantErr {
 				require.ErrorIs(t, err, erri)
@@ -142,8 +140,6 @@ func TestFilterGroup_IsValid(t *testing.T) {
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			t.Parallel()
-
 			err := test.filterGroup.IsValid()
 			for _, erri := range test.wantErr {
 				require.ErrorIs(t, err, erri)
@@ -194,8 +190,6 @@ func TestFilter_MarshalJSON(t *testing.T) {
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			t.Parallel()
-
 			got, err := test.filter.MarshalJSON()
 			if test.wantErr {
 				require.Error(t, err)
@@ -255,8 +249,6 @@ func TestFilterGroup_MarshalJSON(t *testing.T) {
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			t.Parallel()
-
 			got, err := test.filterGroup.MarshalJSON()
 			if test.wantErr {
 				require.Error(t, err)
@@ -308,8 +300,6 @@ func TestFilter_ToGraphQL(t *testing.T) {
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			t.Parallel()
-
 			got, err := test.filter.ToGraphQL()
 			if test.wantErr {
 				require.Error(t, err)
@@ -369,8 +359,6 @@ func TestFilterGroup_ToGraphQL(t *testing.T) {
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			t.Parallel()
-
 			got, err := test.filterGroup.ToGraphQL()
 			if test.wantErr {
 				require.Error(t, err)
