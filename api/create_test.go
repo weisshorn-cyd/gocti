@@ -16,8 +16,6 @@ import (
 )
 
 func TestCreate(t *testing.T) {
-	t.Parallel()
-
 	cfg := loadConfig(t)
 
 	type args struct {
@@ -97,8 +95,6 @@ func TestCreate(t *testing.T) {
 }
 
 func TestStructuredCreate(t *testing.T) {
-	t.Parallel()
-
 	type representative struct {
 		Main      string `gocti:"main"`
 		Secondary string `gocti:"secondary"`

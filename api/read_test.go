@@ -16,8 +16,6 @@ import (
 )
 
 func TestRead(t *testing.T) {
-	t.Parallel()
-
 	cfg := loadConfig(t)
 
 	type args struct {
@@ -90,8 +88,6 @@ func TestRead(t *testing.T) {
 }
 
 func TestStructuredRead(t *testing.T) {
-	t.Parallel()
-
 	type representative struct {
 		Main      string `gocti:"main"`
 		Secondary string `gocti:"secondary"`

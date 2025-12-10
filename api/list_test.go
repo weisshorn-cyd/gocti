@@ -18,8 +18,6 @@ import (
 )
 
 func TestList(t *testing.T) {
-	t.Parallel()
-
 	cfg := loadConfig(t)
 
 	type args struct {
@@ -150,8 +148,6 @@ func TestList(t *testing.T) {
 }
 
 func TestStructuredList(t *testing.T) {
-	t.Parallel()
-
 	type representative struct {
 		Main      string `gocti:"main"`
 		Secondary string `gocti:"secondary"`

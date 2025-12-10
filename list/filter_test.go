@@ -65,8 +65,6 @@ var (
 )
 
 func TestFilter_IsValid(t *testing.T) {
-	t.Parallel()
-
 	tests := []struct {
 		name    string
 		filter  list.Filter
@@ -113,8 +111,6 @@ func TestFilter_IsValid(t *testing.T) {
 }
 
 func TestFilterGroup_IsValid(t *testing.T) {
-	t.Parallel()
-
 	tests := []struct {
 		name        string
 		filterGroup list.FilterGroup
@@ -153,8 +149,6 @@ func TestFilterGroup_IsValid(t *testing.T) {
 }
 
 func TestFilter_MarshalJSON(t *testing.T) {
-	t.Parallel()
-
 	tests := []struct {
 		name    string
 		filter  list.Filter
@@ -204,8 +198,6 @@ func TestFilter_MarshalJSON(t *testing.T) {
 }
 
 func TestFilterGroup_MarshalJSON(t *testing.T) {
-	t.Parallel()
-
 	tests := []struct {
 		name        string
 		filterGroup list.FilterGroup
@@ -263,8 +255,6 @@ func TestFilterGroup_MarshalJSON(t *testing.T) {
 }
 
 func TestFilter_ToGraphQL(t *testing.T) {
-	t.Parallel()
-
 	tests := []struct {
 		name    string
 		filter  list.Filter
@@ -314,8 +304,6 @@ func TestFilter_ToGraphQL(t *testing.T) {
 }
 
 func TestFilterGroup_ToGraphQL(t *testing.T) {
-	t.Parallel()
-
 	tests := []struct {
 		name        string
 		filterGroup list.FilterGroup
