@@ -52,6 +52,6 @@ jobs:
           export CGO_ENABLED=1
           export OPENCTI_URL=http://localhost:8080
           export OPENCTI_TOKEN=f25e14de-9daa-11ef-97a3-03bdd8270110
-          go test -failfast -race -coverpkg=./... -covermode=atomic -coverprofile=coverage.txt ./... -timeout 60s
+          go test -p 1 -failfast -race -coverpkg=./... -covermode=atomic -coverprofile=coverage.txt ./... -timeout 60s
       - name: Tear down environment
         run: docker compose --env-file ./docker-compose.env down --volumes --timeout 30

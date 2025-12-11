@@ -70,8 +70,6 @@ type args struct {
 
 //nolint:maintidx // Triggers on the high number of cases, but they are only small tests.
 func TestEntity(t *testing.T) {
-	t.Parallel()
-
 	cfg := loadConfig(t)
 
 	client, err := gocti.NewOpenCTIAPIClient(
@@ -535,8 +533,6 @@ func TestEntity(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			t.Parallel()
-
 			id := "undefined"
 
 			if test.args.createFunc != nil && test.args.deleteFunc != nil {
@@ -559,8 +555,6 @@ func TestEntity(t *testing.T) {
 }
 
 func TestRelationship(t *testing.T) {
-	t.Parallel()
-
 	cfg := loadConfig(t)
 
 	client, err := gocti.NewOpenCTIAPIClient(
@@ -593,8 +587,6 @@ func TestRelationship(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			t.Parallel()
-
 			threatActorName := fmt.Sprintf("Test Threat Actor Individual (%s)", test.name)
 
 			idThreatActor := createEntityAndScheduleDelete(
@@ -654,8 +646,6 @@ func TestRelationship(t *testing.T) {
 }
 
 func TestObservedData(t *testing.T) {
-	t.Parallel()
-
 	cfg := loadConfig(t)
 
 	client, err := gocti.NewOpenCTIAPIClient(

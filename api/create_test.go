@@ -16,8 +16,6 @@ import (
 )
 
 func TestCreate(t *testing.T) {
-	t.Parallel()
-
 	cfg := loadConfig(t)
 
 	type args struct {
@@ -72,8 +70,6 @@ func TestCreate(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			t.Parallel()
-
 			client, err := gocti.NewOpenCTIAPIClient(
 				cfg.URL, cfg.Token,
 				gocti.WithLogger(slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelDebug}))),
@@ -99,8 +95,6 @@ func TestCreate(t *testing.T) {
 }
 
 func TestStructuredCreate(t *testing.T) {
-	t.Parallel()
-
 	type representative struct {
 		Main      string `gocti:"main"`
 		Secondary string `gocti:"secondary"`
@@ -193,8 +187,6 @@ func TestStructuredCreate(t *testing.T) {
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			t.Parallel()
-
 			data, err := test.test()
 			if test.wantErr {
 				require.Error(t, err)
