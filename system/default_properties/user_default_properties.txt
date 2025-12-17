@@ -26,6 +26,9 @@ roles {
     capabilities {
         id, name
     }
+    capabilitiesInDraft {
+        id, name
+    }
 }
 groups {
     edges {
