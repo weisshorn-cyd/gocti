@@ -101,7 +101,7 @@ func Example_decodeGraphQLInterface() {
 
 	// Output:
 	// Artifact has MIME type "application/json" and url "url.random.com"
-	// IPv4 address has value "987.987.987.987"
+	// IPv4 address has value "123.123.123.123"
 	// Email message has subject "A cool Email message" and body "I bought a new hamster !"
 	// Observable content: Remain: "A cool Email message"
 }
@@ -126,7 +126,7 @@ func provisionObservables(ctx context.Context, client *gocti.OpenCTIAPIClient, l
 		}, {
 			Type: graphql.StixCyberObservableTypeIPV4Addr,
 			IPv4Addr: graphql.IPv4AddrAddInput{
-				Value: "987.987.987.987",
+				Value: "123.123.123.123",
 			},
 		}, {
 			Type: graphql.StixCyberObservableTypeEmailMessage,
