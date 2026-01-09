@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Support OpenCTI version 6.9.4 - No graphql changes
+- Use `GITHUB_TOKEN` to create automatic Pull Requests
 
 ## [0.58.0] - 2025-12-17
 
