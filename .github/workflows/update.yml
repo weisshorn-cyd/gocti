@@ -1,7 +1,8 @@
 name: opencti-auto-update
 on:
-  schedule:
-    - cron:  "15 2 * * *"
+  push
+  #schedule:
+  #  - cron:  "15 2 * * *"
 
 permissions:
   contents: write
@@ -119,10 +120,9 @@ jobs:
 
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        uses: peter-evans/create-pull-request@98357b18bf14b5342f975ff684046ec3b2a07725 # v8.0.0
         if: steps.graphql.outputs.graphql-changes == 'false'
         with:
-          token: ${{ secrets.AUTO_UPDATE_OPENCTI }}
           commit-message: Update README and CHANGELOG for OpenCTI ${{ env.NEXT_OPENCTI_VERSION }}
           committer: weisshorn-cyd-bot <196039234+weisshorn-cyd-bot@users.noreply.github.com>
           author: weisshorn-cyd-bot <196039234+weisshorn-cyd-bot@users.noreply.github.com>
@@ -280,9 +280,8 @@ jobs:
           wsl --fix ./...
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        uses: peter-evans/create-pull-request@98357b18bf14b5342f975ff684046ec3b2a07725 # v8.0.0
         with:
-          token: ${{ secrets.AUTO_UPDATE_OPENCTI }}
           commit-message: Update GoCTI to ${{ env.NEXT_VERSION }}
           committer: weisshorn-cyd-bot <196039234+weisshorn-cyd-bot@users.noreply.github.com>
           author: weisshorn-cyd-bot <196039234+weisshorn-cyd-bot@users.noreply.github.com>
