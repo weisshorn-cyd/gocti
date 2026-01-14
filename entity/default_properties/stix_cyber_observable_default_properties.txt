@@ -145,6 +145,10 @@ indicators {
                 id
                 name
                 size
+                metaData {
+                    mimetype
+                    version
+                }
             }
         }
     }
