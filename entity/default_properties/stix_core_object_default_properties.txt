@@ -444,18 +444,6 @@ importFiles {
     aliases
     narrative_types
 }
-... on DataComponent {
-    name
-    description
-}
-... on DataSource {
-    name
-    description
-}
-... on DataSource {
-    name
-    description
-}
 ... on Case {
     name
     description
@@ -698,6 +686,12 @@ importFiles {
     account_number
 }
 ... on PhoneNumber {
+    value
+}
+... on TrackingNumber {
+    value
+}
+... on Credential {
     value
 }
 ... on PaymentCard {
