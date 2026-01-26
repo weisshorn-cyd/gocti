@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Healthcheck for elastichsearch in docker compose
+
+### Fixed
+
+- Missing type `Any` in mapping of generator
+
 ## [0.60.0] - 2026-01-14
 
 ### Changed
