@@ -16,6 +16,7 @@ linters:
     - godoclint
     - noinlineerr
     - tagliatelle
+    - wsl
   settings:
     cyclop:
       max-complexity: 12

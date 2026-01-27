@@ -121,6 +121,7 @@ class Type:
     # Mapping between GraphQL and Golang types.
     # Can also be used to override any type.
     scalar_map: dict[str, str] = {
+        "Any": "any",
         "Int": "int",
         "Float": "float64",
         "Boolean": "bool",
