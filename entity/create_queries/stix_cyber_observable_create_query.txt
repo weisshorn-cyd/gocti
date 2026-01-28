@@ -10,6 +10,9 @@ mutation ($Artifact: ArtifactAddInput
           $EmailMessage: EmailMessageAddInput
           $EmailMimePartType: EmailMimePartTypeAddInput
           $Hostname: HostnameAddInput
+          $ICCID: ICCIDAddInput
+          $IMEI: IMEIAddInput
+          $IMSI: IMSIAddInput
           $IPv4Addr: IPv4AddrAddInput
           $IPv6Addr: IPv6AddrAddInput
           $MacAddr: MacAddrAddInput
@@ -41,6 +44,7 @@ mutation ($Artifact: ArtifactAddInput
           $stix_id: StixId
           $type: String!
           $update: Boolean
+          $upsertOperations: [EditInput]!
           $x_opencti_description: String
           $x_opencti_modified_at: DateTime
           $x_opencti_score: Int) {
@@ -56,6 +60,9 @@ mutation ($Artifact: ArtifactAddInput
                             EmailMessage: $EmailMessage
                             EmailMimePartType: $EmailMimePartType
                             Hostname: $Hostname
+                            ICCID: $ICCID
+                            IMEI: $IMEI
+                            IMSI: $IMSI
                             IPv4Addr: $IPv4Addr
                             IPv6Addr: $IPv6Addr
                             MacAddr: $MacAddr
@@ -87,6 +94,7 @@ mutation ($Artifact: ArtifactAddInput
                             stix_id: $stix_id
                             type: $type
                             update: $update
+                            upsertOperations: $upsertOperations
                             x_opencti_description: $x_opencti_description
                             x_opencti_modified_at: $x_opencti_modified_at
                             x_opencti_score: $x_opencti_score) {%s}
