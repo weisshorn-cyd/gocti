@@ -41,6 +41,7 @@ mutation ($Artifact: ArtifactAddInput
           $stix_id: StixId
           $type: String!
           $update: Boolean
+          $upsertOperations: [EditInput]!
           $x_opencti_description: String
           $x_opencti_modified_at: DateTime
           $x_opencti_score: Int) {
@@ -87,6 +88,7 @@ mutation ($Artifact: ArtifactAddInput
                             stix_id: $stix_id
                             type: $type
                             update: $update
+                            upsertOperations: $upsertOperations
                             x_opencti_description: $x_opencti_description
                             x_opencti_modified_at: $x_opencti_modified_at
                             x_opencti_score: $x_opencti_score) {%s}
