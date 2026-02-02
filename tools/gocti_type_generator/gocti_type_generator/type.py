@@ -487,7 +487,7 @@ class Type:
         type_name = names[0]
 
         # Go through Type modifier kinds
-        for kind in kinds:
+        for kind in kinds[::-1]:
             if kind == Kind.NON_NULL.value:
                 type_name += "!"
             elif kind == Kind.LIST.value:
