@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Missing type `Any` in mapping of generator
+- Wrong resolve order in code generation
 
 ## [0.60.0] - 2026-01-14
 
