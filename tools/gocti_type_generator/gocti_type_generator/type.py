@@ -844,9 +844,11 @@ class Type:
         impl_interfaces = dict(
             sorted(
                 self.interfaces.items(),
-                key=lambda x: self.interface_resolve_order.index(x[0])
-                if x[0] in self.interface_resolve_order
-                else 1000,
+                key=lambda x: (
+                    self.interface_resolve_order.index(x[0])
+                    if x[0] in self.interface_resolve_order
+                    else 1000
+                ),
             )
         )
 
