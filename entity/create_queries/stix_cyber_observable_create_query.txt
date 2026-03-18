@@ -1,4 +1,5 @@
-mutation ($Artifact: ArtifactAddInput
+mutation ($AIPrompt: AIPromptAddInput
+          $Artifact: ArtifactAddInput
           $AutonomousSystem: AutonomousSystemAddInput
           $BankAccount: BankAccountAddInput
           $Credential: CredentialAddInput
@@ -45,7 +46,8 @@ mutation ($Artifact: ArtifactAddInput
           $x_opencti_description: String
           $x_opencti_modified_at: DateTime
           $x_opencti_score: Int) {
-    stixCyberObservableAdd (Artifact: $Artifact
+    stixCyberObservableAdd (AIPrompt: $AIPrompt
+                            Artifact: $Artifact
                             AutonomousSystem: $AutonomousSystem
                             BankAccount: $BankAccount
                             Credential: $Credential

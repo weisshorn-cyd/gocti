@@ -2,7 +2,7 @@
 
 services:
   redis:
-    image: redis:8.4.0
+    image: redis:8.6.1
     restart: always
     volumes:
       - redisdata:/data
@@ -12,7 +12,7 @@ services:
       timeout: 5s
       retries: 3
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.19.9
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.19.12
     volumes:
       - esdata:/usr/share/elasticsearch/data
     environment:
@@ -36,7 +36,7 @@ services:
       timeout: 10s
       retries: 50
   minio:
-    image: minio/minio:RELEASE.2025-06-13T11-33-47Z
+    image: minio/minio:RELEASE.2025-09-07T16-13-09Z
     volumes:
       - s3data:/data
     ports:
@@ -58,6 +58,9 @@ services:
       - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
       - RABBITMQ_NODENAME=rabbit01@localhost
     volumes:
+      - type: bind
+        source: ./rabbitmq.conf
+        target: /etc/rabbitmq/rabbitmq.conf 
       - amqpdata:/var/lib/rabbitmq
     restart: always
     healthcheck:
@@ -66,7 +69,7 @@ services:
       timeout: 30s
       retries: 3
   opencti:
-    image: opencti/platform:6.9.26
+    image: opencti/platform:latest
     environment:
       - NODE_OPTIONS=--max-old-space-size=8096
       - APP__PORT=8080
@@ -74,7 +77,7 @@ services:
       - APP__ADMIN__EMAIL=${OPENCTI_ADMIN_EMAIL}
       - APP__ADMIN__PASSWORD=${OPENCTI_ADMIN_PASSWORD}
       - APP__ADMIN__TOKEN=${OPENCTI_ADMIN_TOKEN}
-      - APP__APP_LOGS__LOGS_LEVEL=error
+      - APP__ENCRYPTION_KEY=${OPENCTI_ENCRYPTION_KEY}
       - REDIS__HOSTNAME=redis
       - REDIS__PORT=6379
       - ELASTICSEARCH__URL=http://elasticsearch:9200
@@ -114,11 +117,10 @@ services:
       timeout: 5s
       retries: 20
   worker:
-    image: opencti/worker:6.9.26
+    image: opencti/worker:7.260317.0
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
-      - WORKER_LOG_LEVEL=info
     depends_on:
       opencti:
         condition: service_healthy

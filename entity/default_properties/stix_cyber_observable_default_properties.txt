@@ -212,6 +212,9 @@ indicators {
     comment
     created
 }
+... on AIPrompt {
+    value
+}
 ... on IPv4Addr {
     value
 }
