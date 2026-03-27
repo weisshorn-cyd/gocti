@@ -381,6 +381,28 @@ func TestWorkbench(t *testing.T) {
 				ctx, cancel := context.WithTimeout(context.Background(), timeout)
 				defer cancel()
 
+				// Modify the content otherwise the upload is skipped and there is no conflict with the name.
+				test.args.file.Data = []byte(`{
+  "type": "bundle",
+  "id": "bundle--f8e6f8c0-1234-5678-90ab-cdef01234567",
+  "spec_version": "2.1",
+  "objects": [
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8e2e2d2b-17d4-4cbf-938f-98ee46b3d3f1",
+      "created": "2024-01-01T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "name": "Test Indicator",
+      "description": "This is a test indicator",
+      "pattern": "[ipv4-addr:value = '192.168.1.1']",
+      "pattern_type": "stix",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "labels": ["malicious-activity"]
+    }
+  ]
+}`)
+
 				_, err := system.CreateWorkbench(ctx, client, test.args.file, test.args.ErrOnExisting)
 				require.Error(t, err)
 			}
