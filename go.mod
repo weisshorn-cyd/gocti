@@ -3,8 +3,8 @@ module github.com/weisshorn-cyd/gocti
 go 1.25.1
 
 require (
-	github.com/go-viper/mapstructure/v2 v2.3.0
-	github.com/goccy/go-json v0.10.5
+	github.com/go-viper/mapstructure/v2 v2.5.0
+	github.com/goccy/go-json v0.10.6
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/stretchr/testify v1.9.0
 )
