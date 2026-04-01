@@ -11,6 +11,9 @@ mutation ($AIPrompt: AIPromptAddInput
           $EmailMessage: EmailMessageAddInput
           $EmailMimePartType: EmailMimePartTypeAddInput
           $Hostname: HostnameAddInput
+          $ICCID: ICCIDAddInput
+          $IMEI: IMEIAddInput
+          $IMSI: IMSIAddInput
           $IPv4Addr: IPv4AddrAddInput
           $IPv6Addr: IPv6AddrAddInput
           $MacAddr: MacAddrAddInput
@@ -59,6 +62,9 @@ mutation ($AIPrompt: AIPromptAddInput
                             EmailMessage: $EmailMessage
                             EmailMimePartType: $EmailMimePartType
                             Hostname: $Hostname
+                            ICCID: $ICCID
+                            IMEI: $IMEI
+                            IMSI: $IMSI
                             IPv4Addr: $IPv4Addr
                             IPv6Addr: $IPv6Addr
                             MacAddr: $MacAddr
