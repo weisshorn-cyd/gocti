@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Support OpenCTI version 7.260401.0 - No graphql changes
+- Run go workflow when modifying the docker-compose
 
 ## [0.69.0] - 2026-04-01
 
