@@ -69,7 +69,7 @@ services:
       timeout: 30s
       retries: 3
   opencti:
-    image: opencti/platform:7.260401.0
+    image: opencti/platform:7.260409.0
     environment:
       - NODE_OPTIONS=--max-old-space-size=8096
       - APP__PORT=8080
@@ -117,7 +117,7 @@ services:
       timeout: 5s
       retries: 20
   worker:
-    image: opencti/worker:7.260401.0
+    image: opencti/worker:7.260409.0
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
