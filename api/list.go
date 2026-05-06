@@ -142,7 +142,8 @@ func listAll[E ListableEntity](
 		}
 
 		count += len(tempList)
-		client.Logger().Info("Listing all entities",
+		client.Logger().Info(
+			"Listing all entities",
 			"count", count,
 			"total", pagination.GlobalCount,
 		)

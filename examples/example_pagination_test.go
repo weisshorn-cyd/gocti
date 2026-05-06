@@ -80,7 +80,8 @@ func Example_pagination() {
 	}
 
 	for range numEntries / pageSize {
-		malwares, err := client.ListMalwares(ctx, "name", false,
+		malwares, err := client.ListMalwares(
+			ctx, "name", false,
 			&pageInfo,                          // provide a PageInfo struct to get information back
 			list.WithFirst(pageSize),           // specify how many entries we want per page
 			list.WithAfter(pageInfo.EndCursor), // specify cursor position
