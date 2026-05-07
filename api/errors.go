@@ -32,5 +32,6 @@ type InterfaceTypeError struct {
 
 func (err InterfaceTypeError) Error() string {
 	return fmt.Sprintf(
-		"interface type must be a '%s', received '%s'", err.Want.String(), err.Received.String())
+		"interface type must be a '%s', received '%s'", err.Want.String(), err.Received.String(),
+	)
 }

@@ -31,7 +31,8 @@ func Read[E ReadableEntity](
 	query := entity.ReadQueryString(customAttributes)
 
 	// Querying OpenCTI server for list of entities
-	client.Logger().Info("Reading entity",
+	client.Logger().Info(
+		"Reading entity",
 		"entity", reflect.TypeFor[E]().Name(),
 		"id", id,
 	)
