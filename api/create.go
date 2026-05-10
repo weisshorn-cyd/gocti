@@ -37,7 +37,8 @@ func Create[E CreatableEntity](
 	query := entity.CreateQueryString(customAttributes)
 
 	// Querying OpenCTI server to create the entity
-	client.Logger().Info("Creating entity",
+	client.Logger().Info(
+		"Creating entity",
 		"entity", reflect.TypeFor[E]().Name(),
 	)
 

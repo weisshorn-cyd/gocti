@@ -255,7 +255,8 @@ func getReports(
 	// List reports with filters
 	// We cannot use the usual client.ListReports method because we extended the
 	// entity.Report type.
-	reports, err := api.StructuredList[ExtendedReport, ExtendedReport](ctx, client, completeAttributes, true, nil,
+	reports, err := api.StructuredList[ExtendedReport, ExtendedReport](
+		ctx, client, completeAttributes, true, nil,
 		list.WithFilters(filterGroup),
 		list.WithFirst(reportBatchSize),
 	)
