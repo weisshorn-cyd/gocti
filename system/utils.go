@@ -522,7 +522,8 @@ func (s SubType) SetStatusInWorkFlow(
 				"order":       statusTemplateOrder,
 				"scope":       statusScope,
 			},
-		})
+		},
+	)
 	if err != nil {
 		return nil, fmt.Errorf("cannot edit SubType: %w", err)
 	}
@@ -557,7 +558,8 @@ func (s SubType) UnsetStatusInWorkFlow(
 			"input": map[string]any{
 				"status_id": statusTemplateID,
 			},
-		})
+		},
+	)
 	if err != nil {
 		return nil, fmt.Errorf("cannot edit SubType: %w", err)
 	}

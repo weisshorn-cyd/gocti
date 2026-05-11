@@ -26,7 +26,8 @@ func Delete[E DeletableEntity](
 	query := entity.DeleteQueryString()
 
 	// Querying OpenCTI server for deleting the entity
-	client.Logger().Info("Deleting entity",
+	client.Logger().Info(
+		"Deleting entity",
 		"entity", reflect.TypeFor[E]().Name(),
 		"id", id,
 	)
