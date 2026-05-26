@@ -136,16 +136,6 @@ jobs:
           working-directory: .
           args: --config=".golangci.yml" --fix --issues-exit-code=0
 
-      - name: Run Go formatters (again)
-        if: steps.check-graphql-changes.outputs.changes > 1
-        run: |
-          go install mvdan.cc/gofumpt@latest
-          echo "gofumpt: $(which gofumpt)"
-          gofumpt -l -w .
-          go install github.com/bombsimon/wsl/v4/cmd/wsl@latest
-          echo "wsl: $(which wsl)"
-          wsl --fix ./...
-
       - name: Update GoCTI versions
         if: steps.check-graphql-changes.outputs.changes > 1
         run: |
