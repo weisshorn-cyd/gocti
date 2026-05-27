@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       update-available: ${{ steps.test-for-update.outputs.update-available }}
+      next-opencti-version: ${{ env.NEXT_OPENCTI_VERSION }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
@@ -46,97 +47,12 @@ jobs:
           echo "A new OpenCTI version $NEXT_OPENCTI_VERSION is available (GoCTI is currently supporting $OPENCTI_VERSION)"
           echo "update-available=true" >> "$GITHUB_OUTPUT"
 
-  look-for-graphql-changes:
-    runs-on: ubuntu-latest
-    if: needs.look-for-update.outputs.update-available == 'true'
-    outputs:
-      graphql-changes: ${{ steps.graphql.outputs.graphql-changes }}
-    needs: look-for-update
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-
-      - name: Get current OpenCTI version
-        run: |
-          OPENCTI_VERSION=$(sed -n 's/.*opencti\/platform:\(.*\)$/\1/p' ./docker-compose.yml | head -1)
-          echo "OPENCTI_VERSION=$OPENCTI_VERSION" >> "$GITHUB_ENV"
-          echo "Current OpenCTI version is $OPENCTI_VERSION"
-
-      - name: Fetch latest OpenCTI version
-        run: |
-          NEXT_OPENCTI_VERSION=$(curl -sL https://api.github.com/repos/OpenCTI-Platform/opencti/releases/latest | jq '.tag_name' | tr -d '"')
-          if [ -z $NEXT_OPENCTI_VERSION ]; then
-            echo "Could not get latest OpenCTI version"
-            exit 1
-          fi
-          echo "NEXT_OPENCTI_VERSION=$NEXT_OPENCTI_VERSION" >> "$GITHUB_ENV"
-          echo "Latest OpenCTI version: $NEXT_OPENCTI_VERSION"
-
-      - name: Detect graphql changes
-        id: graphql
-        run: |
-          diff -q \
-            <(curl -s https://raw.githubusercontent.com/OpenCTI-Platform/opencti/refs/tags/${OPENCTI_VERSION}/opencti-platform/opencti-graphql/src/generated/graphql.ts) \
-            <(curl -s https://raw.githubusercontent.com/OpenCTI-Platform/opencti/refs/tags/${NEXT_OPENCTI_VERSION}/opencti-platform/opencti-graphql/src/generated/graphql.ts) \
-          > /dev/null && echo "graphql-changes=false" >> "$GITHUB_OUTPUT" || echo "graphql-changes=true" >> "$GITHUB_OUTPUT"
-        shell: bash
-
-      - name: Show GraphQL change result
-        run: |
-          echo "graphql-changes: ${{ steps.graphql.outputs.graphql-changes }}"
-
-      - name: Update README
-        if: steps.graphql.outputs.graphql-changes == 'false'
-        run: |
-          sed -E -i \
-            -e "s/(OpenCTI version [0-9]+\.[0-9]+\.[0-9]+)([^-0-9.]|\.|\s*)$/\1 - ${NEXT_OPENCTI_VERSION}\2/" \
-            -e "s/(OpenCTI version [0-9]+\.[0-9]+\.[0-9]+[[:space:]]*-[[:space:]]*)[0-9]+\.[0-9]+\.[0-9]+/\1${NEXT_OPENCTI_VERSION}/" \
-            ./README.md
-
-      - name: Update changelog
-        if: steps.graphql.outputs.graphql-changes == 'false'
-        run: |
-          CHANGELOG_LINE="- Support OpenCTI version $NEXT_OPENCTI_VERSION - No graphql changes"
-          CHANGELOG_HEADER="\#\# \[Unreleased\]"
-
-          UNRELEASED=$(sed -n '/^\#\# \[Unreleased\]/p' ./CHANGELOG.md | head -1)
-          if [ -n "$UNRELEASED" ]; then
-            CONTAINS_CHANGED=$(sed -n '/\#\# \[Unreleased\]/,/\#\# \[/p' ./CHANGELOG.md | grep "### Changed" || true)
-            if [ -n "$CONTAINS_CHANGED" ]; then
-              sed -i "/\#\# \[Unreleased\]/,/\#\# \[/s/^\#\#\# Changed$/\#\#\# Changed\n$CHANGELOG_LINE/" ./CHANGELOG.md
-            else
-              sed -i "s/^\#\# \[Unreleased\]/\#\# \[Unreleased\]\n\n\#\#\# Changed\n$CHANGELOG_LINE/" ./CHANGELOG.md
-            fi
-          else
-            sed -i "8i $CHANGELOG_HEADER\n\n\#\#\# Changed\n$CHANGELOG_LINE\n" ./CHANGELOG.md
-          fi
-
-      - name: Update OpenCTI versions
-        run: |
-          sed -i "s/opencti\/platform\:[0-9]*.[0-9]*.[0-9]*$/\opencti\/platform\:$NEXT_OPENCTI_VERSION/g" ./docker-compose.yml
-          sed -i "s/opencti\/worker\:[0-9]*.[0-9]*.[0-9]*$/\opencti\/worker\:$NEXT_OPENCTI_VERSION/g" ./docker-compose.yml
-          sed -i "s/pycti==[0-9]*.[0-9]*.[0-9]*\",$/\pycti==$NEXT_OPENCTI_VERSION\",/" ./tools/gocti_type_generator/pyproject.toml
-          sed -i "s/OpenCTI version [0-9]*.[0-9]*.[0-9]*.$/\OpenCTI version $NEXT_OPENCTI_VERSION./" ./README.md
-
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
-        if: steps.graphql.outputs.graphql-changes == 'false'
-        with:
-          token: ${{ secrets.AUTO_UPDATE_OPENCTI }}
-          commit-message: Update README and CHANGELOG for OpenCTI ${{ env.NEXT_OPENCTI_VERSION }}
-          committer: weisshorn-cyd-bot <196039234+weisshorn-cyd-bot@users.noreply.github.com>
-          author: weisshorn-cyd-bot <196039234+weisshorn-cyd-bot@users.noreply.github.com>
-          branch: feature/update-opencti-to-${{ env.NEXT_OPENCTI_VERSION }}
-          title: '[opencti] update README and CHANGELOG for ${{ env.NEXT_OPENCTI_VERSION }}'
-          body: |
-            Update README and CHANGELOG  for OpenCTI version ${{ env.NEXT_OPENCTI_VERSION }}
-
-            No graphql changes.
-
   opencti-auto-update:
     runs-on: ubuntu-latest
-    needs: look-for-graphql-changes
-    if: needs.look-for-graphql-changes.outputs.graphql-changes == 'true'
+    needs: look-for-update
+    if: needs.look-for-update.outputs.update-available == 'true'
+    env:
+      NEXT_OPENCTI_VERSION: ${{ needs.look-for-update.outputs.next-opencti-version }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
@@ -145,16 +61,6 @@ jobs:
           OPENCTI_VERSION=$(sed -n 's/.*opencti\/platform:\(.*\)$/\1/p' ./docker-compose.yml | head -1)
           echo "OPENCTI_VERSION=$OPENCTI_VERSION" >> "$GITHUB_ENV"
           echo "Current OpenCTI version is $OPENCTI_VERSION"
-
-      - name: Fetch latest OpenCTI version
-        run: |
-          NEXT_OPENCTI_VERSION=$(curl -sL https://api.github.com/repos/OpenCTI-Platform/opencti/releases/latest | jq '.tag_name' | tr -d '"')
-          if [ -z $NEXT_OPENCTI_VERSION ]; then
-            echo "Could not get latest OpenCTI version"
-            exit 1
-          fi
-          echo "NEXT_OPENCTI_VERSION=$NEXT_OPENCTI_VERSION" >> "$GITHUB_ENV"
-          echo "Latest OpenCTI version: $NEXT_OPENCTI_VERSION"^
 
       - name: Fetch latest GoCTI version
         run: |
@@ -180,12 +86,64 @@ jobs:
           sed -i "s/pycti==[0-9]*.[0-9]*.[0-9]*\",$/\pycti==$NEXT_OPENCTI_VERSION\",/" ./tools/gocti_type_generator/pyproject.toml
           sed -i "s/OpenCTI version [0-9]*.[0-9]*.[0-9]*.$/\OpenCTI version $NEXT_OPENCTI_VERSION./" ./README.md
 
+      - uses: actions/setup-go@0aaccfd150d50ccaeb58ebd88d36e91967a5f35b # v5.4.0
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: true
+
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Start environment
+        run: docker compose --file ./docker-compose.yml --env-file ./docker-compose.env up -d
+
+      - name: Wait on OpenCTI to be reachable
+        run: while [ "$(curl -o /dev/null -s -w %{http_code} localhost:8080)" -ne 200 ]; do echo "waiting..."; sleep 5; done
+
+      - name: Generate new GoCTI
+        run: |
+          pip install ./tools/gocti_type_generator
+          source ./docker-compose.env
+          export GOCTI_REPO=.
+          export OPENCTI_URL=$(echo $OPENCTI_BASE_URL)
+          export OPENCTI_TOKEN=$(echo $OPENCTI_ADMIN_TOKEN)
+          go generate ./...
+
+      - name: Check graphql/types.go changes
+        id: check-graphql-changes
+        run: |
+          CHANGES=$(git diff --numstat graphql/types.go | awk '{print $1+$2}')
+          echo "changes=$CHANGES" >> "$GITHUB_OUTPUT"
+          echo "graphql/types.go has $CHANGES lines changed"
+
+      - name: Run Go formatters
+        if: steps.check-graphql-changes.outputs.changes > 1
+        run: |
+          go install mvdan.cc/gofumpt@latest
+          echo "gofumpt: $(which gofumpt)"
+          gofumpt -l -w .
+          go install github.com/bombsimon/wsl/v4/cmd/wsl@latest
+          echo "wsl: $(which wsl)"
+          wsl --fix ./...
+
+      - name: Run Go linters
+        if: steps.check-graphql-changes.outputs.changes > 1
+        uses: golangci/golangci-lint-action@4afd733a84b1f43292c63897423277bb7f4313a9 # v8.0.0
+        with:
+          version: ${{ env.GOLANGCI_LINT_VERSION }}
+          working-directory: .
+          args: --config=".golangci.yml" --fix --issues-exit-code=0
+
       - name: Update GoCTI versions
+        if: steps.check-graphql-changes.outputs.changes > 1
         run: |
           sed -i "s/^version = \"[0-9]*.[0-9]*.[0-9]*\"$/version = \"$NEXT_VERSION\"/" ./tools/gocti_type_generator/pyproject.toml
           sed -i "s/^\tgoctiVersion = \"[0-9]*.[0-9]*.[0-9]*\"$/\tgoctiVersion = \"$NEXT_VERSION\"/" ./gocti.go
 
-      - name: Update changelog
+      - name: Update changelog (with graphql changes)
+        if: steps.check-graphql-changes.outputs.changes > 1
         run: |
           # Remove all 'No graphql changes' lines in Unreleased section
           sed -i '/^## \[Unreleased\]/,/^## \[/{/No graphql changes/d}' ./CHANGELOG.md
@@ -226,60 +184,38 @@ jobs:
           fi
 
       - name: Update README
+        if: steps.check-graphql-changes.outputs.changes > 1
         run: |
           sed -E -i "s/(OpenCTI version )([0-9]+\.[0-9]+\.[0-9]+)([[:space:]]*-[[:space:]]*[0-9]+\.[0-9]+\.[0-9]+)?\./\1${NEXT_OPENCTI_VERSION}./" ./README.md
 
-      - uses: actions/setup-go@0aaccfd150d50ccaeb58ebd88d36e91967a5f35b # v5.4.0
-        with:
-          go-version: ${{ env.GO_VERSION }}
-          cache: true
-
-      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-
-      - name: Start environment
-        run: docker compose --file ./docker-compose.yml --env-file ./docker-compose.env up -d
-
-      - name: Wait on OpenCTI to be reachable
-        run: while [ "$(curl -o /dev/null -s -w %{http_code} localhost:8080)" -ne 200 ]; do echo "waiting..."; sleep 5; done
-
-      - name: Generate new GoCTI
+      - name: Update README (no graphql changes)
+        if: steps.check-graphql-changes.outputs.changes <= 1
         run: |
-          pip install ./tools/gocti_type_generator
-          source ./docker-compose.env
-          export GOCTI_REPO=.
-          export OPENCTI_URL=$(echo $OPENCTI_BASE_URL)
-          export OPENCTI_TOKEN=$(echo $OPENCTI_ADMIN_TOKEN)
-          go generate ./...
+          sed -E -i \
+            -e "s/(OpenCTI version [0-9]+\.[0-9]+\.[0-9]+)([^-0-9.]|\.|\s*)$/\1 - ${NEXT_OPENCTI_VERSION}\2/" \
+            -e "s/(OpenCTI version [0-9]+\.[0-9]+\.[0-9]+[[:space:]]*-[[:space:]]*)[0-9]+\.[0-9]+\.[0-9]+/\1${NEXT_OPENCTI_VERSION}/" \
+            ./README.md
 
-      - name: Run Go formatters
+      - name: Update changelog (no graphql changes)
+        if: steps.check-graphql-changes.outputs.changes <= 1
         run: |
-          go install mvdan.cc/gofumpt@latest
-          echo "gofumpt: $(which gofumpt)"
-          gofumpt -l -w .
-          go install github.com/bombsimon/wsl/v4/cmd/wsl@latest
-          echo "wsl: $(which wsl)"
-          wsl --fix ./...
+          CHANGELOG_LINE="- Support OpenCTI version $NEXT_OPENCTI_VERSION - No graphql changes"
+          CHANGELOG_HEADER="\#\# \[Unreleased\]"
 
-      - name: Run Go linters
-        uses: golangci/golangci-lint-action@4afd733a84b1f43292c63897423277bb7f4313a9 # v8.0.0
-        with:
-          version: ${{ env.GOLANGCI_LINT_VERSION }}
-          working-directory: .
-          args: --config=".golangci.yml" --fix --issues-exit-code=0
+          UNRELEASED=$(sed -n '/^\#\# \[Unreleased\]/p' ./CHANGELOG.md | head -1)
+          if [ -n "$UNRELEASED" ]; then
+            CONTAINS_CHANGED=$(sed -n '/\#\# \[Unreleased\]/,/\#\# \[/p' ./CHANGELOG.md | grep "### Changed" || true)
+            if [ -n "$CONTAINS_CHANGED" ]; then
+              sed -i "/\#\# \[Unreleased\]/,/\#\# \[/s/^\#\#\# Changed$/\#\#\# Changed\n$CHANGELOG_LINE/" ./CHANGELOG.md
+            else
+              sed -i "s/^\#\# \[Unreleased\]/\#\# \[Unreleased\]\n\n\#\#\# Changed\n$CHANGELOG_LINE/" ./CHANGELOG.md
+            fi
+          else
+            sed -i "8i $CHANGELOG_HEADER\n\n\#\#\# Changed\n$CHANGELOG_LINE\n" ./CHANGELOG.md
+          fi
 
-      - name: Run Go formatters
-        run: |
-          go install mvdan.cc/gofumpt@latest
-          echo "gofumpt: $(which gofumpt)"
-          gofumpt -l -w .
-          go install github.com/bombsimon/wsl/v4/cmd/wsl@latest
-          echo "wsl: $(which wsl)"
-          wsl --fix ./...
-
-      - name: Create Pull Request
+      - name: Create Pull Request (with graphql changes)
+        if: steps.check-graphql-changes.outputs.changes > 1
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:
           token: ${{ secrets.AUTO_UPDATE_OPENCTI }}
@@ -294,6 +230,21 @@ jobs:
             Todo:
             - [ ] Check if there are changes in the [upstream compose](https://github.com/OpenCTI-Platform/docker/blob/master/docker-compose.yml) that need to be applied here
           labels: release
+
+      - name: Create Pull Request (no graphql changes)
+        if: steps.check-graphql-changes.outputs.changes <= 1
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          token: ${{ secrets.AUTO_UPDATE_OPENCTI }}
+          commit-message: Update README and CHANGELOG for OpenCTI ${{ env.NEXT_OPENCTI_VERSION }}
+          committer: weisshorn-cyd-bot <196039234+weisshorn-cyd-bot@users.noreply.github.com>
+          author: weisshorn-cyd-bot <196039234+weisshorn-cyd-bot@users.noreply.github.com>
+          branch: feature/update-opencti-to-${{ env.NEXT_OPENCTI_VERSION }}
+          title: '[opencti] update README and CHANGELOG for ${{ env.NEXT_OPENCTI_VERSION }}'
+          body: |
+            Update README and CHANGELOG for OpenCTI version ${{ env.NEXT_OPENCTI_VERSION }}
+
+            No graphql changes.
 
       - name: Tear down environment
         run: docker compose --env-file ./docker-compose.env down --volumes --timeout 30
