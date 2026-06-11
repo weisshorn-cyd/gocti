@@ -191,6 +191,14 @@ jobs:
         run: |
           sed -E -i "s/(OpenCTI version )([0-9]+\.[0-9]+\.[0-9]+)([[:space:]]*-[[:space:]]*[0-9]+\.[0-9]+\.[0-9]+)?\./\1${NEXT_OPENCTI_VERSION}./" ./README.md
 
+      - name: Reset generated files (no graphql changes)
+        if: steps.check-graphql-changes.outputs.changes != 'true'
+        run: |
+          git checkout -- .
+          # Reapply only the intentional version changes to README, CHANGELOG, and docker-compose.yml
+          sed -i "s/opencti\/platform\:[0-9]*.[0-9]*.[0-9]*$/\opencti\/platform\:$NEXT_OPENCTI_VERSION/g" ./docker-compose.yml
+          sed -i "s/opencti\/worker\:[0-9]*.[0-9]*.[0-9]*$/\opencti\/worker\:$NEXT_OPENCTI_VERSION/g" ./docker-compose.yml
+
       - name: Update README (no graphql changes)
         if: steps.check-graphql-changes.outputs.changes != 'true'
         run: |
