@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
-- Modify update detection using types.go file
+- Modify update detection by using types.go file
 
 ## [0.75.0] - 2026-05-28
 
