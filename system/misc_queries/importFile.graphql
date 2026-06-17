@@ -1,0 +1,72 @@
+mutation (
+  $file: Upload!
+  $fileMarkings: [String!]
+  $connectors: [ConnectorWithConfig!]
+  $validationMode: ValidationMode
+  $draftId: String
+  $noTriggerImport: Boolean
+) {
+  uploadAndAskJobImport(file: $file, connectors: $connectors, fileMarkings: $fileMarkings, validationMode: $validationMode, draftId: $draftId, noTriggerImport: $noTriggerImport) {
+    id
+    ...FileLine_file
+  }
+}
+
+fragment FileLine_file on File {
+  id
+  name
+  draftVersion {
+    draft_id
+    draft_operation
+  }
+  uploadStatus
+  lastModified
+  lastModifiedSinceMin
+  metaData {
+    mimetype
+    list_filters
+    external_reference_id
+    file_markings
+    messages {
+      timestamp
+      message
+    }
+    errors {
+      timestamp
+      message
+    }
+    labels
+  }
+  ...FileWork_file
+}
+
+fragment FileWork_file on File {
+  id
+  works {
+    id
+    connector {
+      name
+      id
+    }
+    user {
+      name
+      id
+    }
+    received_time
+    tracking {
+      import_expected_number
+      import_processed_number
+    }
+    messages {
+      timestamp
+      message
+    }
+    errors {
+      timestamp
+      message
+    }
+    status
+    timestamp
+    draft_context
+  }
+}
