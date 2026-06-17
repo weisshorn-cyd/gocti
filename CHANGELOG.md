@@ -5,16 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.76.0] - 2026-06-17
 
 ### Changed
-- Support OpenCTI version 7.260609.0 - No graphql changes
+- Support OpenCTI version 7.260615.0
 - Modify update detection by using types.go file
 
 ## [0.75.0] - 2026-05-28
 
 ### Changed
-- Support OpenCTI version 7.260527.0
+- Support OpenCTI version 7.260527.0 - 7.260609.0
 - Improve update detection in CI
 
 ## [0.74.0] - 2026-05-13
