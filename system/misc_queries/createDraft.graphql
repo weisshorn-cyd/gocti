@@ -1,0 +1,10 @@
+mutation (
+  $input: DraftWorkspaceAddInput!
+) {
+  draftWorkspaceAdd(input: $input) {
+    id
+    name
+    draft_status
+    created_at
+  }
+}
