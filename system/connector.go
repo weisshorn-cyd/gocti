@@ -10,7 +10,7 @@ import (
 	_ "embed"
 )
 
-//go:embed list_queries/connector_list_query.txt
+//go:embed misc_queries/connector_list.graphql
 var connectorsQueryString string
 
 // ConnectorWithConfig represents the GraphQL input type ConnectorWithConfig,

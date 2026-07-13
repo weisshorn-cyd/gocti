@@ -22,7 +22,7 @@ type Workbench struct {
 	URL          string        `gocti:"-"`
 }
 
-//go:embed misc_queries/uploadPending.graphql
+//go:embed misc_queries/upload_pending.graphql
 var uploadPendingQueryString string
 
 // CreateWorkbench creates a new Workbench on the server based on the provided file.
@@ -61,7 +61,7 @@ func CreateWorkbench(
 	return output, nil
 }
 
-//go:embed misc_queries/deleteImport.graphql
+//go:embed misc_queries/delete_import.graphql
 var deleteImportQueryString string
 
 // DeleteWorkbench removes an active workbench from the server.

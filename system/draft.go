@@ -36,7 +36,7 @@ type MemberAccessInput struct {
 	GroupsRestrictionIDs []string `json:"groups_restriction_ids,omitempty"`
 }
 
-//go:embed misc_queries/createDraft.graphql
+//go:embed misc_queries/create_draft.graphql
 var createDraftQueryString string
 
 // CreateDraft creates a new Draft on the server.
@@ -70,7 +70,7 @@ func CreateDraft(
 	return output, nil
 }
 
-//go:embed misc_queries/deleteDraft.graphql
+//go:embed misc_queries/delete_draft.graphql
 var deleteDraftQueryString string
 
 // DeleteDraft removes a draft from the server.
@@ -98,7 +98,7 @@ func DeleteDraft(
 	return id, nil
 }
 
-//go:embed misc_queries/importFile.graphql
+//go:embed misc_queries/import_file.graphql
 var importFileQueryString string
 
 // ImportFile uploads a file into an existing draft on the server.
