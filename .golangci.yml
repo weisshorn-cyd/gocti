@@ -70,6 +70,9 @@ linters:
           - funlen
         source: ^func Test
       - linters:
+          - funlen
+        path: graphql/types.go
+      - linters:
           - lll
         source: '`gocti.*`'
       - linters:
