@@ -2,9 +2,7 @@ package system
 
 import (
 	"context"
-	"encoding/base64"
 	"fmt"
-	"strings"
 
 	"github.com/weisshorn-cyd/gocti/api"
 	"github.com/weisshorn-cyd/gocti/graphql"
@@ -64,8 +62,7 @@ func CreateDraft(
 		return output, fmt.Errorf("failed to retrieve result map: %w", err)
 	}
 
-	url := base64.StdEncoding.EncodeToString([]byte(output.ID))
-	output.URL = "/dashboard/data/import/draft/" + strings.TrimSuffix(url, "==")
+	output.URL = "/dashboard/data/import/draft/" + output.ID
 
 	return output, nil
 }
