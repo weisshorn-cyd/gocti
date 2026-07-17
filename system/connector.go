@@ -22,9 +22,10 @@ type ConnectorWithConfig struct {
 
 var ErrConnectorNotFound = errors.New("connector not found")
 
-type connector struct {
-	ID   string `gocti:"id"`
-	Name string `gocti:"name"`
+type Connector struct {
+	ID     string `gocti:"id"`
+	Name   string `gocti:"name"`
+	Active bool   `gocti:"active"`
 }
 
 // GetConnectorByName lists connectors and returns the first whose name matches.
@@ -32,27 +33,27 @@ func GetConnectorByName(
 	ctx context.Context,
 	client api.Client,
 	name string,
-) (string, error) {
+) (Connector, error) {
 	data, err := client.Query(ctx, connectorsQueryString, nil)
 	if err != nil {
-		return "", fmt.Errorf("cannot list connectors: %w", err)
+		return Connector{}, fmt.Errorf("cannot list connectors: %w", err)
 	}
 
 	resp, ok := data["connectors"]
 	if !ok {
-		return "", api.MissingFieldError{FieldName: "connectors"}
+		return Connector{}, api.MissingFieldError{FieldName: "connectors"}
 	}
 
-	connectors := []connector{}
+	connectors := []Connector{}
 	if err := api.Decode(resp, &connectors); err != nil {
-		return "", fmt.Errorf("failed to decode connectors: %w", err)
+		return Connector{}, fmt.Errorf("failed to decode connectors: %w", err)
 	}
 
 	for _, c := range connectors {
 		if c.Name == name {
-			return c.ID, nil
+			return c, nil
 		}
 	}
 
-	return "", fmt.Errorf("%w: %s", ErrConnectorNotFound, name)
+	return Connector{}, fmt.Errorf("%w: %s", ErrConnectorNotFound, name)
 }
