@@ -106,6 +106,7 @@ goals
 resource_level
 primary_motivation
 secondary_motivations
+x_opencti_score
 importFiles {
     edges {
         node {
