@@ -13,6 +13,10 @@ status {
         color
     }
 }
+creators {
+    id
+    name
+}
 createdBy {
     ... on Identity {
         id
@@ -99,6 +103,7 @@ created
 modified
 name
 description
+x_opencti_score
 aliases
 event_types
 start_time
