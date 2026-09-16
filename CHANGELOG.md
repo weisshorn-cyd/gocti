@@ -8,7 +8,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased] 
 
 ### Changed
-
 - Use silo instead of minio in docker compose
 
 ## [0.85.0] - 2026-08-30
