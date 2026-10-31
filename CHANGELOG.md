@@ -5,15 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.90.0] - 2026-10-31
 
 ### Changed
-- Support OpenCTI version 7.261026.0 - No graphql changes
+- Support OpenCTI version 7.261030.1
 
 ## [0.89.0] - 2026-10-26
 
 ### Changed
-- Support OpenCTI version 7.261023.1
+- Support OpenCTI version 7.261023.1 - 7.261026.0
 
 ## [0.88.0] - 2026-10-04
 
